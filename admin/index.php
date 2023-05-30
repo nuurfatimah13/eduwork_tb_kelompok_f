@@ -10,14 +10,15 @@
             content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link rel="shortcut icon" href="../assets/img/icons/favicon.ico" />
+        <link rel="shortcut icon" href="../assets/img/icons/logo-1.ico" />
 
         <link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
-        <title>Administrator | Movie App</title>
+        <title>Administrator | MovApp</title>
 
         <link href="../assets/plugin/AdminKit/css/app.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
     </head>
     <body>
@@ -25,42 +26,49 @@
             <nav id="sidebar" class="sidebar js-sidebar">
                 <div class="sidebar-content js-simplebar">
                     <a class="sidebar-brand" href="index.php">
-                        <img src="../assets/img/icons/logo.png" alt="logo" width="70%" style="margin-left: 0.5rem;">
+                        <img src="../assets/img/icons/logo-1.png" alt="logo" width="50%" style="text-align: center;">
                     </a>
                     <ul class="sidebar-nav">
                         <li class="sidebar-item active">
                             <a class="sidebar-link" href="./index.php">
-                                <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
+                                <i class="align-middle" data-feather="sliders"></i> 
+                                <span class="align-middle">Dashboard</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="master-data/users.php">
-                                <i class="align-middle" data-feather="users"></i> <span class="align-middle">Users</span>
+                            <a class="sidebar-link" href="views/user/user.php">
+                                <i class="align-middle" data-feather="users"></i> 
+                                <span class="align-middle">Users</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="master-data/cast.php">
-                            <i class="align-middle" data-feather="users"></i> <span class="align-middle">Cast</span>
+                            <a class="sidebar-link" href="views/actor/actor.php">
+                            <i class="align-middle" data-feather="users"></i> 
+                            <span class="align-middle">Actors</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="master-data/genre.php">
-                            <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Genre</span>
+                            <a class="sidebar-link" href="views/genre/genre.php">
+                                <i class="align-middle" data-feather="list"></i> 
+                                <span class="align-middle">Genre</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="master-data/genre.php">
-                            <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Film</span>
+                            <a class="sidebar-link" href="views/film/film.php">
+                                <i class="align-middle" data-feather="film"></i> 
+                                <span class="align-middle">Film</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="master-data/genre.php">
-                            <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Peran</span>
+                            <a class="sidebar-link" href="views/peran/peran.php">
+                                <i class="align-middle" data-feather="cast"></i> 
+                                <span class="align-middle">Peran</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="master-data/product.php">
-                                <i class="align-middle" data-feather="menu"></i> <span class="align-middle">Kritik</span>
+                            <a class="sidebar-link" href="views/kritik/kritik.php">
+                                <i class="align-middle" data-feather="message-square"></i> 
+                                <span class="align-middle">Kritik</span>
                             </a>
                         </li>
                     </ul>
@@ -126,8 +134,8 @@
                                             $data_user = mysqli_query($conn,"SELECT * FROM users");
                                             $users = mysqli_num_rows($data_user);
                                             
-                                            $data_cast = mysqli_query($conn,"SELECT * FROM cast");
-                                            $casts = mysqli_num_rows($data_cast);
+                                            $data_actor = mysqli_query($conn,"SELECT * FROM cast");
+                                            $actors = mysqli_num_rows($data_actor);
 
                                             $data_film = mysqli_query($conn,"SELECT * FROM film");
                                             $films = mysqli_num_rows($data_film);
@@ -158,7 +166,7 @@
                                                 <div class="card-body">
                                                     <div class="row">
                                                         <div class="col mt-0">
-                                                            <h3 class="card-title">Casts</h3>
+                                                            <h3 class="card-title">Actors</h3>
                                                         </div>
                                                         <div class="col-auto">
                                                             <div class="stat text-primary">
@@ -166,8 +174,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <?php if (!$casts) { ?>
-                                                        <h1 class="text-center mt-1 mb-3"><?= $casts ?></h1>
+                                                    <?php if (!$actors) { ?>
+                                                        <h1 class="text-center mt-1 mb-3"><?= $actors ?></h1>
                                                     <?php } else { ?>
                                                         <h1 class="text-center mt-1 mb-3"> 0 </h1>
                                                     <?php } ?>
@@ -183,11 +191,15 @@
                                                         </div>
                                                         <div class="col-auto">
                                                             <div class="stat text-primary">
-                                                                <i class="align-middle" data-feather="menu"></i>
+                                                                <i class="align-middle" data-feather="film"></i>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <h1 class="text-center mt-1 mb-3"> 0 </h1>
+                                                    <?php if (!$films) { ?>
+                                                        <h1 class="text-center mt-1 mb-3"><?= $films ?></h1>
+                                                    <?php } else { ?>
+                                                        <h1 class="text-center mt-1 mb-3"> 0 </h1>
+                                                    <?php } ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -199,7 +211,7 @@
                 </main>
 
                 <!-- Footer Start -->
-                <?php include_once ("layouts/footer.php"); ?>
+                <?php include_once ("views/layouts/footer.php"); ?>
                 <!-- Footer End -->
             </div>
         </div>
