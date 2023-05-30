@@ -40,14 +40,14 @@
                                 <span class="align-middle">Actors</span>
                             </a>
                         </li>
-                        <li class="sidebar-item active">
-                            <a class="sidebar-link" href="genre/genre.php">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="../genre/genre.php">
                                 <i class="align-middle" data-feather="list"></i> 
                                 <span class="align-middle">Genre</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="film/film.php">
+                        <li class="sidebar-item active">
+                            <a class="sidebar-link" href="../film/film.php">
                                 <i class="align-middle" data-feather="film"></i> 
                                 <span class="align-middle">Film</span>
                             </a>
@@ -151,12 +151,11 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
-                                                <th scope="col">Profile</th>
-                                                <th scope="col">Name</th>
-                                                <th scope="col">Divisi</th>
-                                                <th scope="col">No Telpon</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Address</th>
+                                                <th scope="col">Poster</th>
+                                                <th scope="col">Movie</th>
+                                                <th scope="col">category</th>
+                                                <th scope="col">Release Year</th>
+                                                <th scope="col">Description</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
@@ -176,11 +175,10 @@
                                                         >                                   
                                                     </div>
                                                 </td>
-                                                <td>name</td>
-                                                <td>divisi</td>
-                                                <td>telp</td>
-                                                <td>email</td>
-                                                <td>address</td>
+                                                <td>sengkuni</td>
+                                                <td>action</td>
+                                                <td>2023</td>
+                                                <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam tempore eveniet, non, dolorum blanditiis eos voluptas quae maxime doloribus dicta, facilis consectetur? Dicta fugit, molestias possimus ullam eum omnis provident?</td>
                                                 <td>
                                                     <a class="btn btn-warning btn-sm mb-1" 
                                                         href="edit-act.php?id=1">
