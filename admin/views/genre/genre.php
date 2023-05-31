@@ -137,12 +137,12 @@
                                 <div class="card-body">
                                     <?php
                                         include "../../../database/db.php";
-                                        // $query = $conn->query("SELECT * FROM nama_table");
+                                        $query = $conn->query("SELECT * FROM genre");
                                     ?>
                                     <!-- Card Title -->
                                     <h3 class="card-title">Data Genre</h3>
                                     <a class="btn btn-primary btn-md mt-4 mb-3" 
-                                        href="create-act.php" 
+                                        href="create-gn.php" 
                                         role="button">
                                         Create Data
                                     </a>
@@ -151,39 +151,22 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
-                                                <th scope="col">Profile</th>
                                                 <th scope="col">Name</th>
-                                                <th scope="col">Divisi</th>
-                                                <th scope="col">No Telpon</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Address</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php 
-                                                // if(mysqli_num_rows($query)>0){ 
-                                                //     $no = 1;
-                                                //     while ($data = mysqli_fetch_array($query)) {
+                                                if(mysqli_num_rows($query)>0){ 
+                                                    while ($data = mysqli_fetch_array($query)) {
                                                 
                                             ?>
                                             <tr>
-                                                <td scope="row">1</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <img src="../../../assets/img/uploads/image.jpg" 
-                                                            alt="foto-chef-nama" style="width: 35px;" class="rounded"
-                                                        >                                   
-                                                    </div>
-                                                </td>
-                                                <td>name</td>
-                                                <td>divisi</td>
-                                                <td>telp</td>
-                                                <td>email</td>
-                                                <td>address</td>
+                                                <td><?php echo $data["id"]; ?></td>
+                                                <td><?php echo $data["nama"]; ?></td>
                                                 <td>
                                                     <a class="btn btn-warning btn-sm mb-1" 
-                                                        href="edit-act.php?id=1">
+                                                        href="edit-gn.php?id=<?php echo $data["id"]; ?>">
                                                         <i class="align-middle" data-feather="edit"></i> 
                                                         <span class="align-middle">Update</span>
                                                     </a>
@@ -197,9 +180,8 @@
                                                 </td>
                                             </tr>
                                             <?php 
-                                                //         $no++; 
-                                                //     }
-                                                // } 
+                                                    }
+                                                } 
                                             ?>
                                         </tbody>
                                     </table>

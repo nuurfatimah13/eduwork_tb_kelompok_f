@@ -83,32 +83,24 @@
                                 <div class="card-body">
                                     <?php
                                         include "../../../database/db.php";
-                                        // $id = $_GET['id'];
-                                        // $query = $conn->query("SELECT * FROM product");
-                                        // while ($data = mysqli_fetch_array($query)) {
-                                        //     $id = $data["id"];
-                                        //     $chef = $data["chef_id"];
-                                        //     $category = $data["categories_id"];
-                                        //     $name = $data["name"];
-                                        //     $size = $data["size"];
-                                        //     $description = $data["description"];
-                                        //     $price = $data["price"];
-                                        //     $image = $data["image"];
-                                        // }
-                                        // $query1 = $conn->query("SELECT * FROM categories");
-                                        // $query2 = $conn->query("SELECT * FROM chef");
+                                        $id = $_GET['id'];
+                                        $query = $conn->query("SELECT * FROM genre");
+                                        while ($data = mysqli_fetch_array($query)) {
+                                            $id = $data["id"];
+                                            $nama = $data["nama"];
+                                        }
                                     ?>
                                     <!-- Card Title -->
                                     <h3 class="card-title mb-4">Update Data Genre</h3>
                                     <form class="row g-3 needs-validation" novalidate 
-                                        action="../../../controllers/template/update-tmp.php?id=id" 
+                                        action="../../../controllers/genre/update-gn.php?id=<?php echo $id; ?>" 
                                         method="post" 
                                         enctype="multipart/form-data">
                                         <div class="col md-12">
                                             <label for="validationCustomName" class="form-label">Nama</label>
                                             <div class="input-group has-validation">
                                                 <input type="text" name="nama" class="form-control" 
-                                                    id="validationCustomName" value="name"
+                                                    id="validationCustomName" value="<?php echo $nama; ?>"
                                                     aria-describedby="inputGroupPrepend" required>
                                                 <div class="invalid-feedback">
                                                     Nama tidak boleh kosong.
