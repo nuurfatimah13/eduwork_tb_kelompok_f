@@ -86,8 +86,7 @@
                                     <?php
                                         include "../../../database/db.php";
                                         $id = $_GET['id'];
-                                        $query = $conn->query("SELECT * FROM genre");
-                                        // comment-issue: query belum lengkap, query mengambil data berdasarkan id, silakan tambahkan klausa where pada query 
+                                        $query = $conn->query("SELECT * FROM genre WHERE id='$id'");
                                         while ($data = mysqli_fetch_array($query)) {
                                             $id = $data["id"];
                                             $nama = $data["nama"];

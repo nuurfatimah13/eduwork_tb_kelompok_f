@@ -22,8 +22,7 @@
                             style="text-align: center;">
                     </a>
                     <ul class="sidebar-nav">
-                        <li class="sidebar-item active">
-                            <!-- comment-issue: class active pada bagian ini harap dihapus  -->
+                        <li class="sidebar-item">
                             <a class="sidebar-link" href="../index.php">
                                 <i class="align-middle" data-feather="sliders"></i> 
                                 <span class="align-middle">Dashboard</span>
@@ -42,8 +41,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item active">
-                            <a class="sidebar-link" href="genre/genre.php">
-                                <!-- comment-issue: href untuk sidebar, silakan ganti menjadi ./ bukan nama folder seperti genre/ => href="./genre.php" [keluar dari file] atau bisa langsung nama file saja => href="genre.php" -->
+                            <a class="sidebar-link" href="genre.php">
                                 <i class="align-middle" data-feather="list"></i> 
                                 <span class="align-middle">Genre</span>
                             </a>
@@ -174,7 +172,7 @@
                                                     </a>
                                                     |
                                                     <a class="btn btn-danger btn-sm mt-1" 
-                                                        href="../../../controllers/genre/delete-gn.php?id=1" 
+                                                        href="../../../controllers/genre/delete-gn.php?id=<?php echo $data["id"]; ?>" 
                                                         onclick="alert('Anda yakin ingin menghapus data ini?')">
                                                         <i class="align-middle" data-feather="trash-2"></i> 
                                                         <span class="align-middle">Delete</span>

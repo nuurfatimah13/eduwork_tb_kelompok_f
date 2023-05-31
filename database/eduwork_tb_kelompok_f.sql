@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2023 at 10:08 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Waktu pembuatan: 31 Bulan Mei 2023 pada 11.27
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cast`
+-- Struktur dari tabel `cast`
 --
 
 CREATE TABLE `cast` (
@@ -37,7 +37,7 @@ CREATE TABLE `cast` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `film`
+-- Struktur dari tabel `film`
 --
 
 CREATE TABLE `film` (
@@ -52,7 +52,7 @@ CREATE TABLE `film` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `genre`
+-- Struktur dari tabel `genre`
 --
 
 CREATE TABLE `genre` (
@@ -60,10 +60,26 @@ CREATE TABLE `genre` (
   `nama` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `genre`
+--
+
+INSERT INTO `genre` (`id`, `nama`) VALUES
+(1, 'Adventure'),
+(2, 'Action'),
+(3, 'Comedy'),
+(4, 'Drama'),
+(5, 'History'),
+(6, 'Documentary'),
+(7, 'Fantasy'),
+(8, 'Science-Fiction'),
+(10, 'Sport'),
+(11, 'Horror');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kritik`
+-- Struktur dari tabel `kritik`
 --
 
 CREATE TABLE `kritik` (
@@ -77,7 +93,7 @@ CREATE TABLE `kritik` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `peran`
+-- Struktur dari tabel `peran`
 --
 
 CREATE TABLE `peran` (
@@ -90,7 +106,7 @@ CREATE TABLE `peran` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -109,26 +125,26 @@ CREATE TABLE `users` (
 --
 
 --
--- Indexes for table `cast`
+-- Indeks untuk tabel `cast`
 --
 ALTER TABLE `cast`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `film`
+-- Indeks untuk tabel `film`
 --
 ALTER TABLE `film`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_film_genre` (`genre_id`);
 
 --
--- Indexes for table `genre`
+-- Indeks untuk tabel `genre`
 --
 ALTER TABLE `genre`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `kritik`
+-- Indeks untuk tabel `kritik`
 --
 ALTER TABLE `kritik`
   ADD PRIMARY KEY (`id`),
@@ -136,7 +152,7 @@ ALTER TABLE `kritik`
   ADD KEY `fk_kritik_film1` (`film_id`);
 
 --
--- Indexes for table `peran`
+-- Indeks untuk tabel `peran`
 --
 ALTER TABLE `peran`
   ADD PRIMARY KEY (`id`),
@@ -144,70 +160,70 @@ ALTER TABLE `peran`
   ADD KEY `fk_peran_cast1` (`cast_id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `cast`
+-- AUTO_INCREMENT untuk tabel `cast`
 --
 ALTER TABLE `cast`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `film`
+-- AUTO_INCREMENT untuk tabel `film`
 --
 ALTER TABLE `film`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `genre`
+-- AUTO_INCREMENT untuk tabel `genre`
 --
 ALTER TABLE `genre`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `kritik`
+-- AUTO_INCREMENT untuk tabel `kritik`
 --
 ALTER TABLE `kritik`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `peran`
+-- AUTO_INCREMENT untuk tabel `peran`
 --
 ALTER TABLE `peran`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `film`
+-- Ketidakleluasaan untuk tabel `film`
 --
 ALTER TABLE `film`
   ADD CONSTRAINT `fk_film_genre` FOREIGN KEY (`genre_id`) REFERENCES `genre` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `kritik`
+-- Ketidakleluasaan untuk tabel `kritik`
 --
 ALTER TABLE `kritik`
   ADD CONSTRAINT `fk_kritik_film1` FOREIGN KEY (`film_id`) REFERENCES `film` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_kritik_users1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `peran`
+-- Ketidakleluasaan untuk tabel `peran`
 --
 ALTER TABLE `peran`
   ADD CONSTRAINT `fk_peran_cast1` FOREIGN KEY (`cast_id`) REFERENCES `cast` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
