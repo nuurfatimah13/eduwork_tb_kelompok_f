@@ -24,6 +24,7 @@
                     <ul class="sidebar-nav">
                         <li class="sidebar-item active">
                             <a class="sidebar-link" href="../index.php">
+                                <!-- comment-issue: class active pada bagian ini harap dihapus  -->
                                 <i class="align-middle" data-feather="sliders"></i> 
                                 <span class="align-middle">Dashboard</span>
                             </a>
