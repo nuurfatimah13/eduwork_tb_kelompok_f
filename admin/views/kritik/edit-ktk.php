@@ -23,7 +23,7 @@
                     </a>
                     <ul class="sidebar-nav">
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="../index.php">
+                            <a class="sidebar-link" href="../../index.php">
                                 <i class="align-middle" data-feather="sliders"></i> 
                                 <span class="align-middle">Dashboard</span>
                             </a>
@@ -47,7 +47,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="film/film.php">
+                            <a class="sidebar-link" href="../film.php">
                                 <i class="align-middle" data-feather="film"></i> 
                                 <span class="align-middle">Film</span>
                             </a>
@@ -59,7 +59,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item active">
-                            <a class="sidebar-link" href="kritik/kritik.php">
+                            <a class="sidebar-link" href="kritik.php">
                                 <i class="align-middle" data-feather="message-square"></i> 
                                 <span class="align-middle">Kritik</span>
                             </a>
