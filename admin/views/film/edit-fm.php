@@ -23,7 +23,7 @@
                     </a>
                     <ul class="sidebar-nav">
                         <li class="sidebar-item active">
-                            <a class="sidebar-link" href="../index.php">
+                            <a class="sidebar-link" href="../../index.php">
                                 <i class="align-middle" data-feather="sliders"></i> 
                                 <span class="align-middle">Dashboard</span>
                             </a>
@@ -77,7 +77,7 @@
                 <main class="content">
                     <div class="container-fluid p-0">
                         <!-- Title -->
-                        <h1 class="h3 mb-3">Dashboard / <strong>Genre</strong></h1>
+                        <h1 class="h3 mb-3">Dashboard / <strong>Update Film</strong></h1>
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-body">
@@ -99,9 +99,9 @@
                                         // $query2 = $conn->query("SELECT * FROM chef");
                                     ?>
                                     <!-- Card Title -->
-                                    <h3 class="card-title mb-4">Update Data Genre</h3>
+                                    <h3 class="card-title mb-4">Update Data Film</h3>
                                     <form class="row g-3 needs-validation" novalidate 
-                                        action="../../../controllers/template/update-tmp.php?id=id" 
+                                        action="../../../controllers/film/update-fm.php?id=id" 
                                         method="post" 
                                         enctype="multipart/form-data">
                                         <div class="col md-12">

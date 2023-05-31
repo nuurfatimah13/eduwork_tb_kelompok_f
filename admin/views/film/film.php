@@ -23,7 +23,7 @@
                     </a>
                     <ul class="sidebar-nav">
                         <li class="sidebar-item active">
-                            <a class="sidebar-link" href="../index.php">
+                            <a class="sidebar-link" href="../../index.php">
                                 <i class="align-middle" data-feather="sliders"></i> 
                                 <span class="align-middle">Dashboard</span>
                             </a>
@@ -77,7 +77,7 @@
                 <main class="content">
                     <div class="container-fluid p-0">
                         <!-- Title -->
-                        <h1 class="h3 mb-3">Dashboard / <strong>Genre</strong></h1>
+                        <h1 class="h3 mb-3">Dashboard / <strong>Film</strong></h1>
                         <div class="col-sm-12">
                             <?php 
                                 // MESSAGE
@@ -137,12 +137,12 @@
                                 <div class="card-body">
                                     <?php
                                         include "../../../database/db.php";
-                                        // $query = $conn->query("SELECT * FROM nama_table");
+                                        $query = $conn->query("SELECT * FROM film");
                                     ?>
                                     <!-- Card Title -->
                                     <h3 class="card-title">Data Genre</h3>
                                     <a class="btn btn-primary btn-md mt-4 mb-3" 
-                                        href="create-act.php" 
+                                        href="create-fm.php" 
                                         role="button">
                                         Create Data
                                     </a>
@@ -154,40 +154,34 @@
                                                 <th scope="col">Poster</th>
                                                 <th scope="col">Movie</th>
                                                 <th scope="col">category</th>
-                                                <th scope="col">Release Year</th>
                                                 <th scope="col">Description</th>
+                                                <th scope="col">Release Year</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php 
-                                                // if(mysqli_num_rows($query)>0){ 
-                                                //     $no = 1;
-                                                //     while ($data = mysqli_fetch_array($query)) {
+                                                if(mysqli_num_rows($query)>0){ 
+                                                    $no = 1;
+                                                    while ($data = mysqli_fetch_array($query)) {
                                                 
                                             ?>
                                             <tr>
-                                                <td scope="row">1</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <img src="../../../assets/img/uploads/image.jpg" 
-                                                            alt="foto-chef-nama" style="width: 35px;" class="rounded"
-                                                        >                                   
-                                                    </div>
-                                                </td>
-                                                <td>sengkuni</td>
-                                                <td>action</td>
-                                                <td>2023</td>
-                                                <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam tempore eveniet, non, dolorum blanditiis eos voluptas quae maxime doloribus dicta, facilis consectetur? Dicta fugit, molestias possimus ullam eum omnis provident?</td>
+                                                <td><?php echo $no++; ?></td>
+                                                <td><?php echo $data["poster"]; ?></td>
+                                                <td><?php echo $data["judul"]; ?></td>
+                                                <td><?php echo $data["genre_id"]; ?></td>
+                                                <td><?php echo $data["ringkasan"]; ?></td>
+                                                <td><?php echo $data["tahun"]; ?></td>
                                                 <td>
                                                     <a class="btn btn-warning btn-sm mb-1" 
-                                                        href="edit-act.php?id=1">
+                                                        href="edit-fm.php?id=1">
                                                         <i class="align-middle" data-feather="edit"></i> 
                                                         <span class="align-middle">Update</span>
                                                     </a>
                                                     |
                                                     <a class="btn btn-danger btn-sm mt-1" 
-                                                        href="../../../controllers/genre/delete-gn.php?id=1" 
+                                                        href="../../../controllers/film/delete-fm.php?id=1" 
                                                         onclick="alert('Anda yakin ingin menghapus data ini?')">
                                                         <i class="align-middle" data-feather="trash-2"></i> 
                                                         <span class="align-middle">Delete</span>
@@ -195,9 +189,9 @@
                                                 </td>
                                             </tr>
                                             <?php 
-                                                //         $no++; 
-                                                //     }
-                                                // } 
+                                                        $no++; 
+                                                    }
+                                                } 
                                             ?>
                                         </tbody>
                                     </table>
