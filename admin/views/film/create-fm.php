@@ -77,7 +77,7 @@
                 <main class="content">
                     <div class="container-fluid p-0">
                         <!-- Title -->
-                        <h1 class="h3 mb-3">Dashboard / <strong>Genre</strong></h1>
+                        <h1 class="h3 mb-3">Dashboard / <strong>Tambah Film</strong></h1>
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-body">
@@ -87,11 +87,8 @@
                                         // $query2 = $conn->query("SELECT * FROM chef");
                                     ?>
                                     <!-- Card Title -->
-                                    <h3 class="card-title mb-4">Create Data Genre</h3>
-                                    <form class="row g-3 needs-validation" novalidate 
-                                        action="../../../controllers/template/store-tmp.php" 
-                                        method="post" 
-                                        enctype="multipart/form-data">
+                                    <h3 class="card-title mb-4">Create Data Film</h3>
+                                    <form class="row g-3 needs-validation" novalidate action="../../../controllers/template/store-tmp.php" method="post" enctype="multipart/form-data">
                                         <div class="col md-12">
                                             <label for="validationCustomName" class="form-label">Nama</label>
                                             <div class="input-group has-validation">
@@ -103,6 +100,55 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        
+                                        <div class="col md-12">
+                                            <label for="validationCustomName" class="form-label">Judul Film</label>
+                                            <div class="input-group has-validation">
+                                                <input type="text" name="judul" class="form-control" 
+                                                    id="validationCustomName" 
+                                                    aria-describedby="inputGroupPrepend" required>
+                                                <div class="invalid-feedback">
+                                                    Nama tidak boleh kosong.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col md-12">
+                                            <label for="validationCustomName" class="form-label">Categories</label>
+                                            <div class="input-group has-validation">
+                                                <input type="text" name="genre" class="form-control" 
+                                                    id="validationCustomName" 
+                                                    aria-describedby="inputGroupPrepend" required>
+                                                <div class="invalid-feedback">
+                                                    Nama tidak boleh kosong.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col md-12">
+                                            <label for="validationCustomName" class="form-label">Description</label>
+                                            <div class="input-group has-validation">
+                                                <input type="text" name="ringkasan" class="form-control" 
+                                                    id="validationCustomName" 
+                                                    aria-describedby="inputGroupPrepend" required>
+                                                <div class="invalid-feedback">
+                                                    Nama tidak boleh kosong.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col md-12">
+                                            <label for="validationCustomName" class="form-label">Release Year</label>
+                                            <div class="input-group has-validation">
+                                                <input type="text" name="tahun" class="form-control" 
+                                                    id="validationCustomName" 
+                                                    aria-describedby="inputGroupPrepend" required>
+                                                <div class="invalid-feedback">
+                                                    Nama tidak boleh kosong.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
                                         <div class="col-12">
                                             <button class="btn btn-primary" type="submit">Create</button>
                                             <a class="btn btn-secondary" 
