@@ -43,6 +43,7 @@
                         </li>
                         <li class="sidebar-item active">
                             <a class="sidebar-link" href="genre/genre.php">
+                                <!-- comment-issue: href untuk sidebar, silakan ganti menjadi ./ bukan nama folder seperti genre/ => href="./genre.php" [keluar dari file] atau bisa langsung nama file saja => href="genre.php" -->
                                 <i class="align-middle" data-feather="list"></i> 
                                 <span class="align-middle">Genre</span>
                             </a>
