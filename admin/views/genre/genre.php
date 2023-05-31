@@ -23,7 +23,7 @@
                     </a>
                     <ul class="sidebar-nav">
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="../index.php">
+                            <a class="sidebar-link" href="../../index.php">
                                 <i class="align-middle" data-feather="sliders"></i> 
                                 <span class="align-middle">Dashboard</span>
                             </a>
@@ -157,12 +157,12 @@
                                         </thead>
                                         <tbody>
                                             <?php 
-                                                if(mysqli_num_rows($query)>0){ 
+                                                if(mysqli_num_rows($query)>0){
+                                                    $no=1; 
                                                     while ($data = mysqli_fetch_array($query)) {
-                                                
                                             ?>
                                             <tr>
-                                                <td><?php echo $data["id"]; ?></td>
+                                                <td><?php echo $no; ?></td>
                                                 <td><?php echo $data["nama"]; ?></td>
                                                 <td>
                                                     <a class="btn btn-warning btn-sm mb-1" 
@@ -180,7 +180,8 @@
                                                 </td>
                                             </tr>
                                             <?php 
-                                                    }
+                                            $no++;
+                                                    } 
                                                 } 
                                             ?>
                                         </tbody>
