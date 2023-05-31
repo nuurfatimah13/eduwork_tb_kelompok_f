@@ -40,7 +40,7 @@
                                 <span class="align-middle">Actors</span>
                             </a>
                         </li>
-                        <li class="sidebar-item active">
+                        <li class="sidebar-item">
                             <a class="sidebar-link" href="genre/genre.php">
                                 <i class="align-middle" data-feather="list"></i> 
                                 <span class="align-middle">Genre</span>
@@ -83,12 +83,13 @@
                                 <div class="card-body">
                                     <?php
                                         include "../../../database/db.php";
-                                        $query = $conn->query("SELECT * FROM genre");
+                                        // $query1 = $conn->query("SELECT * FROM categories");
+                                        // $query2 = $conn->query("SELECT * FROM chef");
                                     ?>
                                     <!-- Card Title -->
                                     <h3 class="card-title mb-4">Create Data Genre</h3>
                                     <form class="row g-3 needs-validation" novalidate 
-                                        action="../../../controllers/genre/create-gn.php" 
+                                        action="../../../controllers/template/store-tmp.php" 
                                         method="post" 
                                         enctype="multipart/form-data">
                                         <div class="col md-12">

@@ -40,7 +40,7 @@
                                 <span class="align-middle">Actors</span>
                             </a>
                         </li>
-                        <li class="sidebar-item active">
+                        <li class="sidebar-item avtive">
                             <a class="sidebar-link" href="genre/genre.php">
                                 <i class="align-middle" data-feather="list"></i> 
                                 <span class="align-middle">Genre</span>
@@ -83,19 +83,32 @@
                                 <div class="card-body">
                                     <?php
                                         include "../../../database/db.php";
-                                        $query = $conn->query("SELECT * FROM genre");
+                                        // $id = $_GET['id'];
+                                        // $query = $conn->query("SELECT * FROM product");
+                                        // while ($data = mysqli_fetch_array($query)) {
+                                        //     $id = $data["id"];
+                                        //     $chef = $data["chef_id"];
+                                        //     $category = $data["categories_id"];
+                                        //     $name = $data["name"];
+                                        //     $size = $data["size"];
+                                        //     $description = $data["description"];
+                                        //     $price = $data["price"];
+                                        //     $image = $data["image"];
+                                        // }
+                                        // $query1 = $conn->query("SELECT * FROM categories");
+                                        // $query2 = $conn->query("SELECT * FROM chef");
                                     ?>
                                     <!-- Card Title -->
-                                    <h3 class="card-title mb-4">Create Data Genre</h3>
+                                    <h3 class="card-title mb-4">Update Data Genre</h3>
                                     <form class="row g-3 needs-validation" novalidate 
-                                        action="../../../controllers/genre/create-gn.php" 
+                                        action="../../../controllers/template/update-tmp.php?id=id" 
                                         method="post" 
                                         enctype="multipart/form-data">
                                         <div class="col md-12">
                                             <label for="validationCustomName" class="form-label">Nama</label>
                                             <div class="input-group has-validation">
                                                 <input type="text" name="nama" class="form-control" 
-                                                    id="validationCustomName" 
+                                                    id="validationCustomName" value="name"
                                                     aria-describedby="inputGroupPrepend" required>
                                                 <div class="invalid-feedback">
                                                     Nama tidak boleh kosong.
@@ -103,7 +116,7 @@
                                             </div>
                                         </div>
                                         <div class="col-12">
-                                            <button class="btn btn-primary" type="submit">Create</button>
+                                            <button class="btn btn-primary" type="submit">Update</button>
                                             <a class="btn btn-secondary" 
                                                 href="genre.php" role="button">
                                                 Cancel

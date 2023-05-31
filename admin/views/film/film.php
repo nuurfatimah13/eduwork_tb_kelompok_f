@@ -40,14 +40,14 @@
                                 <span class="align-middle">Actors</span>
                             </a>
                         </li>
-                        <li class="sidebar-item active">
-                            <a class="sidebar-link" href="genre/genre.php">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="../genre/genre.php">
                                 <i class="align-middle" data-feather="list"></i> 
                                 <span class="align-middle">Genre</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="film/film.php">
+                        <li class="sidebar-item active">
+                            <a class="sidebar-link" href="../film/film.php">
                                 <i class="align-middle" data-feather="film"></i> 
                                 <span class="align-middle">Film</span>
                             </a>
@@ -137,12 +137,12 @@
                                 <div class="card-body">
                                     <?php
                                         include "../../../database/db.php";
-                                        $query = $conn->query("SELECT * FROM genre");
+                                        // $query = $conn->query("SELECT * FROM nama_table");
                                     ?>
                                     <!-- Card Title -->
                                     <h3 class="card-title">Data Genre</h3>
                                     <a class="btn btn-primary btn-md mt-4 mb-3" 
-                                        href="create-gn.php" 
+                                        href="create-act.php" 
                                         role="button">
                                         Create Data
                                     </a>
@@ -151,22 +151,37 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
-                                                <th scope="col">Name</th>
+                                                <th scope="col">Poster</th>
+                                                <th scope="col">Movie</th>
+                                                <th scope="col">category</th>
+                                                <th scope="col">Release Year</th>
+                                                <th scope="col">Description</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php 
-                                                if(mysqli_num_rows($query)>0){ 
-                                                    while ($data = mysqli_fetch_array($query)) {
+                                                // if(mysqli_num_rows($query)>0){ 
+                                                //     $no = 1;
+                                                //     while ($data = mysqli_fetch_array($query)) {
                                                 
                                             ?>
                                             <tr>
-                                                <td><?php echo $data["id"]; ?></td>
-                                                <td><?php echo $data["nama"]; ?></td>
+                                                <td scope="row">1</td>
+                                                <td>
+                                                    <div class="text-center">
+                                                        <img src="../../../assets/img/uploads/image.jpg" 
+                                                            alt="foto-chef-nama" style="width: 35px;" class="rounded"
+                                                        >                                   
+                                                    </div>
+                                                </td>
+                                                <td>sengkuni</td>
+                                                <td>action</td>
+                                                <td>2023</td>
+                                                <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam tempore eveniet, non, dolorum blanditiis eos voluptas quae maxime doloribus dicta, facilis consectetur? Dicta fugit, molestias possimus ullam eum omnis provident?</td>
                                                 <td>
                                                     <a class="btn btn-warning btn-sm mb-1" 
-                                                        href="edit-gn.php?id=<?php echo $data["id"]; ?>">
+                                                        href="edit-act.php?id=1">
                                                         <i class="align-middle" data-feather="edit"></i> 
                                                         <span class="align-middle">Update</span>
                                                     </a>
@@ -180,8 +195,9 @@
                                                 </td>
                                             </tr>
                                             <?php 
-                                                    }
-                                                } 
+                                                //         $no++; 
+                                                //     }
+                                                // } 
                                             ?>
                                         </tbody>
                                     </table>
