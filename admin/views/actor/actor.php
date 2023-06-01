@@ -77,7 +77,7 @@
                 <main class="content">
                     <div class="container-fluid p-0">
                         <!-- Title -->
-                        <h1 class="h3 mb-3">Dashboard / <strong>Genre</strong></h1>
+                        <h1 class="h3 mb-3">Dashboard / <strong>Aktor</strong></h1>
                         <div class="col-sm-12">
                             <?php 
                                 // MESSAGE
@@ -112,27 +112,6 @@
                                     }
                                 }
                             ?>
-                            <?php 
-                                if (isset($_GET['alert'])){
-                                    if ($_GET['alert']=='gagal_ekstensi'){
-                                        ?>
-                                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                            <h4><i class="icon fa fa-warning"></i> Peringatan !</h4>
-                                                Ekstensi Tidak Diperbolehkan
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                        </div>				
-                                        <?php
-                                    } elseif($_GET['alert']=="gagal_ukuran"){
-                                        ?>
-                                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                            <h4><i class="icon fa fa-check"></i> Peringatan !</h4>
-                                                Ukuran File terlalu Besar
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                        </div>							
-                                        <?php
-                                    }
-                                }
-                            ?>
                             <div class="card">
                                 <div class="card-body">
                                     <?php
@@ -140,9 +119,9 @@
                                         $query = $conn->query("SELECT * FROM cast");
                                     ?>
                                     <!-- Card Title -->
-                                    <h3 class="card-title">Data Genre</h3>
+                                    <h3 class="card-title">Data Aktor</h3>
                                     <a class="btn btn-primary btn-md mt-4 mb-3" 
-                                        href="create-gn.php" 
+                                        href="create-act.php" 
                                         role="button">
                                         Create Data
                                     </a>
