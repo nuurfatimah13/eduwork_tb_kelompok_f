@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 31 Bulan Mei 2023 pada 11.27
+-- Waktu pembuatan: 01 Jun 2023 pada 05.46
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -33,6 +33,20 @@ CREATE TABLE `cast` (
   `umur` int(11) NOT NULL,
   `bio` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `cast`
+--
+
+INSERT INTO `cast` (`id`, `nama`, `umur`, `bio`) VALUES
+(1, 'Arifin Putra', 30, 'Aktor terbaik Indonesian movie awards 2010'),
+(2, 'Alex Abbad', 31, 'penyair, pembawa acara, musisi, seniman visual, dan produser musik.'),
+(3, 'Christine Hakim', 40, 'aktris, produser film, dan aktivis Indonesia.'),
+(4, 'Cinta Laura', 29, 'Penyayi dan Aktris'),
+(5, 'Tania Gunadi', 39, 'Aktris Muslim Film Disney'),
+(6, 'Kiki Narendra', 43, 'Aktor dan Musisi'),
+(7, 'Jackie Chan', 50, 'aktor, sutradara, pemeran pengganti, produser film, aktor bela diri, aktor komedi, penulis naskah layar lebar dan penyanyi dari Hong Kong'),
+(8, 'Joseph Mazzello', 34, 'Aktor Amerika');
 
 -- --------------------------------------------------------
 
@@ -173,7 +187,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `cast`
 --
 ALTER TABLE `cast`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `film`
