@@ -126,7 +126,7 @@
                     <div class="col-md-3 pe-0">
                         <div class="events_1i1 clearfix position-relative">
                             <div class="events_1i1i clearfix">
-                                <img src="assets/img/uploads/reza.jpg" alt="abc" class="w-100">
+                                <img src="assets/plugin/TemplateOnWeb/img/36.jpg" alt="abc" class="w-100">
                             </div>
                             <div class="events_1i1i1 clearfix position-absolute bottom-0 text-center w-100">
                                 <ul class="d-inline-block mb-0 p-2 ps-4 pe-4">
@@ -138,7 +138,7 @@
                             </div>
                         </div>
                         <div class="events_1i2 clearfix p-3 bg-white text-center">
-                            <h5><a href="#">Muhamad Fahreza Dwitama</a></h5>
+                            <h5><a href="#">Eget Nulla</a></h5>
                             <h6 class="mb-0 text-muted">Drama, Action</h6>
                         </div>
                     </div>
