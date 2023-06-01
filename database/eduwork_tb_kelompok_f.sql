@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 01 Jun 2023 pada 05.46
--- Versi server: 10.4.24-MariaDB
--- Versi PHP: 7.4.29
+-- Host: localhost
+-- Generation Time: Jun 01, 2023 at 07:19 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `cast`
+-- Table structure for table `cast`
 --
 
 CREATE TABLE `cast` (
@@ -32,10 +32,10 @@ CREATE TABLE `cast` (
   `nama` varchar(65) NOT NULL,
   `umur` int(11) NOT NULL,
   `bio` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data untuk tabel `cast`
+-- Dumping data for table `cast`
 --
 
 INSERT INTO `cast` (`id`, `nama`, `umur`, `bio`) VALUES
@@ -51,31 +51,40 @@ INSERT INTO `cast` (`id`, `nama`, `umur`, `bio`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `film`
+-- Table structure for table `film`
 --
 
 CREATE TABLE `film` (
   `id` int(11) NOT NULL,
-  `genre_id` int(11) NOT NULL,
+  `poster` varchar(60) DEFAULT NULL,
   `judul` varchar(65) NOT NULL,
+  `genre_id` int(11) NOT NULL,
   `ringkasan` text NOT NULL,
-  `tahun` int(11) NOT NULL,
-  `poster` varchar(60) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `tahun` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `film`
+--
+
+INSERT INTO `film` (`id`, `poster`, `judul`, `genre_id`, `ringkasan`, `tahun`) VALUES
+(1, 'image.jpg', 'sengkuni', 3, 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam tempore eveniet, non, dolorum blanditiis eos voluptas quae maxime doloribus dicta, facilis consectetur? Dicta fugit, molestias possimus ullam eum omnis provident?', 2023),
+(2, '1.jpg', 'Who Am I?', 2, 'A Secret Agent loses his memory after falling from a crashing helicopter. He is then chased by several other agency operatives, but he has no idea why.', 1998),
+(24, 'theraid.jpg', 'The Raid', 2, 'Di Jakarta, Indonesia, Letnan Wahyu mengorganisir invasi ke sebuah gedung apartemen yang merupakan rumah persembunyian dari gembong narkoba yang kuat dan kejam Tama dan kelompoknya. Tim SWAT masuk ke dalam gedung tetapi seorang pengawas melihat dan memperingatkan para gangster dan pasukan polisi terjebak di lantai tujuh. Mereka mengetahui bahwa Lt. Wahyu belum memberi tahu atasannya tentang operasi tersebut. Sekarang petugas polisi harus bertarung dengan amunisi terbatas melawan gangster bersenjata dan berbahaya.', 2011);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `genre`
+-- Table structure for table `genre`
 --
 
 CREATE TABLE `genre` (
   `id` int(11) NOT NULL,
   `nama` varchar(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data untuk tabel `genre`
+-- Dumping data for table `genre`
 --
 
 INSERT INTO `genre` (`id`, `nama`) VALUES
@@ -93,7 +102,7 @@ INSERT INTO `genre` (`id`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kritik`
+-- Table structure for table `kritik`
 --
 
 CREATE TABLE `kritik` (
@@ -102,25 +111,25 @@ CREATE TABLE `kritik` (
   `film_id` int(11) NOT NULL,
   `content` text DEFAULT NULL,
   `point` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `peran`
+-- Table structure for table `peran`
 --
 
 CREATE TABLE `peran` (
   `id` int(11) NOT NULL,
   `film_id` int(11) NOT NULL,
   `cast_id` int(11) NOT NULL,
-  `nama` varchar(65) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `peran` varchar(65) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -132,33 +141,33 @@ CREATE TABLE `users` (
   `bio` varchar(255) DEFAULT NULL,
   `address` text DEFAULT NULL,
   `photo` varchar(60) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `cast`
+-- Indexes for table `cast`
 --
 ALTER TABLE `cast`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `film`
+-- Indexes for table `film`
 --
 ALTER TABLE `film`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_film_genre` (`genre_id`);
 
 --
--- Indeks untuk tabel `genre`
+-- Indexes for table `genre`
 --
 ALTER TABLE `genre`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `kritik`
+-- Indexes for table `kritik`
 --
 ALTER TABLE `kritik`
   ADD PRIMARY KEY (`id`),
@@ -166,7 +175,7 @@ ALTER TABLE `kritik`
   ADD KEY `fk_kritik_film1` (`film_id`);
 
 --
--- Indeks untuk tabel `peran`
+-- Indexes for table `peran`
 --
 ALTER TABLE `peran`
   ADD PRIMARY KEY (`id`),
@@ -174,70 +183,70 @@ ALTER TABLE `peran`
   ADD KEY `fk_peran_cast1` (`cast_id`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `cast`
+-- AUTO_INCREMENT for table `cast`
 --
 ALTER TABLE `cast`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `film`
+-- AUTO_INCREMENT for table `film`
 --
 ALTER TABLE `film`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT untuk tabel `genre`
+-- AUTO_INCREMENT for table `genre`
 --
 ALTER TABLE `genre`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT untuk tabel `kritik`
+-- AUTO_INCREMENT for table `kritik`
 --
 ALTER TABLE `kritik`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `peran`
+-- AUTO_INCREMENT for table `peran`
 --
 ALTER TABLE `peran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `film`
+-- Constraints for table `film`
 --
 ALTER TABLE `film`
   ADD CONSTRAINT `fk_film_genre` FOREIGN KEY (`genre_id`) REFERENCES `genre` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ketidakleluasaan untuk tabel `kritik`
+-- Constraints for table `kritik`
 --
 ALTER TABLE `kritik`
   ADD CONSTRAINT `fk_kritik_film1` FOREIGN KEY (`film_id`) REFERENCES `film` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_kritik_users1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ketidakleluasaan untuk tabel `peran`
+-- Constraints for table `peran`
 --
 ALTER TABLE `peran`
   ADD CONSTRAINT `fk_peran_cast1` FOREIGN KEY (`cast_id`) REFERENCES `cast` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
