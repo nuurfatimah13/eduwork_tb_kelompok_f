@@ -35,7 +35,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="actor/actor.php">
+                            <a class="sidebar-link" href="../actor/actor.php">
                                 <i class="align-middle" data-feather="users"></i> 
                                 <span class="align-middle">Actors</span>
                             </a>
@@ -47,7 +47,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="film/film.php">
+                            <a class="sidebar-link" href="../film/film.php">
                                 <i class="align-middle" data-feather="film"></i> 
                                 <span class="align-middle">Film</span>
                             </a>
@@ -59,7 +59,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="kritik/kritik.php">
+                            <a class="sidebar-link" href="../kritik/kritik.php">
                                 <i class="align-middle" data-feather="message-square"></i> 
                                 <span class="align-middle">Kritik</span>
                             </a>

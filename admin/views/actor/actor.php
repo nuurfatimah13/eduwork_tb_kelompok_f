@@ -41,13 +41,13 @@
                             </a>
                         </li>
                         <li class="sidebar-item ">
-                            <a class="sidebar-link" href="genre.php">
+                            <a class="sidebar-link" href="../genre/genre.php">
                                 <i class="align-middle" data-feather="list"></i> 
                                 <span class="align-middle">Genre</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="film.php">
+                            <a class="sidebar-link" href="../film/film.php">
                                 <i class="align-middle" data-feather="film"></i> 
                                 <span class="align-middle">Film</span>
                             </a>
@@ -59,7 +59,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="kritik.php">
+                            <a class="sidebar-link" href="../kritik/kritik.php">
                                 <i class="align-middle" data-feather="message-square"></i> 
                                 <span class="align-middle">Kritik</span>
                             </a>
