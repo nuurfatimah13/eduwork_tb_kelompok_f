@@ -41,13 +41,13 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="genre/genre.php">
+                            <a class="sidebar-link" href="genre.php">
                                 <i class="align-middle" data-feather="list"></i> 
                                 <span class="align-middle">Genre</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="film/film.php">
+                            <a class="sidebar-link" href="film.php">
                                 <i class="align-middle" data-feather="film"></i> 
                                 <span class="align-middle">Film</span>
                             </a>
@@ -59,7 +59,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="kritik/kritik.php">
+                            <a class="sidebar-link" href="kritik.php">
                                 <i class="align-middle" data-feather="message-square"></i> 
                                 <span class="align-middle">Kritik</span>
                             </a>
@@ -113,7 +113,7 @@
                                             <label for="validationCustomPrice" class="form-label">Umur</label>
                                             <div class="input-group has-validation">
                                                 <input type="text" name="umur" class="form-control" 
-                                                    id="validationCustomPrice" 
+                                                    id="validationCustomPrice" value="<?php echo $umur; ?>" 
                                                     aria-describedby="inputGroupPrepend" required>
                                                 <div class="invalid-feedback">
                                                     Umur tidak boleh kosong.
@@ -124,7 +124,7 @@
                                             <label for="validationCustomPrice" class="form-label">Bio</label>
                                             <div class="input-group has-validation">
                                                 <input type="text" name="bio" class="form-control" 
-                                                    id="validationCustomPrice" 
+                                                    id="validationCustomPrice" value="<?php echo $bio; ?>"
                                                     aria-describedby="inputGroupPrepend" required>
                                                 <div class="invalid-feedback">
                                                     Bio tidak boleh kosong.
