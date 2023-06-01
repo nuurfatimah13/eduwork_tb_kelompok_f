@@ -126,7 +126,7 @@
                     <div class="col-md-3 pe-0">
                         <div class="events_1i1 clearfix position-relative">
                             <div class="events_1i1i clearfix">
-                                <img src="assets/plugin/TemplateOnWeb/img/36.jpg" alt="abc" class="w-100">
+                                <img src="assets/img/team/stefani.png" alt="abc" class="w-100">
                             </div>
                             <div class="events_1i1i1 clearfix position-absolute bottom-0 text-center w-100">
                                 <ul class="d-inline-block mb-0 p-2 ps-4 pe-4">
@@ -138,14 +138,14 @@
                             </div>
                         </div>
                         <div class="events_1i2 clearfix p-3 bg-white text-center">
-                            <h5><a href="#">Eget Nulla</a></h5>
-                            <h6 class="mb-0 text-muted">Drama, Action</h6>
+                            <h5><a href="#">Moh. Indi Stefani</a></h5>
+                            <h6 class="mb-0 text-muted">SIB - Eduwork</h6>
                         </div>
                     </div>
                     <div class="col-md-3 pe-0">
                         <div class="events_1i1 clearfix position-relative">
                             <div class="events_1i1i clearfix">
-                                <img src="assets/plugin/TemplateOnWeb/img/37.jpg" alt="abc" class="w-100">
+                                <img src="assets/img/team/reza.png" alt="abc" class="w-100">
                             </div>
                             <div class="events_1i1i1 clearfix position-absolute bottom-0 text-center w-100">
                                 <ul class="d-inline-block mb-0 p-2 ps-4 pe-4">
@@ -157,8 +157,8 @@
                             </div>
                         </div>
                         <div class="events_1i2 clearfix p-3 bg-white text-center">
-                            <h5><a href="#">Diam Ipsum</a></h5>
-                            <h6 class="mb-0 text-muted">Drama, Action</h6>
+                            <h5><a href="#">Muhammad Fahreza Dwitama</a></h5>
+                            <h6 class="mb-0 text-muted">SIB - Eduwork</h6>
                         </div>
                     </div>
                     <div class="col-md-3 pe-0">
@@ -176,14 +176,14 @@
                             </div>
                         </div>
                         <div class="events_1i2 clearfix p-3 bg-white text-center">
-                            <h5><a href="#">Semp Porta</a></h5>
-                            <h6 class="mb-0 text-muted">Drama, Action</h6>
+                            <h5><a href="#">Fathimah Nurussa'adah</a></h5>
+                            <h6 class="mb-0 text-muted">SIB - Eduwork</h6>
                         </div>
                     </div>
                     <div class="col-md-3 pe-0">
                         <div class="events_1i1 clearfix position-relative">
                             <div class="events_1i1i clearfix">
-                                <img src="assets/plugin/TemplateOnWeb/img/39.jpg" alt="abc" class="w-100">
+                                <img src="assets/img/team/robiatul.jpg" alt="abc" class="w-100">
                             </div>
                             <div class="events_1i1i1 clearfix position-absolute bottom-0 text-center w-100">
                                 <ul class="d-inline-block mb-0 p-2 ps-4 pe-4">
@@ -195,8 +195,8 @@
                             </div>
                         </div>
                         <div class="events_1i2 clearfix p-3 bg-white text-center">
-                            <h5><a href="#">Amet Quis</a></h5>
-                            <h6 class="mb-0 text-muted">Drama, Action</h6>
+                            <h5><a href="#">Rabiatul Fitria Sulistina Putri</a></h5>
+                            <h6 class="mb-0 text-muted">SIB - Eduwork</h6>
                         </div>
                     </div>
                 </div>
