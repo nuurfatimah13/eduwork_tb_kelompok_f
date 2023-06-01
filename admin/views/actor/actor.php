@@ -149,13 +149,13 @@
                                                 <td><?php echo $data["bio"]; ?></td>
                                                 <td>
                                                     <a class="btn btn-warning btn-sm mb-1" 
-                                                        href="edit-gn.php?id=<?php echo $data["id"]; ?>">
+                                                        href="edit-act.php?id=<?php echo $data["id"]; ?>">
                                                         <i class="align-middle" data-feather="edit"></i> 
                                                         <span class="align-middle">Update</span>
                                                     </a>
                                                     |
                                                     <a class="btn btn-danger btn-sm mt-1" 
-                                                        href="../../../controllers/genre/delete-gn.php?id=<?php echo $data["id"]; ?>" 
+                                                        href="../../../controllers/actor/delete-act.php?id=<?php echo $data["id"]; ?>" 
                                                         onclick="alert('Anda yakin ingin menghapus data ini?')">
                                                         <i class="align-middle" data-feather="trash-2"></i> 
                                                         <span class="align-middle">Delete</span>
