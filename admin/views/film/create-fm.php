@@ -83,79 +83,110 @@
                                 <div class="card-body">
                                     <?php
                                         include "../../../database/db.php";
-                                        // $query1 = $conn->query("SELECT * FROM categories");
-                                        // $query2 = $conn->query("SELECT * FROM chef");
+                                        // $query1 = $conn->query("SELECT * FROM genre INNER JOIN film ON film.genre_id = genre.id");
+                                        $query1 = $conn->query("SELECT * FROM genre")
                                     ?>
+
                                     <!-- Card Title -->
                                     <h3 class="card-title mb-4">Create Data Film</h3>
-                                    <form class="row g-3 needs-validation" novalidate action="../../../controllers/template/store-tmp.php" method="post" enctype="multipart/form-data">
-                                        <div class="col md-12">
-                                            <label for="validationCustomName" class="form-label">Nama</label>
-                                            <div class="input-group has-validation">
-                                                <input type="text" name="nama" class="form-control" 
-                                                    id="validationCustomName" 
-                                                    aria-describedby="inputGroupPrepend" required>
-                                                <div class="invalid-feedback">
-                                                    Nama tidak boleh kosong.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col md-12">
-                                            <label for="validationCustomName" class="form-label">Judul Film</label>
-                                            <div class="input-group has-validation">
-                                                <input type="text" name="judul" class="form-control" 
-                                                    id="validationCustomName" 
-                                                    aria-describedby="inputGroupPrepend" required>
-                                                <div class="invalid-feedback">
-                                                    Nama tidak boleh kosong.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col md-12">
-                                            <label for="validationCustomName" class="form-label">Categories</label>
-                                            <div class="input-group has-validation">
-                                                <input type="text" name="genre" class="form-control" 
-                                                    id="validationCustomName" 
-                                                    aria-describedby="inputGroupPrepend" required>
-                                                <div class="invalid-feedback">
-                                                    Nama tidak boleh kosong.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col md-12">
-                                            <label for="validationCustomName" class="form-label">Description</label>
-                                            <div class="input-group has-validation">
-                                                <input type="text" name="ringkasan" class="form-control" 
-                                                    id="validationCustomName" 
-                                                    aria-describedby="inputGroupPrepend" required>
-                                                <div class="invalid-feedback">
-                                                    Nama tidak boleh kosong.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col md-12">
-                                            <label for="validationCustomName" class="form-label">Release Year</label>
-                                            <div class="input-group has-validation">
-                                                <input type="text" name="tahun" class="form-control" 
-                                                    id="validationCustomName" 
-                                                    aria-describedby="inputGroupPrepend" required>
-                                                <div class="invalid-feedback">
-                                                    Nama tidak boleh kosong.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
+                                    <form class="row g-3 needs-validation" novalidate action="../../../controllers/film/create-fm.php" method="post" enctype="multipart/form-data">
                                         <div class="col-12">
-                                            <button class="btn btn-primary" type="submit">Create</button>
-                                            <a class="btn btn-secondary" 
-                                                href="genre.php" role="button">
-                                                Cancel
-                                            </a>
-                                        </div>
+                                                <label for="validationCustomPoster" class="form-label">poster Film</label>
+                                                <div class="input-group has-validation">
+                                                    <input type="file" name="poster" class="form-control" 
+                                                        id="validationCustomPoster" 
+                                                        aria-describedby="inputGroupPrepend" required>
+                                                    <div class="invalid-feedback">
+                                                        Poster tidak boleh kosong.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col md-12">
+                                                <label for="validationCustomName" class="form-label">Judul Film</label>
+                                                <div class="input-group has-validation">
+                                                    <input type="text" name="judul" class="form-control" 
+                                                        id="validationCustomName" 
+                                                        aria-describedby="inputGroupPrepend" required>
+                                                    <div class="invalid-feedback">
+                                                        Judul film tidak boleh kosong.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-6">
+                                               <label for="validationCustomGenre" class="form-label">Genre Film</label>
+                                                <div class="input-group has-validation">
+                                                    <select type="text" class="form-select" name="genre_id" 
+                                                        id="validationGenre" required>
+                                                        <option disabled value="">Pilih...</option>
+                                                        
+                                                        <?php 
+                                                                while ($data1 = mysqli_fetch_array($query1)) {
+                                                        ?>
+                                                        
+                                                        <?php
+                                                            for ($i = 1; $i <= 11; $i++) {
+                                                                $genre = $i;
+                                                                ?>                                                            
+                                                        
+                                                        <?php    
+                                                            }
+                                                        ?>
+                                                        <option value="genre_id">name</option>
+                                                        <?php 
+                                                            }
+                                                        ?>
+                                                    </select>
+                                                    <div class="invalid-feedback">
+                                                        Kategori tidak boleh kosong.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- <div class="col md-12">
+                                                <label for="validationCustomGenre" class="form-label">Genre</label>
+                                                <div class="input-group has-validation">
+                                                    <input type="text" name="genre_id" class="form-control" 
+                                                        id="validationCustomGenre" 
+                                                        aria-describedby="inputGroupPrepend" required>
+                                                    <div class="invalid-feedback">
+                                                        Description tidak boleh kosong.
+                                                    </div>
+                                                </div>
+                                            </div> -->
+
+                                            <div class="col md-12">
+                                                <label for="validationCustomCategories" class="form-label">Description</label>
+                                                <div class="input-group has-validation">
+                                                    <input type="text" name="ringkasan" class="form-control" 
+                                                        id="validationCustomCategories" 
+                                                        aria-describedby="inputGroupPrepend" required>
+                                                    <div class="invalid-feedback">
+                                                        Description tidak boleh kosong.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col md-12">
+                                                <label for="validationCustomTahun" class="form-label">Release Year</label>
+                                                <div class="input-group has-validation">
+                                                    <input type="text" name="tahun" class="form-control" 
+                                                        id="validationCustomTahun" 
+                                                        aria-describedby="inputGroupPrepend" required>
+                                                    <div class="invalid-feedback">
+                                                        Tahun tidak boleh kosong.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-12">
+                                                <button class="btn btn-primary" type="submit" name="submit">Submit</button>
+                                                <a class="btn btn-secondary" 
+                                                    href="film.php" role="button">
+                                                    Cancel
+                                                </a>
+                                            </div>
                                     </form>
                                 </div>
                             </div>
