@@ -164,7 +164,7 @@
                     <div class="col-md-3 pe-0">
                         <div class="events_1i1 clearfix position-relative">
                             <div class="events_1i1i clearfix">
-                                <img src="assets/plugin/TemplateOnWeb/img/38.jpg" alt="abc" class="w-100">
+                                <img src="assets/img/team/fathimah.png" alt="abc" class="w-100">
                             </div>
                             <div class="events_1i1i1 clearfix position-absolute bottom-0 text-center w-100">
                                 <ul class="d-inline-block mb-0 p-2 ps-4 pe-4">
