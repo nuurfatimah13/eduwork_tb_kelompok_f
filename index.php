@@ -23,24 +23,42 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form class="ps-3 pe-3" action="#">
+                            <form class="ps-3 pe-3 needs-validation" novalidate method="post" action="#">
                                 <div class="mb-3">
                                     <label for="username" class="form-label">Name</label>
-                                    <input class="form-control" type="email" id="username" required=""
-                                    placeholder="Eget Nulla">
+                                    <div class="input-group has-validation">
+                                        <input type="text" name="nama" class="form-control" 
+                                            id="validationCustomName" placeholder="Enter your name"
+                                            aria-describedby="inputGroupPrepend" required>
+                                        <div class="invalid-feedback">
+                                            Name is required.
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="emailaddress" class="form-label">Email address</label>
-                                    <input class="form-control" type="email" id="emailaddress" required=""
-                                    placeholder="info@gmail.com">
+                                    <div class="input-group has-validation">
+                                        <input type="text" name="nama" class="form-control" 
+                                            id="validationCustomName" placeholder="Enter your email"
+                                            aria-describedby="inputGroupPrepend" required>
+                                        <div class="invalid-feedback">
+                                            Email is required.
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Password</label>
-                                    <input class="form-control" type="password" required="" id="password"
-                                    placeholder="Enter your password">
+                                    <div class="input-group has-validation">
+                                        <input type="text" name="nama" class="form-control" 
+                                            id="validationCustomName" placeholder="Enter your password"
+                                            aria-describedby="inputGroupPrepend" required>
+                                        <div class="invalid-feedback">
+                                            Password is required.
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="mb-3 text-center">
-                                    <h6><a class="button_1 d-block" href="#">SIGN IN</a></h6>
+                                    <h6><a class="button_1 d-block" type="submit" href="#">SIGN IN</a></h6>
                                 </div>
                             </form>
                         </div>
@@ -80,7 +98,8 @@
                             <li class="nav-item">
                                 <select name="categories" class="form-select bg-light" required="">
                                     <option value="">All Categories</option>
-                                    <option value=""></option>
+                                    <option value="">Actor</option>
+                                    <option value="">Genre</option>
                                 </select>
                                 <div class="input-group">
                                     <input type="text" class="form-control border-start-0" placeholder="Search Movie">
@@ -1410,6 +1429,28 @@
         <?php include_once ("layouts/footer.php"); ?>
         <!-- Footer End -->
 
+        <script type="text/javascript">
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function () {
+                'use strict'
+
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.querySelectorAll('.needs-validation')
+
+                // Loop over them and prevent submission
+                Array.prototype.slice.call(forms)
+                    .forEach(function (form) {
+                        form.addEventListener('submit', function (event) {
+                            if (!form.checkValidity()) {
+                                event.preventDefault()
+                                event.stopPropagation()
+                            }
+
+                            form.classList.add('was-validated')
+                        }, false)
+                    })
+            })()
+        </script>
         <script>
             window.onscroll = function () { myFunction() };
 
