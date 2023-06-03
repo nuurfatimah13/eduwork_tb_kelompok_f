@@ -1,23 +1,23 @@
 <?php
 // echo "<pre>";
-// print_r($_POST);
+// print_r($_FILES);
 // echo "</pre>";
 // print_r($_POST);
-if(isset($_POST['submit'])){
-    $file=$_FILES['file']['name'];
-    $asal=$_FILES['file']['tmp_name'];
-    $folder='../../../../assets/img/film/'; // pastikan folder /smartphone/image/ ada.
 
     $judul = $_POST['judul'];
     $genre = $_POST['genre_id'];
     $ringkasan = $_POST['ringkasan'];
     $tahun = $_POST['tahun'];
 
-    move_uploaded_file($asal, $folder.$file);
+    $poster = $_FILES['poster']['name'];
+    $poster_type = $_FILES['poster']['type'];
+    $temp = $_FILES['poster']['tmp_name'];
+    $simpan = "../../assets/img/film".$file;
+
+    move_uploaded_file($temp, $simpan);
 
     include_once("../../database/db.php");
     $result = mysqli_query($conn, "INSERT into film (id, poster, judul, genre_id, ringkasan, tahun) VALUES
-        (NULL, '$file', '$judul', '$genre', '$ringkasan', '$tahun');");
+        (NULL, '$poster', '$judul', '$genre', '$ringkasan', '$tahun');");
     header('location:../../admin/views/film/film.php?success=update');
-  }
 ?>

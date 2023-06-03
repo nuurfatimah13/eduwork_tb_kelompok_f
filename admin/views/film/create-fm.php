@@ -84,7 +84,6 @@
                                 <?php
                                 include "../../../database/db.php";
                                 $query1 = $conn->query("SELECT * FROM genre");
-                                $query2 = $conn->query("SELECT * FROM genre INNER JOIN film ON film.genre_id = genre.id");
                                 ?>
 
                                 <!-- Card Title -->
