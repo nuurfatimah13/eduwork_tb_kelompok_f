@@ -14,8 +14,8 @@ Project about Movie App by final project studi independen in Eduwork
 - [x] CRUD Users -> _[nuurfatimah13](https://github.com/nuurfatimah13)_
 - [x] CRUD Genre -> _[rabiatulfitria](https://github.com/rabiatulfitria)_
 - [ ] CRUD Cast -> _[rabiatulfitria](https://github.com/rabiatulfitria)_
-- [ ] CRUD Film -> _[IndiStefani](https://github.com/IndiStefani)_
-- [ ] CRUD Peran -> _[IndiStefani](https://github.com/IndiStefani)_
+- [x] CRUD Film -> _[IndiStefani](https://github.com/IndiStefani)_
+- [x] CRUD Peran -> _[IndiStefani](https://github.com/IndiStefani)_
 - [x] CRUD Kritik -> _[ZarssssTz](https://github.com/ZarssssTz)_
 - [ ] Menyambungkan landing page dengan data database -> _[ZarssssTz](https://github.com/ZarssssTz)_
 - [ ] Login page -> _[nuurfatimah13](https://github.com/nuurfatimah13)_
