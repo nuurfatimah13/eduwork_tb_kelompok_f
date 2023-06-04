@@ -137,7 +137,6 @@
                                 $query = $conn->query("SELECT film.id, film.poster, film.judul, genre.nama, film.ringkasan, film.tahun FROM film INNER JOIN genre ON film.genre_id = genre.id; ");
                                 ?>
                                 <!-- Card Title -->
-                                <h3 class="card-title">Data Film</h3>
                                 <a class="btn btn-primary btn-md mt-4 mb-3" href="create-fm.php" role="button">
                                     Create Data
                                 </a>
