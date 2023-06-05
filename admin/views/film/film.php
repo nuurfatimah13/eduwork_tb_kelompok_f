@@ -134,7 +134,7 @@
                             <div class="card-body">
                                 <?php
                                 include "../../../database/db.php";
-                                $query = $conn->query("SELECT film.id, film.poster, film.judul, genre.nama, film.ringkasan, film.tahun FROM film INNER JOIN genre ON film.genre_id = genre.id; ");
+                                $query = $conn->query("SELECT film.id, film.poster, film.judul, genre.nama, film.trailer, film.ringkasan, film.tahun FROM film INNER JOIN genre ON film.genre_id = genre.id; ");
                                 ?>
                                 <!-- Card Title -->
                                 <a class="btn btn-primary btn-md mt-4 mb-3" href="create-fm.php" role="button">
@@ -147,6 +147,7 @@
                                             <th scope="col">Poster</th>
                                             <th scope="col">Movie</th>
                                             <th scope="col">Genre</th>
+                                            <th scope="col">Trailer</th>
                                             <th scope="col">Description</th>
                                             <th scope="col">Release Year</th>
                                             <th scope="col">Action</th>
@@ -164,6 +165,7 @@
                                                     <td><?php echo "<img src='../../../assets/img/film/" . $data['poster'] . "' width='100px' height='100px'/>"; ?></td>
                                                     <td><?php echo $data["judul"]; ?></td>
                                                     <td><?php echo $data["nama"]; ?></td>
+                                                    <td><?php echo $data["trailer"]; ?></td>
                                                     <td><?php echo $data["ringkasan"]; ?></td>
                                                     <td><?php echo $data["tahun"]; ?></td>
                                                     <td>

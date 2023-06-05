@@ -131,6 +131,16 @@
                                     </div>
 
                                     <div class="col md-12">
+                                        <label for="validationCustomCategories" class="form-label">Trailer</label>
+                                        <div class="input-group has-validation">
+                                            <input type="text" name="trailer" class="form-control" id="validationCustomCategories" aria-describedby="inputGroupPrepend" required>
+                                            <div class="invalid-feedback">
+                                                Trailer tidak boleh kosong.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col md-12">
                                         <label for="validationCustomCategories" class="form-label">Description</label>
                                         <div class="input-group has-validation">
                                             <input type="text" name="ringkasan" class="form-control" id="validationCustomCategories" aria-describedby="inputGroupPrepend" required>

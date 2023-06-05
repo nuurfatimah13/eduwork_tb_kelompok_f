@@ -6,6 +6,7 @@
 
     $judul = $_POST['judul'];
     $genre = $_POST['genre_id'];
+    $trailer = $_POST['trailer'];
     $ringkasan = $_POST['ringkasan'];
     $tahun = $_POST['tahun'];
 
@@ -17,9 +18,9 @@
     move_uploaded_file($temp, $simpan);
 
     include_once("../../database/db.php");
-    $result = mysqli_query($conn, "INSERT into film (id, poster, judul, genre_id, ringkasan, tahun) VALUES
-        (NULL, '$poster', '$judul', '$genre', '$ringkasan', '$tahun');");
-    header('location:../../admin/views/film/film.php?success=update');
+    $result = mysqli_query($conn, "INSERT into film (id, poster, judul, genre_id, trailer, ringkasan, tahun) VALUES
+        (NULL, '$poster', '$judul', '$genre', '$trailer', '$ringkasan', '$tahun');");
+    header('location:../../admin/views/film/film.php?success=create');
 ?>
 
 
