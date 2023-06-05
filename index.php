@@ -118,8 +118,15 @@
                         aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
+                    <?php 
+                        include "database/db.php";
+                        $query1 = $conn->query("SELECT * FROM film WHERE tahun=2023  LIMIT 1");
+                        if(mysqli_num_rows($query1)>0){
+                            while ($data1 = mysqli_fetch_array($query1)) {
+                    ?>
                     <div class="carousel-item active">
-                        <img src="assets/plugin/TemplateOnWeb/img/1.jpg" class="d-block w-100" alt="...">
+                        <img src="assets/img/film/<?= $data1['poster'] ?>" class="d-block w-100" 
+                            alt="<?= $data1['judul'] ?>" height="500">
                         <div class="carousel-caption d-md-block">
                             <h5 class="text-uppercase bg_red d-inline-block p-2 text-white">Releasing On</h5>
                             <h1>Vestibulum Arcu Eget Aptent Semper</h1>
@@ -139,8 +146,16 @@
                             </ul>
                         </div>
                     </div>
+                    <?php 
+                            }
+                        }
+                        $query2 = $conn->query("SELECT * FROM film LIMIT 2");
+                        if(mysqli_num_rows($query2)>0){
+                            while ($data2 = mysqli_fetch_array($query2)) {
+                    ?>
                     <div class="carousel-item">
-                        <img src="assets/plugin/TemplateOnWeb/img/2.jpg" class="d-block w-100" alt="...">
+                        <img src="assets/img/film/<?= $data2['poster'] ?>" class="d-block w-100" 
+                            alt="<?= $data2['judul'] ?>" height="500">
                         <div class="carousel-caption d-md-block">
                             <h5 class="text-uppercase bg_red d-inline-block p-2 text-white">Releasing On</h5>
                             <h1>Vestibulum Arcu Eget Aptent Semper</h1>
@@ -154,21 +169,10 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <img src="assets/plugin/TemplateOnWeb/img/3.jpg" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-md-block">
-                            <h5 class="text-uppercase bg_red d-inline-block p-2 text-white">Releasing On</h5>
-                            <h1>Vestibulum Arcu Eget Aptent Semper</h1>
-                            <p>There are many variations of passages available but the majority have suffered
-                                alteration in some form by injected humour or randomised words.</p>
-                            <ul class="mb-0 mt-3">
-                                <li class="d-inline-block me-2"><a class="button_1" href="#">CONTACT US <i
-                                            class="fa fa-long-arrow-right ms-1"></i></a></li>
-                                <li class="d-inline-block"><a class="button_2" href="#">ABOUT US <i
-                                            class="fa fa-long-arrow-right ms-1"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    <?php 
+                            }
+                        }
+                    ?>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
                     data-bs-slide="prev">
@@ -266,22 +270,23 @@
                             </div>
                         </div>
                         <div class="tab-pane" id="profile">
-                        <div class="upcome_2i row">
-                            <?php
-                                include "database/db.php";
-                                $query = $conn->query("SELECT film.id, film.poster, film.judul, genre.nama, film.ringkasan, film.tahun FROM film INNER JOIN genre ON film.genre_id = genre.id WHERE film.tahun<=YEAR(NOW());");
-                                while($row = mysqli_fetch_array($query)){
-                                    $id = $row['id'];
-                                    $poster = $row['poster'];
-                                    $judul = $row['judul'];
-                                    $genre = $row['nama'];
-                                    $ringkasan = $row['ringkasan'];
-                                    $tahun = $row['tahun'];
+                            <div class="upcome_2i row">
+                                <?php
+                                    include "database/db.php";
+                                    $query = $conn->query("SELECT film.id, film.poster, film.judul, genre.nama, film.ringkasan, film.tahun FROM film INNER JOIN genre ON film.genre_id = genre.id WHERE film.tahun<=YEAR(NOW());");
+                                    while($row = mysqli_fetch_array($query)){
+                                        $id = $row['id'];
+                                        $poster = $row['poster'];
+                                        $judul = $row['judul'];
+                                        $genre = $row['nama'];
+                                        $ringkasan = $row['ringkasan'];
+                                        $tahun = $row['tahun'];
                                 ?>
                                 <div class="col-md-3">
                                     <div class="upcome_2i1 clearfix position-relative">
                                         <div class="upcome_2i1i clearfix">
-                                            <img src="assets/img/film/<?php echo $poster; ?>" class="w-100" alt="abc">
+                                            <img src="assets/img/film/<?php echo $poster; ?>" alt="abc" 
+                                                width="260" height="330">
                                         </div>
                                         <div class="upcome_2i1i1 clearfix position-absolute top-0 text-center w-100">
                                             <h6 class="text-uppercase"><a class="button_1" href="#">View Trailer</a></h6>
@@ -304,17 +309,11 @@
                                                     </span>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3 p-0 col-3">
-                                                <div class="upcome_2i_lastir pt-3">
-                                                    <span><a class="col_red rounded" href="#"><i
-                                                                class="fa fa-shopping-cart"></i></a></span>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <?php
-                                }
+                                    }
                                 ?>
                             </div>
                         </div>
