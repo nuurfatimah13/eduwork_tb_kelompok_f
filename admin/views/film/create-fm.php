@@ -92,7 +92,7 @@
                                     <div class="col-12">
                                         <label for="validationCustomPoster" class="form-label">poster Film</label>
                                         <div class="input-group has-validation">
-                                            <input type="file" name="poster" class="form-control" id="validationCustomPoster" aria-describedby="inputGroupPrepend" required>
+                                            <input type="file" name="poster[]" class="form-control" id="validationCustomPoster" aria-describedby="inputGroupPrepend" required>
                                             <div class="invalid-feedback">
                                                 Poster tidak boleh kosong.
                                             </div>

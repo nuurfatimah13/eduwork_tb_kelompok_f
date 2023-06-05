@@ -9,10 +9,10 @@
     $ringkasan = $_POST['ringkasan'];
     $tahun = $_POST['tahun'];
 
-    $poster = $_FILES['poster']['name'];
-    $poster_type = $_FILES['poster']['type'];
-    $temp = $_FILES['poster']['tmp_name'];
-    $simpan = "../../assets/img/film".$file;
+    $poster = $_FILES['poster']['name'][0];
+    $poster_type = $_FILES['poster']['type'][0];
+    $temp = $_FILES['poster']['tmp_name'][0];
+    $simpan = "../../assets/img/film/".$poster;
 
     move_uploaded_file($temp, $simpan);
 
@@ -21,3 +21,5 @@
         (NULL, '$poster', '$judul', '$genre', '$ringkasan', '$tahun');");
     header('location:../../admin/views/film/film.php?success=update');
 ?>
+
+
