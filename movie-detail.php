@@ -218,7 +218,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="blog1r">
-                            <div class="blog1r1">
+                            <!-- <div class="blog1r1">
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Search Movie">
                                     <span class="input-group-btn">
@@ -226,8 +226,8 @@
                                             <i class="fa fa-search"></i></button>
                                     </span>
                                 </div>
-                            </div>
-                            <div class="blog1r2 shadow_box mt-4 p-3 bg-white">
+                            </div> -->
+                            <!-- <div class="blog1r2 shadow_box mt-4 p-3 bg-white">
                                 <div class="grid clearfix">
                                     <figure class="effect-jazz mb-0">
                                         <a href="#"><img src="img/19.jpg" class="w-100" alt="abc"></a>
@@ -238,9 +238,9 @@
                                 <p>Lorem ipsum dolor sit amet ue adipisicing elit, sed do eiuodor incididunt ut part.</p>
                                 <h6 class="mb-0"><a class="button_1" href="#">Read More <i class="fa fa-long-arrow-right ms-1"></i></a>
                                 </h6>
-                            </div>
+                            </div> -->
                             <div class="blog1r2 shadow_box mt-4 p-3 bg-white">
-                                <h5>RECENT NEWS</h5>
+                                <h5>Movie</h5>
                                 <hr class="line mb-3">
                                 <div class="blog1r2i row">
                                     <div class="col-md-4 col-4 pe-0">
