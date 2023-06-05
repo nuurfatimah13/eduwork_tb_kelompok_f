@@ -91,6 +91,7 @@
                                     $poster = $data['poster'];
                                     $judul = $data['judul'];
                                     $genre = $data['genre_id'];
+                                    $trailer = $data['trailer'];
                                     $ringkasan = $data['ringkasan'];
                                     $tahun = $data['tahun'];
                                 }
@@ -136,6 +137,16 @@
                                             </select>
                                             <div class="invalid-feedback">
                                                 Kategori tidak boleh kosong.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col md-12">
+                                        <label for="validationCustomCategories" class="form-label">Trailer</label>
+                                        <div class="input-group has-validation">
+                                            <input type="text" name="trailer" class="form-control" id="validationCustomCategories" aria-describedby="inputGroupPrepend" value="<?php echo $trailer; ?>" required>
+                                            <div class="invalid-feedback">
+                                                Trailer tidak boleh kosong.
                                             </div>
                                         </div>
                                     </div>
