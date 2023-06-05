@@ -153,7 +153,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <?php if (!$users) { ?>
+                                                    <?php if ($users != 0) { ?>
                                                         <h1 class="text-center mt-1 mb-3"><?= $users ?></h1>
                                                     <?php } else { ?>
                                                         <h1 class="text-center mt-1 mb-3"> 0 </h1>
@@ -174,7 +174,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <?php if (!$actors) { ?>
+                                                    <?php if ($actors != 0) { ?>
                                                         <h1 class="text-center mt-1 mb-3"><?= $actors ?></h1>
                                                     <?php } else { ?>
                                                         <h1 class="text-center mt-1 mb-3"> 0 </h1>
@@ -195,7 +195,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <?php if (!$films) { ?>
+                                                    <?php if ($films != 0) { ?>
                                                         <h1 class="text-center mt-1 mb-3"><?= $films ?></h1>
                                                     <?php } else { ?>
                                                         <h1 class="text-center mt-1 mb-3"> 0 </h1>
