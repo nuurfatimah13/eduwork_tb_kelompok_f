@@ -18,24 +18,24 @@
         <!-- Sidebar Start -->
         <nav id="sidebar" class="sidebar js-sidebar">
             <div class="sidebar-content js-simplebar">
-                <a class="sidebar-brand" href="index.php">
+                <a class="sidebar-brand" href="../../index.php">
                     <img src="../../../assets/img/icons/logo-1.png" alt="logo" width="50%" style="text-align: center;">
                 </a>
                 <ul class="sidebar-nav">
-                    <li class="sidebar-item active">
+                    <li class="sidebar-item">
                         <a class="sidebar-link" href="../../index.php">
                             <i class="align-middle" data-feather="sliders"></i>
                             <span class="align-middle">Dashboard</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="../../../user/users.php">
+                        <a class="sidebar-link" href="../user/user.php">
                             <i class="align-middle" data-feather="users"></i>
                             <span class="align-middle">Users</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="actor/actor.php">
+                        <a class="sidebar-link" href="../actor/actor.php">
                             <i class="align-middle" data-feather="users"></i>
                             <span class="align-middle">Actors</span>
                         </a>
@@ -52,14 +52,14 @@
                             <span class="align-middle">Film</span>
                         </a>
                     </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="peran/peran.php">
+                    <li class="sidebar-item active">
+                        <a class="sidebar-link" href="peran.php">
                             <i class="align-middle" data-feather="cast"></i>
                             <span class="align-middle">Peran</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="kritik/kritik.php">
+                        <a class="sidebar-link" href="../kritik/kritik.php">
                             <i class="align-middle" data-feather="message-square"></i>
                             <span class="align-middle">Kritik</span>
                         </a>
@@ -77,7 +77,7 @@
             <main class="content">
                 <div class="container-fluid p-0">
                     <!-- Title -->
-                    <h1 class="h3 mb-3">Dashboard / <strong>Tambah Peran</strong></h1>
+                    <h1 class="h3 mb-3">Dashboard / <strong>Peran</strong></h1>
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
@@ -87,7 +87,7 @@
                                 $query2 = $conn->query("SELECT * FROM cast");
                                 ?>
                                 <!-- Card Title -->
-                                <h3 class="card-title mb-4">Create Data Template</h3>
+                                <h3 class="card-title mb-4">Create Data Peran</h3>
                                 <form class="row g-3 needs-validation" novalidate action="../../../controllers/peran/create-pr.php" method="post" enctype="multipart/form-data">
 
                                     <div class="col-6">

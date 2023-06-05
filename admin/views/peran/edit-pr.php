@@ -29,7 +29,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="../user/users.php">
+                        <a class="sidebar-link" href="../user/user.php">
                             <i class="align-middle" data-feather="users"></i>
                             <span class="align-middle">Users</span>
                         </a>
@@ -53,7 +53,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item active">
-                        <a class="sidebar-link" href="../peran/peran.php">
+                        <a class="sidebar-link" href="peran.php">
                             <i class="align-middle" data-feather="cast"></i>
                             <span class="align-middle">Peran</span>
                         </a>

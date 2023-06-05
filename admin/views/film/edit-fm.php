@@ -18,11 +18,11 @@
         <!-- Sidebar Start -->
         <nav id="sidebar" class="sidebar js-sidebar">
             <div class="sidebar-content js-simplebar">
-                <a class="sidebar-brand" href="index.php">
+                <a class="sidebar-brand" href="../../index.php">
                     <img src="../../../assets/img/icons/logo-1.png" alt="logo" width="50%" style="text-align: center;">
                 </a>
                 <ul class="sidebar-nav">
-                    <li class="sidebar-item active">
+                    <li class="sidebar-item">
                         <a class="sidebar-link" href="../../index.php">
                             <i class="align-middle" data-feather="sliders"></i>
                             <span class="align-middle">Dashboard</span>
@@ -47,7 +47,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item active">
-                        <a class="sidebar-link" href="../film/film.php">
+                        <a class="sidebar-link" href="film.php">
                             <i class="align-middle" data-feather="film"></i>
                             <span class="align-middle">Film</span>
                         </a>
