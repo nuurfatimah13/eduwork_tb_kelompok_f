@@ -77,27 +77,13 @@
                             </li>
                         </ul>
                         <ul class="navbar-nav mb-0 ms-auto">
-                            <li class="nav-item">
-                                <select name="categories" class="form-select bg-light" required="">
-                                    <option value="">All Categories</option>
-                                    <option value=""></option>
-                                </select>
-                                <div class="input-group">
-                                    <input type="text" class="form-control border-start-0" placeholder="Search Movie">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary bg_yell" type="button">
-                                            <i class="fa fa-search"></i> 
-                                        </button>
-                                    </span>
-                                </div>                        
-                            </li>
                             <!-- Modal Start -->
-                            <li class="nav-item ms-3">
+                            <!-- <li class="nav-item ms-3">
                                 <a class="nav-link button" data-bs-toggle="modal" data-bs-target="#signin-modal"
                                     href="#">
                                     SIGN IN
                                 </a>
-                            </li>
+                            </li> -->
                             <!-- Modal End -->
                         </ul>
                     </div>
@@ -288,79 +274,6 @@
                                     </div>
                                 </div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="price" class="p_3 bg-light">
-            <div class="container-xl">
-                <div class="row upcome_1 text-center">
-                    <div class="col-md-12">
-                        <h3 class="mb-0">PRICING TABLE</h3>
-                        <hr class="line me-auto ms-auto">
-                    </div>
-                </div>
-                <div class="row price_1 mt-3">
-                    <div class="col-md-4">
-                        <div class="price_1i text-center pt-4 pb-4 bg-white">
-                            <div class="price_1i1">
-                                <span class="col_red font_60 lh-1"><i class="fa fa-rupee"></i></span>
-                                <h4 class="bg_red text-white p-3 mt-3">Monthly Package</h4>
-                            </div>
-                            <div class="price_1i2 mt-4">
-                                <h5 class="fw-normal col_red mt-4 mb-4">25% offer</h5>
-                                <h2 class="mb-4">$32.99 /M</h2>
-                                <ul>
-                                    <li class="fs-5 mb-1">30 days trial Features</li>
-                                    <li class="fs-5 mb-1">Synced to cloud database</li>
-                                    <li class="fs-5 mb-1">12 hours of support</li>
-                                    <li class="fs-5 mb-1">Social media integration</li>
-                                    <li class="fs-5 mb-1">24/7 support</li>
-                                </ul>
-                                <h5 class="mt-3 mb-0 fw-normal"><a class="button_1" href="#">Subscribe Now</a></h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="price_1i text-center pt-4 pb-4 bg-white">
-                            <div class="price_1i1">
-                                <span class="col_red font_60 lh-1"><i class="fa fa-rupee"></i></span>
-                                <h4 class="bg_red text-white p-3 mt-3">Yearly Package</h4>
-                            </div>
-                            <div class="price_1i2 mt-4">
-                                <h5 class="fw-normal col_red mt-4 mb-4">30% offer</h5>
-                                <h2 class="mb-4">$51.99 /Y</h2>
-                                <ul>
-                                    <li class="fs-5 mb-1">30 days trial Features</li>
-                                    <li class="fs-5 mb-1">Synced to cloud database</li>
-                                    <li class="fs-5 mb-1">12 hours of support</li>
-                                    <li class="fs-5 mb-1">Social media integration</li>
-                                    <li class="fs-5 mb-1">24/7 support</li>
-                                </ul>
-                                <h5 class="mt-3 mb-0 fw-normal"><a class="button_1" href="#">Subscribe Now</a></h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="price_1i text-center pt-4 pb-4 bg-white">
-                            <div class="price_1i1">
-                                <span class="col_red font_60 lh-1"><i class="fa fa-rupee"></i></span>
-                                <h4 class="bg_red text-white p-3 mt-3">Lifetime Package</h4>
-                            </div>
-                            <div class="price_1i2 mt-4">
-                                <h5 class="fw-normal col_red mt-4 mb-4">45% offer</h5>
-                                <h2 class="mb-4">$89.99 /L</h2>
-                                <ul>
-                                    <li class="fs-5 mb-1">30 days trial Features</li>
-                                    <li class="fs-5 mb-1">Synced to cloud database</li>
-                                    <li class="fs-5 mb-1">12 hours of support</li>
-                                    <li class="fs-5 mb-1">Social media integration</li>
-                                    <li class="fs-5 mb-1">24/7 support</li>
-                                </ul>
-                                <h5 class="mt-3 mb-0 fw-normal"><a class="button_1" href="#">Subscribe Now</a></h5>
                             </div>
                         </div>
                     </div>
