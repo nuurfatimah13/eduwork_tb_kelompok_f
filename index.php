@@ -77,27 +77,13 @@
                             </li>
                         </ul>
                         <ul class="navbar-nav mb-0 ms-auto">
-                            <li class="nav-item">
-                                <select name="categories" class="form-select bg-light" required="">
-                                    <option value="">All Categories</option>
-                                    <option value=""></option>
-                                </select>
-                                <div class="input-group">
-                                    <input type="text" class="form-control border-start-0" placeholder="Search Movie">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary bg_yell" type="button">
-                                            <i class="fa fa-search"></i> 
-                                        </button>
-                                    </span>
-                                </div>                        
-                            </li>
                             <!-- Modal Start -->
-                            <li class="nav-item ms-3">
+                            <!-- <li class="nav-item ms-3">
                                 <a class="nav-link button" data-bs-toggle="modal" data-bs-target="#signin-modal"
                                     href="#">
                                     SIGN IN
                                 </a>
-                            </li>
+                            </li> -->
                             <!-- Modal End -->
                         </ul>
                     </div>
@@ -127,24 +113,6 @@
                     <div class="carousel-item active">
                         <img src="assets/img/film/<?= $data1['poster'] ?>" class="d-block w-100" 
                             alt="<?= $data1['judul'] ?>" height="500">
-                        <div class="carousel-caption d-md-block">
-                            <h5 class="text-uppercase bg_red d-inline-block p-2 text-white">Releasing On</h5>
-                            <h1>Vestibulum Arcu Eget Aptent Semper</h1>
-                            <p>There are many variations of passages available but the majority have suffered
-                                alteration in some form by injected humour or randomised words.</p>
-                            <ul class="mb-0 mt-3">
-                                <li class="d-inline-block me-2">
-                                    <a class="button_1" href="#">CONTACT US 
-                                        <i class="fa fa-long-arrow-right ms-1"></i>
-                                    </a>
-                                </li>
-                                <li class="d-inline-block">
-                                    <a class="button_2" href="#">ABOUT US 
-                                        <i class="fa fa-long-arrow-right ms-1"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                     <?php 
                             }
@@ -156,18 +124,6 @@
                     <div class="carousel-item">
                         <img src="assets/img/film/<?= $data2['poster'] ?>" class="d-block w-100" 
                             alt="<?= $data2['judul'] ?>" height="500">
-                        <div class="carousel-caption d-md-block">
-                            <h5 class="text-uppercase bg_red d-inline-block p-2 text-white">Releasing On</h5>
-                            <h1>Vestibulum Arcu Eget Aptent Semper</h1>
-                            <p>There are many variations of passages available but the majority have suffered
-                                alteration in some form by injected humour or randomised words.</p>
-                            <ul class="mb-0 mt-3">
-                                <li class="d-inline-block me-2"><a class="button_1" href="#">CONTACT US <i
-                                            class="fa fa-long-arrow-right ms-1"></i></a></li>
-                                <li class="d-inline-block"><a class="button_2" href="#">ABOUT US <i
-                                            class="fa fa-long-arrow-right ms-1"></i></a></li>
-                            </ul>
-                        </div>
                     </div>
                     <?php 
                             }
@@ -285,7 +241,7 @@
                                 <div class="col-md-3">
                                     <div class="upcome_2i1 clearfix position-relative">
                                         <div class="upcome_2i1i clearfix">
-                                            <img src="assets/img/film/<?php echo $poster; ?>" alt="abc" 
+                                            <img src="assets/img/film/<?php echo $poster; ?>" alt="<?php echo $judul; ?>" 
                                                 width="260" height="330">
                                         </div>
                                         <div class="upcome_2i1i1 clearfix position-absolute top-0 text-center w-100">
@@ -298,7 +254,7 @@
                                         <div class="upcome_2i_lasti row">
                                             <div class="col-md-9 col-9">
                                                 <div class="upcome_2i_lastil">
-                                                    <h5><a href="#"><?php echo $judul; ?></a></h5>
+                                                    <h5><?php echo $judul; ?></h5>
                                                     <h6 class="text-muted"><?php echo $genre; ?></h6>
                                                     <span class="col_red">
                                                         <i class="fa fa-star"></i>
@@ -603,7 +559,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -629,10 +584,27 @@
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <div class="upcome_2i row">
+                                        <?php
+                                            $query3 = $conn->query("SELECT film.id, film.poster, film.judul, genre.nama, 
+                                                film.ringkasan, film.tahun, kritik.point AS rating
+                                                FROM film 
+                                                INNER JOIN genre ON film.genre_id = genre.id 
+                                                INNER JOIN kritik ON film.id = kritik.film_id 
+                                                WHERE kritik.point>=4;");
+                                            while($row2 = mysqli_fetch_array($query3)){
+                                                $id_tm = $row2['id'];
+                                                $poster_tm = $row2['poster'];
+                                                $judul_tm = $row2['judul'];
+                                                $genre_tm = $row2['nama'];
+                                                $ringkasan_tm = $row2['ringkasan'];
+                                                $tahun_tm = $row2['tahun'];
+                                                $rating_tm = $row2['rating'];
+                                        ?>
                                         <div class="col-md-3">
                                             <div class="upcome_2i1 clearfix position-relative">
                                                 <div class="upcome_2i1i clearfix">
-                                                    <img src="assets/plugin/TemplateOnWeb/img/4.jpg" class="w-100" alt="abc">
+                                                    <img src="assets/img/film/<?= $poster_tm; ?>" alt="<?= $judul_tm; ?>" 
+                                                    width="260" height="330">
                                                 </div>
                                                 <div
                                                     class="upcome_2i1i1 clearfix position-absolute top-0 text-center w-100">
@@ -646,140 +618,22 @@
                                                 <div class="upcome_2i_lasti row">
                                                     <div class="col-md-9 col-9">
                                                         <div class="upcome_2i_lastil">
-                                                            <h5><a href="#">Eget Nulla</a></h5>
-                                                            <h6 class="text-muted">Drama, Action</h6>
+                                                            <h5><?= $judul_tm; ?></h5>
+                                                            <h6 class="text-muted"><?= $genre_tm; ?></h6>
                                                             <span class="col_red">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star"></i> <?= $rating_tm; ?>
                                                             </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3 p-0 col-3">
-                                                        <div class="upcome_2i_lastir pt-3">
-                                                            <span><a class="col_red rounded" href="#"><i
-                                                                        class="fa fa-shopping-cart"></i></a></span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
-                                            <div class="upcome_2i1 clearfix position-relative">
-                                                <div class="upcome_2i1i clearfix">
-                                                    <img src="assets/plugin/TemplateOnWeb/img/5.jpg" class="w-100" alt="abc">
-                                                </div>
-                                                <div
-                                                    class="upcome_2i1i1 clearfix position-absolute top-0 text-center w-100">
-                                                    <h6 class="text-uppercase"><a class="button_1" href="#">View Trailer</a>
-                                                    </h6>
-                                                    <h6 class="text-uppercase mb-0"><a class="button_2" href="#">View
-                                                            Details</a></h6>
-                                                </div>
-                                            </div>
-                                            <div class="upcome_2i_last bg-white p-3">
-                                                <div class="upcome_2i_lasti row">
-                                                    <div class="col-md-9 col-9">
-                                                        <div class="upcome_2i_lastil">
-                                                            <h5><a href="#">Semp Porta</a></h5>
-                                                            <h6 class="text-muted">Drama, Action</h6>
-                                                            <span class="col_red">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3 p-0 col-3">
-                                                        <div class="upcome_2i_lastir pt-3">
-                                                            <span><a class="col_red rounded" href="#"><i
-                                                                        class="fa fa-shopping-cart"></i></a></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="upcome_2i1 clearfix position-relative">
-                                                <div class="upcome_2i1i clearfix">
-                                                    <img src="assets/plugin/TemplateOnWeb/img/6.jpg" class="w-100" alt="abc">
-                                                </div>
-                                                <div
-                                                    class="upcome_2i1i1 clearfix position-absolute top-0 text-center w-100">
-                                                    <h6 class="text-uppercase"><a class="button_1" href="#">View Trailer</a>
-                                                    </h6>
-                                                    <h6 class="text-uppercase mb-0"><a class="button_2" href="#">View
-                                                            Details</a></h6>
-                                                </div>
-                                            </div>
-                                            <div class="upcome_2i_last bg-white p-3">
-                                                <div class="upcome_2i_lasti row">
-                                                    <div class="col-md-9 col-9">
-                                                        <div class="upcome_2i_lastil">
-                                                            <h5><a href="#">Quis Sem</a></h5>
-                                                            <h6 class="text-muted">Drama, Action</h6>
-                                                            <span class="col_red">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3 p-0 col-3">
-                                                        <div class="upcome_2i_lastir pt-3">
-                                                            <span><a class="col_red rounded" href="#"><i
-                                                                        class="fa fa-shopping-cart"></i></a></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="upcome_2i1 clearfix position-relative">
-                                                <div class="upcome_2i1i clearfix">
-                                                    <img src="assets/plugin/TemplateOnWeb/img/7.jpg" class="w-100" alt="abc">
-                                                </div>
-                                                <div
-                                                    class="upcome_2i1i1 clearfix position-absolute top-0 text-center w-100">
-                                                    <h6 class="text-uppercase"><a class="button_1" href="#">View Trailer</a>
-                                                    </h6>
-                                                    <h6 class="text-uppercase mb-0"><a class="button_2" href="#">View
-                                                            Details</a></h6>
-                                                </div>
-                                            </div>
-                                            <div class="upcome_2i_last bg-white p-3">
-                                                <div class="upcome_2i_lasti row">
-                                                    <div class="col-md-9 col-9">
-                                                        <div class="upcome_2i_lastil">
-                                                            <h5><a href="#">Lorem Amet</a></h5>
-                                                            <h6 class="text-muted">Drama, Action</h6>
-                                                            <span class="col_red">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3 p-0 col-3">
-                                                        <div class="upcome_2i_lastir pt-3">
-                                                            <span><a class="col_red rounded" href="#"><i
-                                                                        class="fa fa-shopping-cart"></i></a></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <?php
+                                            }
+                                        ?>
                                     </div>
                                 </div>
-                                <div class="carousel-item">
+                                <!-- <div class="carousel-item">
                                     <div class="upcome_2i row">
                                         <div class="col-md-3">
                                             <div class="upcome_2i1 clearfix position-relative">
@@ -818,119 +672,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
-                                            <div class="upcome_2i1 clearfix position-relative">
-                                                <div class="upcome_2i1i clearfix">
-                                                    <img src="assets/plugin/TemplateOnWeb/img/9.jpg" class="w-100" alt="abc">
-                                                </div>
-                                                <div
-                                                    class="upcome_2i1i1 clearfix position-absolute top-0 text-center w-100">
-                                                    <h6 class="text-uppercase"><a class="button_1" href="#">View Trailer</a>
-                                                    </h6>
-                                                    <h6 class="text-uppercase mb-0"><a class="button_2" href="#">View
-                                                            Details</a></h6>
-                                                </div>
-                                            </div>
-                                            <div class="upcome_2i_last bg-white p-3">
-                                                <div class="upcome_2i_lasti row">
-                                                    <div class="col-md-9 col-9">
-                                                        <div class="upcome_2i_lastil">
-                                                            <h5><a href="#">Semp Porta</a></h5>
-                                                            <h6 class="text-muted">Drama, Action</h6>
-                                                            <span class="col_red">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3 p-0 col-3">
-                                                        <div class="upcome_2i_lastir pt-3">
-                                                            <span><a class="col_red rounded" href="#"><i
-                                                                        class="fa fa-shopping-cart"></i></a></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="upcome_2i1 clearfix position-relative">
-                                                <div class="upcome_2i1i clearfix">
-                                                    <img src="assets/plugin/TemplateOnWeb/img/10.jpg" class="w-100" alt="abc">
-                                                </div>
-                                                <div
-                                                    class="upcome_2i1i1 clearfix position-absolute top-0 text-center w-100">
-                                                    <h6 class="text-uppercase"><a class="button_1" href="#">View Trailer</a>
-                                                    </h6>
-                                                    <h6 class="text-uppercase mb-0"><a class="button_2" href="#">View
-                                                            Details</a></h6>
-                                                </div>
-                                            </div>
-                                            <div class="upcome_2i_last bg-white p-3">
-                                                <div class="upcome_2i_lasti row">
-                                                    <div class="col-md-9 col-9">
-                                                        <div class="upcome_2i_lastil">
-                                                            <h5><a href="#">Quis Sem</a></h5>
-                                                            <h6 class="text-muted">Drama, Action</h6>
-                                                            <span class="col_red">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3 p-0 col-3">
-                                                        <div class="upcome_2i_lastir pt-3">
-                                                            <span><a class="col_red rounded" href="#"><i
-                                                                        class="fa fa-shopping-cart"></i></a></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="upcome_2i1 clearfix position-relative">
-                                                <div class="upcome_2i1i clearfix">
-                                                    <img src="assets/plugin/TemplateOnWeb/img/11.jpg" class="w-100" alt="abc">
-                                                </div>
-                                                <div
-                                                    class="upcome_2i1i1 clearfix position-absolute top-0 text-center w-100">
-                                                    <h6 class="text-uppercase"><a class="button_1" href="#">View Trailer</a>
-                                                    </h6>
-                                                    <h6 class="text-uppercase mb-0"><a class="button_2" href="#">View
-                                                            Details</a></h6>
-                                                </div>
-                                            </div>
-                                            <div class="upcome_2i_last bg-white p-3">
-                                                <div class="upcome_2i_lasti row">
-                                                    <div class="col-md-9 col-9">
-                                                        <div class="upcome_2i_lastil">
-                                                            <h5><a href="#">Lorem Amet</a></h5>
-                                                            <h6 class="text-muted">Drama, Action</h6>
-                                                            <span class="col_red">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3 p-0 col-3">
-                                                        <div class="upcome_2i_lastir pt-3">
-                                                            <span><a class="col_red rounded" href="#"><i
-                                                                        class="fa fa-shopping-cart"></i></a></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
