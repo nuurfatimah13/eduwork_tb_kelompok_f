@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Jun 2023 pada 07.35
+-- Waktu pembuatan: 06 Jun 2023 pada 06.33
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.2.0
 
@@ -79,12 +79,11 @@ INSERT INTO `film` (`id`, `poster`, `judul`, `genre_id`, `trailer`, `ringkasan`,
 (8, 'surat.jpg', 'Surat Cinta Untuk Starla', 4, 'https://youtu.be/CEwLJnrT3X0', 'Hema cowok yang terobsesi dengan cintanya pada alam memiliki keunikan membuat surat cinta untuk alam. Dengan dibantu mesin tik tuanya peninggalan sang kakek mantan jurnalis, Hema membuat mural yang menunjukkan betapa cintanya Hema pada alam ini. Alam adalah satu satunya cinta yang Hema kenal.Hingga suatu saat Hema mengenal Starla. Gadis cantik dan mandiri yang selama 6 jam telah berhasil membuatnya jatuh cinta. Untuk pertama kalinya Hema menyadari ada surat cinta yang lebih indah daripada surat cinta untuk alam yaitu surat cinta untuk Starla.Namun di saat Hema dan Starla semakin dekat, tiba tiba sikap Starla berubah. Starla marah dan menjauhi Hema bahkan menyuruh Hema melupakan 6 jam kisah mereka yang menjadi viral di sosial media bahkan disiarkan di radio oleh Athena, sahabat Hema.Hingga suatu ketika Hema baru mengetahui penyebab perubahan sikap Starla padanya yang berhubungan dengan sebuah rahasia masa lalu keluarga Hema.', 2017),
 (9, 'guru.jpeg', 'Guru Guru Gokil', 3, 'https://youtu.be/Z7kRxHxJ4dQ', 'Sinopsis. Guru-Guru Gokil bercerita tentang Taat (Gading Marten) yang berambisi untuk sukses, tapi lebih sering menemui kegagalan dalam karier. Baginya, kesuksesan berarti memiliki uang banyak. Hingga suatu saat, keadaan mengharuskan Taat untuk bekerja menjadi guru di sebuah sekolah.', 2020),
 (10, 'negeri.jpg', 'Negeri di Bawah Kabut', 6, 'https://youtu.be/fl7gB1LoBdM', 'Keluarga Sudardi (32 tahun) dan Muryati (30 tahun) beserta masyarakat lain Desa Genikan di lereng Gunung Merbabu heran mengapa tahun ini hujan turun lebih banyak. Sistem kalender Jawa yang selama ini menjadi rujukan kegiatan tanam masyarakat kini tak lagi relevan dengan perubahan musim, gagal panen dan nilai tukar yang kian tak sebanding dengan biaya produksi menambah kompleksitas permasalahan yang dihadapi masyarakat. Di sisi lain, Arifin (12 tahun) terpaksa mengubur mimpinya bersekolah di SMP negeri karena keterbatasan biaya keluarganya meski ia memiliki nilai kelulusan tertinggi di antara teman-temannya. Orang tua Arifin berusaha mencari pinjaman pada tetangga dan kerabatnya yang lain, namun sama-sama hidup dalam keterbatasan, Arifin harus rela sekolah di pesantren dengan biaya yang lebih terjangkau.', 2016),
-(39, 'uncharted.jpg', 'Uncharted', 1,'', 'Nathan Drake direkrut oleh pemburu harta karun berpengalaman Victor Sullivan (Sully) untuk mengembalikan kekayaan yang dikumpulkan oleh Ferdinand Magellan dan hilang 500 tahun yang lalu oleh House of Moncada.', 2022),
-(40, 'hunger.jpeg', 'The Hunger Games : The Ballad Of SongsBirds And Snake', 1, '', 'Bertahun-tahun sebelum menjadi Presiden Panem yang keji, Coriolanus Snow adalah remaja 18 tahun yang harus mengubah takdir keluarganya. Lewat Hunger Games ke-10. Coriolanus harus menjadi mentor seorang peserta bernama Lucy Gray Baird dari Distrik 12. Mengetahui sifat pemberontak yang dimiliki muridnya, Coriolanus membangun rencana licik untuk mendapatkan keunggulan secara politis', 2023),
-(43, 'mi.jpeg', 'MISSION IMPOSSIBLE : DEAD RECKONING', 2, '', 'Pada IMPOSSIBLE : DEAD RECKONING PART 1, Tom Cruise yang berperan sebagai Ethan Hunt masih melanjutkan misi sebagai agen Impossible Missions Force (IMF). Ethan Hunt dan agen IMF lainnya akan melakukan berbagai aksi berbahaya untuk menyelesaikan misinya.', 2023),
-(44, 'jones.jpeg', 'Indiana Jones And The Dial Of Destiny 5', 1, '', 'Indiana Jones and The Dial of Destiny 5', 2023),
-(45, 'the nun 2.jpeg', 'The Nun 2', 11, '', 'Pada film The Nun 2 ini akan belatarkan cerita di Eropa tahun 1952, dimana terdapt banyak kejadian kejadian horror.  Kejadian horror tersebut banyak menimpa Suster Irene yang dipernakan oleh Taissa Farmiga. Film horror The Nun menjadi film urutan pertama yang ada di timeline The Conjuring. Maka dari itu cerita original Valak yang ada dari situ akan di bawa ke mana saja pastinya.', 2023),
-(46, 'flash.jpeg', 'The Flash', 2, '', 'The Flash (2023) masih berkisah tentang pahlawan super bernama Barry Allen yang dikenal dengan The Flash. Sebagai salah satu pahlawan super, kekuatan utama The Flash adalah kemampuannya memiliki kecepatan super secepat kilat. Barry Allen memanfaatkan kekuatan yang ia miliki untuk kembali ke masa lalu.  Tujuan perjalanan ke masa lalu yang ditempuh Barry Allen adalah untuk mencegah kematian ibu. Perjalanan menembus ruang dan waktu memiliki resiko besar dan Barry Allen pun sudah diperingati oleh Batman, tapi keputusan Barry Allen sudah bulat. Dalam perjalanannya The Flash menabrak garis waktu lain dan membawanya ke zaman di mana Jenderal Zod berkuasa.', 2023);
+(39, 'uncharted.jpg', 'Uncharted', 1, 'https://youtu.be/eHp3MbsCbMg', 'Nathan Drake direkrut oleh pemburu harta karun berpengalaman Victor Sullivan (Sully) untuk mengembalikan kekayaan yang dikumpulkan oleh Ferdinand Magellan dan hilang 500 tahun yang lalu oleh House of Moncada.', 2022),
+(40, 'hunger.jpeg', 'The Hunger Games : The Ballad Of SongsBirds And Snake', 1, 'https://youtu.be/RDE6Uz73A7g', 'Bertahun-tahun sebelum menjadi Presiden Panem yang keji, Coriolanus Snow adalah remaja 18 tahun yang harus mengubah takdir keluarganya. Lewat Hunger Games ke-10. Coriolanus harus menjadi mentor seorang peserta bernama Lucy Gray Baird dari Distrik 12. Mengetahui sifat pemberontak yang dimiliki muridnya, Coriolanus membangun rencana licik untuk mendapatkan keunggulan secara politis', 2024),
+(43, 'mi.jpeg', 'MISSION IMPOSSIBLE : DEAD RECKONING', 1, 'https://youtu.be/avz06PDqDbM', 'Pada IMPOSSIBLE : DEAD RECKONING PART 1, Tom Cruise yang berperan sebagai Ethan Hunt masih melanjutkan misi sebagai agen Impossible Missions Force (IMF). Ethan Hunt dan agen IMF lainnya akan melakukan berbagai aksi berbahaya untuk menyelesaikan misinya.', 2024),
+(44, 'jones.jpeg', 'Indiana Jones And The Dial Of Destiny 5', 1, 'https://youtu.be/eQfMbSe7F2g', 'Indiana Jones and The Dial of Destiny 5', 2024),
+(46, 'flash.jpeg', 'The Flash', 1, 'https://youtu.be/hebWYacbdvc', 'The Flash (2023) masih berkisah tentang pahlawan super bernama Barry Allen yang dikenal dengan The Flash. Sebagai salah satu pahlawan super, kekuatan utama The Flash adalah kemampuannya memiliki kecepatan super secepat kilat. Barry Allen memanfaatkan kekuatan yang ia miliki untuk kembali ke masa lalu.  Tujuan perjalanan ke masa lalu yang ditempuh Barry Allen adalah untuk mencegah kematian ibu. Perjalanan menembus ruang dan waktu memiliki resiko besar dan Barry Allen pun sudah diperingati oleh Batman, tapi keputusan Barry Allen sudah bulat. Dalam perjalanannya The Flash menabrak garis waktu lain dan membawanya ke zaman di mana Jenderal Zod berkuasa.', 2024);
 
 -- --------------------------------------------------------
 
@@ -133,7 +132,8 @@ CREATE TABLE `kritik` (
 
 INSERT INTO `kritik` (`id`, `users_id`, `film_id`, `content`, `point`) VALUES
 (1, 1, 4, 'Filmnya Bagus Banget, Jarang banget Genre film Heist kaya gini di indonesiaa', 5),
-(2, 1, 1, 'Film  Buatan Ernest sih Geprlu di Ragukan lagi ya Pokonya the best', 4);
+(2, 1, 1, 'Film  Buatan Ernest sih Geprlu di Ragukan lagi ya Pokonya the best', 4),
+(3, 1, 3, 'Gokillll', 5);
 
 -- --------------------------------------------------------
 
@@ -243,7 +243,7 @@ ALTER TABLE `genre`
 -- AUTO_INCREMENT untuk tabel `kritik`
 --
 ALTER TABLE `kritik`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `peran`

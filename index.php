@@ -106,7 +106,7 @@
                 <div class="carousel-inner">
                     <?php 
                         include "database/db.php";
-                        $query1 = $conn->query("SELECT * FROM film WHERE tahun=2023  LIMIT 1");
+                        $query1 = $conn->query("SELECT * FROM film WHERE tahun=2024  LIMIT 1");
                         if(mysqli_num_rows($query1)>0){
                             while ($data1 = mysqli_fetch_array($query1)) {
                     ?>
@@ -176,7 +176,10 @@
                             <div class="upcome_2i row">
                             <?php
                                 include "database/db.php";
-                                $query = $conn->query("SELECT film.id, film.poster, film.judul, genre.nama, film.ringkasan, film.tahun FROM film INNER JOIN genre ON film.genre_id = genre.id WHERE film.tahun>YEAR(NOW());");
+                                $query = $conn->query("SELECT film.id, film.poster, film.judul, genre.nama, film.ringkasan, film.tahun
+                                 FROM film 
+                                 INNER JOIN genre ON film.genre_id = genre.id
+                                 WHERE film.tahun>YEAR(NOW());");
                                 while($row = mysqli_fetch_array($query)){
                                     $id = $row['id'];
                                     $poster = $row['poster'];
@@ -188,7 +191,8 @@
                                 <div class="col-md-3">
                                     <div class="upcome_2i1 clearfix position-relative">
                                         <div class="upcome_2i1i clearfix">
-                                            <img src="assets/img/film/<?php echo $poster; ?>" class="w-100" alt="abc">
+                                            <img src="assets/img/film/<?php echo $poster; ?>" 
+                                             width="260" height="330">
                                         </div>
                                         <div class="upcome_2i1i1 clearfix position-absolute top-0 text-center w-100">
                                             <h6 class="text-uppercase"><a class="button_1" href="#">View Trailer</a></h6>
@@ -229,7 +233,10 @@
                             <div class="upcome_2i row">
                                 <?php
                                     include "database/db.php";
-                                    $query = $conn->query("SELECT film.id, film.poster, film.judul, genre.nama, film.ringkasan, film.tahun FROM film INNER JOIN genre ON film.genre_id = genre.id WHERE film.tahun<=YEAR(NOW());");
+                                    $query = $conn->query("SELECT film.id, film.poster, film.judul, genre.nama, film.ringkasan, film.tahun
+                                    FROM film
+                                    INNER JOIN genre ON film.genre_id = genre.id 
+                                    WHERE film.tahun<=YEAR(NOW());");
                                     while($row = mysqli_fetch_array($query)){
                                         $id = $row['id'];
                                         $poster = $row['poster'];
