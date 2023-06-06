@@ -111,12 +111,8 @@
                 <div class="row about_1">
                     <div class="col-md-6">
                         <div class="about_1l">
-                            <h3>ABOUT by MovApp</h3>
+                            <h3>MovApp</h3>
                             <hr class="line">
-                            <h5 class="mt-4">
-                                How it All Started Event and manage this this is event how to given pas and how to
-                                participate
-                            </h5>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor nt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exerciion ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor indi reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Exceiur sint occaecat cupidatat non proident,
                             </p>
@@ -128,37 +124,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="about_1r">
-                            <div id="carouselExampleCaptions4" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carouselExampleCaptions4" data-bs-slide-to="0" class="active"
-                                        aria-label="Slide 1" aria-current="true"></button>
-                                    <button type="button" data-bs-target="#carouselExampleCaptions4" data-bs-slide-to="1"
-                                        aria-label="Slide 2" class=""></button>
-                                    <button type="button" data-bs-target="#carouselExampleCaptions4" data-bs-slide-to="2"
-                                        aria-label="Slide 3" class=""></button>
-                                </div>
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="assets/plugin/TemplateOnWeb/img/13.jpg" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="assets/plugin/TemplateOnWeb/img/14.jpg" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="assets/plugin/TemplateOnWeb/img/15.jpg" class="d-block w-100" alt="...">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions4"
-                                    data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions4"
-                                    data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
+                            <img src="assets/img/icons/logo-1.svg" class="d-block w-75" 
+                                alt="logo-MovApp">
                         </div>
                     </div>
                 </div>
@@ -168,18 +135,7 @@
         <section id="faq" class="p_3">
             <div class="container-xl">
                 <div class="row faq_1">
-                    <div class="col-md-6">
-                        <div class="faq_1l text-center bg_red p-4 rounded-3">
-                            <h5 class="text-white">ASK YOUR QUESTION</h5>
-                            <hr class="line ms-auto me-auto">
-                            <input class="form-control bg-transparent rounded-0 mt-4" placeholder="Name" type="text">
-                            <input class="form-control bg-transparent rounded-0 mt-3" placeholder="Email" type="text">
-                            <input class="form-control bg-transparent rounded-0 mt-3" placeholder="Phone" type="text">
-                            <textarea placeholder="Comment" class="form-control rounded-0 form_text mt-3 bg-transparent"></textarea>
-                            <h6 class="mb-0 mt-4"><a class="button" href="#">Send a Comment</a></h6>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="faq_1r">
                             <h3 class="mb-0">FREQUENT ASKED QUESTIONS</h3>
                             <hr class="line mb-4">
@@ -188,7 +144,7 @@
                                     <h2 class="accordion-header" id="headingOne">
                                         <button class="accordion-button mt-0" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            What is special about comparing rental car deals?
+                                            What is special about MovApp?
                                         </button>
                                     </h2>
                                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
@@ -206,28 +162,10 @@
                                     <h2 class="accordion-header" id="headingTwo">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Where is Corpo office address ?
+                                            Where is MovApp office address ?
                                         </button>
                                     </h2>
                                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                        data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            Use securing confined his shutters. Delightful as he it acceptance an solicitude discretion
-                                            reasonably. Carriage we husbands advanced an perceive greatest. Totally dearest expense on demesne
-                                            ye he. Curiosity excellent commanded in me. Unpleasing impression themselves to at assistance
-                                            acceptance my or.
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="heading3">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapseTwo">
-                                            How many your customers have ?
-                                        </button>
-                                    </h2>
-                                    <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                                         data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             Use securing confined his shutters. Delightful as he it acceptance an solicitude discretion
@@ -255,25 +193,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="heading5">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapseTwo">
-                                            Shortly.. What Corpo does ?
-                                        </button>
-                                    </h2>
-                                    <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                        data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            Use securing confined his shutters. Delightful as he it acceptance an solicitude discretion
-                                            reasonably. Carriage we husbands advanced an perceive greatest. Totally dearest expense on demesne
-                                            ye he. Curiosity excellent commanded in me. Unpleasing impression themselves to at assistance
-                                            acceptance my or.
-                                        </div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                     </div>
