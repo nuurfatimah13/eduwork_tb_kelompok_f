@@ -23,32 +23,48 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form class="ps-3 pe-3" action="#">
+                            <form class="ps-3 pe-3 needs-validation" novalidate method="post" action="#">
                                 <div class="mb-3">
                                     <label for="username" class="form-label">Name</label>
-                                    <input class="form-control" type="email" id="username" required=""
-                                    placeholder="Eget Nulla">
+                                    <div class="input-group has-validation">
+                                        <input type="text" name="nama" class="form-control" 
+                                            id="validationCustomName" placeholder="Enter your name"
+                                            aria-describedby="inputGroupPrepend" required>
+                                        <div class="invalid-feedback">
+                                            Name is required.
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="emailaddress" class="form-label">Email address</label>
-                                    <input class="form-control" type="email" id="emailaddress" required=""
-                                    placeholder="info@gmail.com">
+                                    <div class="input-group has-validation">
+                                        <input type="text" name="nama" class="form-control" 
+                                            id="validationCustomName" placeholder="Enter your email"
+                                            aria-describedby="inputGroupPrepend" required>
+                                        <div class="invalid-feedback">
+                                            Email is required.
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Password</label>
-                                    <input class="form-control" type="password" required="" id="password"
-                                    placeholder="Enter your password">
+                                    <div class="input-group has-validation">
+                                        <input type="text" name="nama" class="form-control" 
+                                            id="validationCustomName" placeholder="Enter your password"
+                                            aria-describedby="inputGroupPrepend" required>
+                                        <div class="invalid-feedback">
+                                            Password is required.
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="mb-3 text-center">
-                                    <h6><a class="button_1 d-block" href="#">SIGN IN</a></h6>
+                                    <h6><a class="button_1 d-block" type="submit" href="#">SIGN IN</a></h6>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <!-- Modal Content End -->
+            <!-- Modal Content End -->
                 </div>
-                <!-- Modal Dialog End -->
-            </div>
             <!-- Sign In Modal End -->
             <nav class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
                 <div class="container-fluid">
@@ -93,8 +109,7 @@
                             </li>
                             <!-- Modal Start -->
                             <li class="nav-item ms-3">
-                                <a class="nav-link button" data-bs-toggle="modal" data-bs-target="#signin-modal"
-                                    href="#">
+                                <a class="nav-link button" data-bs-toggle="modal" data-bs-target="#signin-modal" href="#">
                                     SIGN IN
                                 </a>
                             </li>

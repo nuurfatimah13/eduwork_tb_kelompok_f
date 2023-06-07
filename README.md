@@ -10,7 +10,7 @@ Project about Movie App by final project studi independen in Eduwork
 - [x] Frontend admin pages -> *[nuurfatimah13](https://github.com/nuurfatimah13)*
 - [ ] CRUD Users -> *[nuurfatimah13](https://github.com/nuurfatimah13)* 
 - [x] CRUD Genre -> *[rabiatulfitria](https://github.com/rabiatulfitria)*
-- [ ] CRUD Cast -> *[rabiatulfitria](https://github.com/rabiatulfitria)*
+- [x] CRUD Cast -> *[rabiatulfitria](https://github.com/rabiatulfitria)*
 - [ ] CRUD Film -> *[IndiStefani](https://github.com/IndiStefani)*
 - [ ] CRUD Peran -> *[IndiStefani](https://github.com/IndiStefani)*
 - [ ] CRUD Kritik -> *[ZarssssTz](https://github.com/ZarssssTz)*
