@@ -97,8 +97,10 @@
                 <div class="row center_o1 text-center">
                     <div class="col-md-12">
                         <h2>MOVIE DETAIL</h2>
-                        <h5 class="bg_dark d-inline-block p-4 mb-0 mt-4 pt-2 pb-2 fw-normal col_red"><a class="text-white"
-                                href="#">Home</a> <span class="me-2 ms-2 text-muted"> /</span> Movie Detail</h5>
+                        <h5 class="bg_dark d-inline-block p-4 mb-0 mt-4 pt-2 pb-2 fw-normal col_red">
+                            <a class="text-white" href="index.php">Home</a> 
+                            <span class="me-2 ms-2 text-muted"> /</span> Movie Detail
+                        </h5>
                     </div>
                 </div>
             </div>
@@ -110,17 +112,41 @@
                     <div class="col-md-9">
                         <div class="blog1l">
                             <div class="blog1l1 bg-white">
+                                <?php
+                                    include "database/db.php";
+                                    $id = $_GET['id']; 
+                                    $query = $conn->query("SELECT film.id, film.poster, film.judul, 
+                                        genre.nama AS genre, film.ringkasan AS ringkasan, film.tahun, 
+                                        film.trailer, kritik.point AS rating, 
+                                        COUNT(kritik.content) AS comment
+                                    FROM film
+                                    INNER JOIN genre ON film.genre_id = genre.id 
+                                    LEFT JOIN kritik ON film.id = kritik.film_id 
+                                    WHERE film.id=$id;");
+                                    while ($data = mysqli_fetch_array($query)) {
+                                        $id = $data["id"];
+                                        $poster = $data["poster"];
+                                        $judul = $data["judul"];
+                                        $genre = $data["genre"];
+                                        $ringkasan = $data["ringkasan"];
+                                        $tahun = $data["tahun"];
+                                        $trailer = $data["trailer"];
+                                        $rating = $data["rating"];
+                                        $comment = $data["comment"];
+
+                                    }
+                                ?>
                                 <div class="grid clearfix">
                                     <figure class="effect-jazz mb-0">
-                                        <img src="assets/plugin/TemplateOnWeb/img/3.jpg" height="480" class="w-100" alt="abc">
+                                        <img src="assets/img/film/<?= $poster; ?>" height="480" 
+                                            class="w-100" alt="<?= $judul; ?>">
                                     </figure>
                                 </div>
                                 <div class="blog1l1i clearfix p-4">
-                                    <h6 class="col_red">Released 2023</h6>
-                                    <h4 class="mt-3">Judul Film</h4>
-                                    <p>
-                                        Deskripsi
-                                    </p>
+                                    <h6 class="col_red">Released <?= $tahun; ?></h6>
+                                    <h4 class="mt-3"><?= $judul; ?></h4>
+                                    <h5 class="mt-1"><?= $genre; ?></h5>
+                                    <p>Deskripsi: <br /> <?= $ringkasan; ?></p>
                                     <div class="blog1l1id clearfix row">
                                         <div class="col-md-4">
                                             <div class="blog1l1idi">
@@ -131,17 +157,16 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="blog1l1i1 clearfix row m-0 p-3">
                                     <div class="col-md-9">
                                         <div class="blog1l1i1l">
                                             <ul class="mb-0">
                                                 <li class="d-inline-block col_red me-3">
-                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i> <?= $rating; ?>
                                                 </li>
                                                 <li class="d-inline-block col_red me-3">
                                                     <i class="fa fa-comments me-1"></i> 
-                                                    348 Comments
+                                                    <?= $comment; ?> Comments
                                                 </li>
                                             </ul>
                                         </div>
@@ -155,11 +180,14 @@
                                 </div>
                             </div>
                             <div class="blog1ld2 row m-0 mt-2 bg-white pt-3 pb-3 shadow_box">
+                                <?php 
+                                    
+                                ?>
                                 <div class="col-md-2 pe-0 col-sm-2">
                                     <div class="blog1ld2l">
                                         <div class="grid clearfix">
                                             <figure class="effect-jazz mb-0">
-                                                <a href="#"><img src="img/33.jpg" class="w-100" alt="abc"></a>
+                                                <img src="assets/img/uploads/" class="w-100" alt="abc">
                                             </figure>
                                         </div>
                                     </div>
@@ -174,7 +202,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="blog1ld1 row mt-4 text-light">
+                            <!-- <div class="blog1ld1 row mt-4 text-light">
                                 <div class="col-md-12">
                                     <h3>LEAVE A COMMENT</h3>
                                     <hr class="line">
@@ -213,33 +241,12 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="blog1r">
-                            <!-- <div class="blog1r1">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search Movie">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary bg_red border-0" type="button">
-                                            <i class="fa fa-search"></i></button>
-                                    </span>
-                                </div>
-                            </div> -->
-                            <!-- <div class="blog1r2 shadow_box mt-4 p-3 bg-white">
-                                <div class="grid clearfix">
-                                    <figure class="effect-jazz mb-0">
-                                        <a href="#"><img src="img/19.jpg" class="w-100" alt="abc"></a>
-                                    </figure>
-                                </div>
-                                <h5 class="mt-4">ABOUT PRESENTER</h5>
-                                <hr class="line mb-3">
-                                <p>Lorem ipsum dolor sit amet ue adipisicing elit, sed do eiuodor incididunt ut part.</p>
-                                <h6 class="mb-0"><a class="button_1" href="#">Read More <i class="fa fa-long-arrow-right ms-1"></i></a>
-                                </h6>
-                            </div> -->
-                            <div class="blog1r2 shadow_box mt-4 p-3 bg-white">
+                            <div class="blog1r2 shadow_box p-3 bg-white">
                                 <h5>Movie</h5>
                                 <hr class="line mb-3">
                                 <div class="blog1r2i row">
