@@ -50,7 +50,7 @@
                 <!-- Modal Dialog End -->
             </div>
             <!-- Sign In Modal End -->
-            <nav class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
+            <nav style="background-color: #081c3c;" class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
                 <div class="container-fluid">
                     <a class="navbar-brand fs-4 p-0 fw-bold text-white text-uppercase" href="index.php">
                         <img src="assets/img/icons/logo-1.png" alt="logo" width="20%" class="me-1 col_light fs-1 align-middle">
@@ -92,7 +92,7 @@
         </section>
         <!-- Header End -->
 
-        <section id="center" class="center_o pt-5">
+        <section style="background-color: #08142c;" id="center" class="center_o pt-5 text-light">
             <div class="container">
                 <div class="row center_o1 text-center">
                     <div class="col-md-12">
@@ -106,7 +106,7 @@
             </div>
         </section>
 
-        <section id="team" class="p_3 bg-light pb-5">
+        <section style="background-color: #08142c;"id="team" class="p_3 pb-5">
             <div class="container">
                 <div class="events_1i row">
                     <div class="col-md-3 pe-0">

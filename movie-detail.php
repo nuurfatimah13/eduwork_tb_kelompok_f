@@ -50,7 +50,7 @@
                 <!-- Modal Dialog End -->
             </div>
             <!-- Sign In Modal End -->
-            <nav class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
+            <nav  style="background-color: #081c3c;" class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
                 <div class="container-fluid">
                     <a class="navbar-brand fs-4 p-0 fw-bold text-white text-uppercase" href="index.php">
                         <img src="assets/img/icons/logo-1.png" alt="logo" width="20%" class="me-1 col_light fs-1 align-middle">
@@ -92,7 +92,7 @@
         </section>
         <!-- Header End -->
 
-        <section id="center" class="center_o pt-5">
+        <section style="background-color: #08142c;" id="center" class="center_o pt-5 text-light">
             <div class="container">
                 <div class="row center_o1 text-center">
                     <div class="col-md-12">
@@ -104,7 +104,7 @@
             </div>
         </section>
 
-        <section id="blog" class="p_3 bg-light">
+        <section style="background-color: #08142c;" id="blog" class="p_3 ">
             <div class="container">
                 <div class="row blog1">
                     <div class="col-md-9">
@@ -148,7 +148,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="blog1ld1 row mt-4">
+                            <div style="background-color: #08142c;"class="blog1ld1 row mt-4 text-light">
                                 <div class="col-md-12">
                                     <h3>COMMENTS</h3>
                                     <hr class="line">
@@ -174,7 +174,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="blog1ld1 row mt-4">
+                            <div class="blog1ld1 row mt-4 text-light">
                                 <div class="col-md-12">
                                     <h3>LEAVE A COMMENT</h3>
                                     <hr class="line">
@@ -209,7 +209,7 @@
                                     <div class="col-md-12">
                                         <div class="blog1ld3l">
                                             <textarea placeholder="Message" class="form-control form_text mt-3"></textarea>
-                                            <h6 class="mb-0 mt-3"><a class="button_1" href="#">Send a Comment </a></h6>
+                                            <h6 class="mb-0 mt-3 text-light"><a class="button_1" href="#">Send a Comment </a></h6>
                                         </div>
                                     </div>
                                 </div>
@@ -308,7 +308,7 @@
 
         <script>
             window.onscroll = function () { myFunction() };
-
+  
             var navbar_sticky = document.getElementById("navbar_sticky");
             var sticky = navbar_sticky.offsetTop;
             var navbar_height = document.querySelector('.navbar').offsetHeight;

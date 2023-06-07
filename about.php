@@ -50,7 +50,7 @@
                 <!-- Modal Dialog End -->
             </div>
             <!-- Sign In Modal End -->
-            <nav class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
+            <nav style="background-color: #081c3c;" class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
                 <div class="container-fluid">
                     <a class="navbar-brand fs-4 p-0 fw-bold text-white text-uppercase" href="index.php">
                         <img src="assets/img/icons/logo-1.png" alt="logo" width="20%" class="me-1 col_light fs-1 align-middle">
@@ -92,11 +92,11 @@
         </section>
         <!-- Header End -->
 
-        <section id="center" class="center_o pt-5">
+        <section style="background-color: #08142c;"id="center" class="center_o pt-5">
             <div class="container">
                 <div class="row center_o1 text-center">
                     <div class="col-md-12">
-                        <h2>ABOUT US</h2>
+                        <h2 class="text-light">ABOUT US</h2>
                         <h5 class="bg_dark d-inline-block p-4 mb-0 mt-4 pt-2 pb-2 fw-normal col_red">
                             <a class="text-white" href="#">Home</a> 
                             <span class="me-2 ms-2 text-muted"> /</span> About Us
@@ -106,8 +106,8 @@
             </div>
         </section>
 
-        <section id="about" class="p_3 bg-light">
-            <div class="container">
+        <section style="background-color: #08142c;" id="about" class="p_3 ">
+            <div style="background-color: #08142c;"class="container text-light">
                 <div class="row about_1">
                     <div class="col-md-6">
                         <div class="about_1l">
@@ -132,8 +132,8 @@
             </div>
         </section>
 
-        <section id="faq" class="p_3">
-            <div class="container-xl">
+        <section style="background-color: #08142c;"id="faq" class="p_3">
+            <div style="background-color: #08142c;"class="container-xl text-light">
                 <div class="row faq_1">
                     <div class="col-md-12">
                         <div class="faq_1r">

@@ -11,7 +11,7 @@
     </head>
     <body>
         <!-- Header Start -->
-        <section id="header">
+        <section style="background-color: #08142c;" id="header">
             <!-- Sign In Modal Start -->
             <div id="signin-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
                 <!-- Modal Dialog Start -->
@@ -50,7 +50,7 @@
                 <!-- Modal Dialog End -->
             </div>
             <!-- Sign In Modal End -->
-            <nav class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
+            <nav style="background-color: #081c3c;" class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
                 <div class="container-fluid">
                     <a class="navbar-brand fs-4 p-0 fw-bold text-white text-uppercase" href="index.php">
                         <img src="assets/img/icons/logo-1.png" alt="logo" width="20%" class="me-1 col_light fs-1 align-middle">
@@ -93,7 +93,7 @@
         <!-- Header End -->
 
         <!-- Hero Start -->
-        <section id="center" class="center_home">
+        <section style="background-color: #08142c;" id="center" class="center_home">
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
@@ -111,6 +111,7 @@
                             while ($data1 = mysqli_fetch_array($query1)) {
                     ?>
                     <div class="carousel-item active">
+                        <input type="hidden" value="<?php echo $data1['id']; ?>">
                         <img src="assets/img/film/<?= $data1['poster'] ?>" class="d-block w-100" 
                             alt="<?= $data1['judul'] ?>" height="500">
                     </div>
@@ -144,11 +145,11 @@
         </section>
         <!-- Hero End -->
 
-        <section id="upcome" class="p_3 bg-light">
+        <section style="background-color: #08142c;" id="upcome" class="p_3">
             <div class="container-xl">
                 <div class="row upcome_1 text-center">
                     <div class="col-md-12">
-                        <h3 class="mb-0">MOVIES</h3>
+                        <h3 class="mb-0 text-light">MOVIES</h3>
                         <hr class="line me-auto ms-auto">
                         <ul class="nav nav-tabs justify-content-center border-0 mb-0 mt-4">
                             <li class="nav-item">
@@ -196,7 +197,7 @@
                                         </div>
                                         <div class="upcome_2i1i1 clearfix position-absolute top-0 text-center w-100">
                                             <h6 class="text-uppercase"><a class="button_1" href="#">View Trailer</a></h6>
-                                            <h6 class="text-uppercase mb-0"><a class="button_2" href="#">View Details</a>
+                                            <h6 class="text-uppercase mb-0"><a class="button_2" href="movie-detail.php?id=<?php echo $id;?>">View Details</a>
                                             </h6>
                                         </div>
                                     </div>
@@ -204,6 +205,7 @@
                                         <div class="upcome_2i_lasti row">
                                             <div class="col-md-9 col-9">
                                                 <div class="upcome_2i_lastil">
+                                                    <input type="hidden" value="<?php echo $id;?>">
                                                     <h5><a href="#"><?php echo $judul; ?></a></h5>
                                                     <h6 class="text-muted"><?php echo $genre; ?></h6>
                                                     <span class="col_red">
@@ -253,7 +255,7 @@
                                         </div>
                                         <div class="upcome_2i1i1 clearfix position-absolute top-0 text-center w-100">
                                             <h6 class="text-uppercase"><a class="button_1" href="#">View Trailer</a></h6>
-                                            <h6 class="text-uppercase mb-0"><a class="button_2" href="#">View Details</a>
+                                            <h6 class="text-uppercase mb-0"><a class="button_2" href="movie-detail.php?id=<?php echo $id;?>">View Details</a>
                                             </h6>
                                         </div>
                                     </div>
@@ -571,8 +573,8 @@
             </div>
         </section>
 
-        <section id="trend">
-            <div class="trend_m clearfix bg_light pt-4 pb-5">
+        <section style="background-color: #08142c;" id="trend">
+            <div style="background-color: #08142c;"class="trend_m clearfix bg_light pt-4 pb-5">
                 <div class="container-xl">
                     <div class="row upcome_1 text-center">
                         <div class="col-md-12">
@@ -588,7 +590,7 @@
                                 <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="1"
                                     aria-label="Slide 2" class=""></button>
                             </div>
-                            <div class="carousel-inner">
+                            <div style="background-color: #08142c;"class="carousel-inner">
                                 <div class="carousel-item active">
                                     <div class="upcome_2i row">
                                         <?php
@@ -610,14 +612,15 @@
                                         <div class="col-md-3">
                                             <div class="upcome_2i1 clearfix position-relative">
                                                 <div class="upcome_2i1i clearfix">
+                                                    <input type="hidden" value="<?php echo $id_tm; ?>">
                                                     <img src="assets/img/film/<?= $poster_tm; ?>" alt="<?= $judul_tm; ?>" 
                                                     width="260" height="330">
                                                 </div>
                                                 <div
                                                     class="upcome_2i1i1 clearfix position-absolute top-0 text-center w-100">
-                                                    <h6 class="text-uppercase"><a class="button_1" href="#">View Trailer</a>
+                                                    <h6 class="text-uppercase"><a class="button_1">View Trailer</a>
                                                     </h6>
-                                                    <h6 class="text-uppercase mb-0"><a class="button_2" href="#">View
+                                                    <h6 class="text-uppercase mb-0"><a class="button_2" href="movie-detail.php?id=<?php echo $id;?>">View
                                                             Details</a></h6>
                                                 </div>
                                             </div>

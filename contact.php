@@ -50,7 +50,7 @@
                 <!-- Modal Dialog End -->
             </div>
             <!-- Sign In Modal End -->
-            <nav class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
+            <nav style="background-color: #081c3c;" class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
                 <div class="container-fluid">
                     <a class="navbar-brand fs-4 p-0 fw-bold text-white text-uppercase" href="index.php">
                         <img src="assets/img/icons/logo-1.png" alt="logo" width="20%" class="me-1 col_light fs-1 align-middle">
@@ -92,7 +92,7 @@
         </section>
         <!-- Header End -->
 
-        <section id="center" class="center_o pt-5">
+        <section style="background-color: #08142c;" id="center" class="center_o pt-5 text-light">
             <div class="container">
                 <div class="row center_o1 text-center">
                     <div class="col-md-12">
@@ -106,25 +106,25 @@
             </div>
         </section>
 
-        <section id="contact" class="p_3 bg-light">
+        <section style="background-color: #08142c;" id="contact" class="p_3">
             <div class="container">
                 <div class="row contact2 mt-4">
                     <div class="col-md-4">
-                        <div class="contact2i text-center bg-white shadow_box p-4">
+                        <div style="background-color: #08142c;" class="contact2i text-center text-light shadow_box p-4">
                             <span class="d-inline-block bg_red text-white fs-2 rounded"><i class="fa fa-phone"></i></span>
                             <h4 class="mt-3">Contact</h4>
                             <h6 class="text-muted">+62 857 7671 2203</h6>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="contact2i text-center bg-white shadow_box p-4">
+                        <div style="background-color: #08142c;"class="contact2i text-center text-light shadow_box p-4">
                             <span class="d-inline-block bg_red text-white fs-2 rounded"><i class="fa fa-map"></i></span>
                             <h4 class="mt-3">Location</h4>
                             <h6 class="text-muted">Jl. Kasturi Raya, Bogor, Indonesia</h6>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="contact2i text-center bg-white shadow_box p-4">
+                        <div style="background-color: #08142c;" class="contact2i text-center text-light shadow_box p-4">
                             <span class="d-inline-block bg_red text-white fs-2 rounded"><i class="fa fa-envelope"></i></span>
                             <h4 class="mt-3">Email</h4>
                             <h6 class="text-muted">movapp13@gmail.com</h6>
