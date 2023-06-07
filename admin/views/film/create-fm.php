@@ -18,48 +18,48 @@
         <!-- Sidebar Start -->
         <nav id="sidebar" class="sidebar js-sidebar">
             <div class="sidebar-content js-simplebar">
-                <a class="sidebar-brand" href="index.php">
+                <a class="sidebar-brand" href="../../index.php">
                     <img src="../../../assets/img/icons/logo-1.png" alt="logo" width="50%" style="text-align: center;">
                 </a>
                 <ul class="sidebar-nav">
-                    <li class="sidebar-item active">
-                        <a class="sidebar-link" href="../index.php">
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="../../index.php">
                             <i class="align-middle" data-feather="sliders"></i>
                             <span class="align-middle">Dashboard</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="user/users.php">
+                        <a class="sidebar-link" href="../user/user.php">
                             <i class="align-middle" data-feather="users"></i>
                             <span class="align-middle">Users</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="actor/actor.php">
+                        <a class="sidebar-link" href="../actor/actor.php">
                             <i class="align-middle" data-feather="users"></i>
                             <span class="align-middle">Actors</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="genre/genre.php">
+                        <a class="sidebar-link" href="../genre/genre.php">
                             <i class="align-middle" data-feather="list"></i>
                             <span class="align-middle">Genre</span>
                         </a>
                     </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="film/film.php">
+                    <li class="sidebar-item active">
+                        <a class="sidebar-link" href="film.php">
                             <i class="align-middle" data-feather="film"></i>
                             <span class="align-middle">Film</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="peran/peran.php">
+                        <a class="sidebar-link" href="../peran/peran.php">
                             <i class="align-middle" data-feather="cast"></i>
                             <span class="align-middle">Peran</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="kritik/kritik.php">
+                        <a class="sidebar-link" href="../kritik/kritik.php">
                             <i class="align-middle" data-feather="message-square"></i>
                             <span class="align-middle">Kritik</span>
                         </a>
@@ -84,7 +84,6 @@
                                 <?php
                                 include "../../../database/db.php";
                                 $query1 = $conn->query("SELECT * FROM genre");
-                                $query2 = $conn->query("SELECT * FROM genre INNER JOIN film ON film.genre_id = genre.id");
                                 ?>
 
                                 <!-- Card Title -->
@@ -93,7 +92,7 @@
                                     <div class="col-12">
                                         <label for="validationCustomPoster" class="form-label">poster Film</label>
                                         <div class="input-group has-validation">
-                                            <input type="file" name="poster" class="form-control" id="validationCustomPoster" aria-describedby="inputGroupPrepend" required>
+                                            <input type="file" name="poster[]" class="form-control" id="validationCustomPoster" aria-describedby="inputGroupPrepend" required>
                                             <div class="invalid-feedback">
                                                 Poster tidak boleh kosong.
                                             </div>
@@ -127,6 +126,16 @@
                                             </select>
                                             <div class="invalid-feedback">
                                                 Kategori tidak boleh kosong.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col md-12">
+                                        <label for="validationCustomCategories" class="form-label">Trailer</label>
+                                        <div class="input-group has-validation">
+                                            <input type="text" name="trailer" class="form-control" id="validationCustomCategories" aria-describedby="inputGroupPrepend" required>
+                                            <div class="invalid-feedback">
+                                                Trailer tidak boleh kosong.
                                             </div>
                                         </div>
                                     </div>

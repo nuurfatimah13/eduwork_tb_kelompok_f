@@ -77,27 +77,13 @@
                             </li>
                         </ul>
                         <ul class="navbar-nav mb-0 ms-auto">
-                            <li class="nav-item">
-                                <select name="categories" class="form-select bg-light" required="">
-                                    <option value="">All Categories</option>
-                                    <option value=""></option>
-                                </select>
-                                <div class="input-group">
-                                    <input type="text" class="form-control border-start-0" placeholder="Search Movie">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary bg_yell" type="button">
-                                            <i class="fa fa-search"></i> 
-                                        </button>
-                                    </span>
-                                </div>                        
-                            </li>
                             <!-- Modal Start -->
-                            <li class="nav-item ms-3">
+                            <!-- <li class="nav-item ms-3">
                                 <a class="nav-link button" data-bs-toggle="modal" data-bs-target="#signin-modal"
                                     href="#">
                                     SIGN IN
                                 </a>
-                            </li>
+                            </li> -->
                             <!-- Modal End -->
                         </ul>
                     </div>
@@ -122,72 +108,19 @@
 
         <section id="contact" class="p_3 bg-light">
             <div class="container">
-                <div class="row contact1">
-                    <div class="col-md-8">
-                        <div class="contact1l">
-                            <h3>CONTACT US</h3>
-                            <hr class="line">
-                            <div class="blog1ld3 row mt-4">
-                                <div class="col-md-6">
-                                    <div class="blog1ld3l">
-                                        <input class="form-control" placeholder="Name" type="text">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="blog1ld3l">
-                                        <input class="form-control" placeholder="Email" type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="blog1ld3 row">
-                                <div class="col-md-6">
-                                    <div class="blog1ld3l">
-                                        <input class="form-control mt-3" placeholder="Subject" type="text">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="blog1ld3l">
-                                        <input class="form-control mt-3" placeholder="Website" type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="blog1ld3 row">
-                                <div class="col-md-12">
-                                    <div class="blog1ld3l">
-                                        <textarea placeholder="Message" class="form-control form_text mt-3"></textarea>
-                                        <h6 class="mb-0 mt-3"><a class="button_1" href="#">Submit </a></h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="contact1r bg_red p-4 rounded-3 pt-5 pb-5 mt-4">
-                            <h6 class="text-white"> <i class="fa fa-facebook me-1 align-middle"></i> Facebook Account</h6>
-                            <h6 class="text-white mt-3"> <i class="fa fa-twitter me-1 align-middle"></i> Twitter Account</h6>
-                            <h6 class="text-white mt-3"> <i class="fa fa-vimeo me-1 align-middle"></i> Vimeo Account</h6>
-                            <h6 class="text-white mt-3"> <i class="fa fa-instagram me-1 align-middle"></i> Instagram Account</h6>
-                            <h6 class="text-white mt-3 mb-0"> <i class="fa fa-youtube-play me-1 align-middle"></i> Youtube Account</h6>
-                            <h6 class="text-white mt-3"> <i class="fa fa-linkedin me-1 align-middle"></i> Linkedin Account</h6>
-                            <h6 class="text-white mt-3 mb-0"> <i class="fa fa-google me-1 align-middle"></i> Google Account</h6>
-                        </div>
-                    </div>
-                </div>
                 <div class="row contact2 mt-4">
                     <div class="col-md-4">
                         <div class="contact2i text-center bg-white shadow_box p-4">
                             <span class="d-inline-block bg_red text-white fs-2 rounded"><i class="fa fa-phone"></i></span>
                             <h4 class="mt-3">Contact</h4>
-                            <h6 class="text-muted">+(000) 345 67 89</h6>
-                            <h6 class="mb-0 text-muted">+(000) 345 67 89</h6>
+                            <h6 class="text-muted">+62 857 7671 2203</h6>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="contact2i text-center bg-white shadow_box p-4">
                             <span class="d-inline-block bg_red text-white fs-2 rounded"><i class="fa fa-map"></i></span>
                             <h4 class="mt-3">Location</h4>
-                            <h6 class="text-muted">302 - Sem Nagar , India</h6>
-                            <h6 class="mb-0 text-muted">Omez City 125 , India</h6>
+                            <h6 class="text-muted">Jl. Kasturi Raya, Bogor, Indonesia</h6>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -195,15 +128,13 @@
                             <span class="d-inline-block bg_red text-white fs-2 rounded"><i class="fa fa-envelope"></i></span>
                             <h4 class="mt-3">Email</h4>
                             <h6 class="text-muted">movapp13@gmail.com</h6>
-                            <h6 class="mb-0 text-muted">movapp13@gmail.com</h6>
                         </div>
                     </div>
                 </div>
                 <div class="contact3 row mt-4">
                     <div class="col-md-12">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114964.53925916665!2d-80.29949920266738!3d25.782390733064336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b0a20ec8c111%3A0xff96f271ddad4f65!2sMiami%2C+FL%2C+USA!5e0!3m2!1sen!2sin!4v1530774403788"
-                            height="450" style="border:0; width:100%;" allowfullscreen=""></iframe>
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.0760064552496!2d106.98638329723316!3d-6.3841916624436825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69940e69863f47%3A0x5440a6fc2daec26!2sJl.%20Kasturi%20Raya%2C%20Cipenjo%2C%20Kec.%20Cileungsi%2C%20Kabupaten%20Bogor%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1686044743242!5m2!1sid!2sid" height="450" style="border:0; width:100%;" allowfullscreen=""></iframe>
                     </div>
                 </div>
             </div>

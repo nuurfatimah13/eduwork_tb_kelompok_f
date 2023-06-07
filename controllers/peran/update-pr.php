@@ -1,10 +1,12 @@
 <?php 
-$id = $_GET['id'];
+// print_r($_POST);
 
-$nama = $_POST['nama'];
+$id = $_POST['id'];
+$film = $_POST['film_id'];
+$cast = $_POST['cast_id'];
+$peran = $_POST['peran'];
 
 include_once ("../../database/db.php");
-$result = mysqli_query($conn, "UPDATE `genre` SET nama='$nama' WHERE id='$id'");
-header("Location:../../admin/views/genre/genre.php?success=update");
-// comment-issue: tambahkan status pada header pada setelah nama file, silakan tambahkan kalimat ini ?success=update 
+$result = mysqli_query($conn, "UPDATE peran SET film_id='$film', cast_id='$cast', peran='$peran' WHERE peran.id='$id'");
+header("Location:../../admin/views/peran/peran.php?success=update");
 ?>

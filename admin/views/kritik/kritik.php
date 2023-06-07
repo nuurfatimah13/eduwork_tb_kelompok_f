@@ -17,19 +17,19 @@
             <!-- Sidebar Start -->
             <nav id="sidebar" class="sidebar js-sidebar">
                 <div class="sidebar-content js-simplebar">
-                    <a class="sidebar-brand" href="index.php">
+                    <a class="sidebar-brand" href="../../index.php">
                         <img src="../../../assets/img/icons/logo-1.png" alt="logo" width="50%" 
                             style="text-align: center;">
                     </a>
                     <ul class="sidebar-nav">
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="../index.php">
+                            <a class="sidebar-link" href="../../index.php">
                                 <i class="align-middle" data-feather="sliders"></i> 
                                 <span class="align-middle">Dashboard</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="user/users.php">
+                            <a class="sidebar-link" href="../user/user.php">
                                 <i class="align-middle" data-feather="users"></i> 
                                 <span class="align-middle">Users</span>
                             </a>
@@ -59,7 +59,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item active">
-                            <a class="sidebar-link" href="../kritik/kritik.php">
+                            <a class="sidebar-link" href="kritik.php">
                                 <i class="align-middle" data-feather="message-square"></i> 
                                 <span class="align-middle">Kritik</span>
                             </a>
@@ -146,7 +146,7 @@
                                         role="button">
                                         Create Data
                                     </a>
-                                    <table id="kritik" class="table table-striped" 
+                                    <table id="example" class="table table-striped" 
                                         style="width:100%">
                                         <thead>
                                             <tr>
@@ -155,6 +155,7 @@
                                                 <th scope="col">Film</th>
                                                 <th scope="col">Content</th>
                                                 <th scope="col">Point</th>
+                                                <th scope="col">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>

@@ -28,19 +28,19 @@
                                 <span class="align-middle">Dashboard</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="../user/user.php">
+                        <li class="sidebar-item active">
+                            <a class="sidebar-link" href="user.php">
                                 <i class="align-middle" data-feather="users"></i> 
                                 <span class="align-middle">Users</span>
                             </a>
                         </li>
-                        <li class="sidebar-item active">
-                            <a class="sidebar-link" href="actor.php">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="../actor/actor.php">
                                 <i class="align-middle" data-feather="users"></i> 
                                 <span class="align-middle">Actors</span>
                             </a>
                         </li>
-                        <li class="sidebar-item ">
+                        <li class="sidebar-item">
                             <a class="sidebar-link" href="../genre/genre.php">
                                 <i class="align-middle" data-feather="list"></i> 
                                 <span class="align-middle">Genre</span>
@@ -77,7 +77,7 @@
                 <main class="content">
                     <div class="container-fluid p-0">
                         <!-- Title -->
-                        <h1 class="h3 mb-3">Dashboard / <strong>Aktor</strong></h1>
+                        <h1 class="h3 mb-3">Dashboard / <strong>Users</strong></h1>
                         <div class="col-sm-12">
                             <?php 
                                 // MESSAGE
@@ -91,7 +91,7 @@
                                             </button>
                                         </div>			
                                         <?php
-                                    } elseif($_GET['success']=="update"){
+                                    }elseif($_GET['success']=="update"){
                                         ?>
                                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                                             <strong><i class="icon fa fa-check"></i>Data updated successfully!</strong>
@@ -112,16 +112,37 @@
                                     }
                                 }
                             ?>
+                            <?php 
+                                if (isset($_GET['alert'])){
+                                    if ($_GET['alert']=='gagal_ekstensi'){
+                                        ?>
+                                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                            <h4><i class="icon fa fa-warning"></i> Peringatan !</h4>
+                                                Ekstensi Tidak Diperbolehkan
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>				
+                                        <?php
+                                    } elseif($_GET['alert']=="gagal_ukuran"){
+                                        ?>
+                                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                            <h4><i class="icon fa fa-check"></i> Peringatan !</h4>
+                                                Ukuran File terlalu Besar
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>							
+                                        <?php
+                                    }
+                                }
+                            ?>
                             <div class="card">
                                 <div class="card-body">
                                     <?php
                                         include "../../../database/db.php";
-                                        $query = $conn->query("SELECT * FROM cast");
+                                        $query = $conn->query("SELECT * FROM users");
                                     ?>
                                     <!-- Card Title -->
-                                    <h3 class="card-title">Data Aktor</h3>
+                                    <h3 class="card-title">Data Users</h3>
                                     <a class="btn btn-primary btn-md mt-4 mb-3" 
-                                        href="create-act.php" 
+                                        href="./create-usr.php" 
                                         role="button">
                                         Create Data
                                     </a>
@@ -131,31 +152,34 @@
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">Name</th>
-                                                <th scope="col">Age</th>
+                                                <th scope="col">Email</th>
                                                 <th scope="col">Bio</th>
-                                                <th scope="col">Action</th>
+                                                <th scope="col">Address</th>
+                                                <th scope="col">Photo</th>
+                                                <th scope="col">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php 
-                                                if(mysqli_num_rows($query)>0){
-                                                    $no=1; 
+                                                if(mysqli_num_rows($query)>0){ 
+                                                    $no = 1;
                                                     while ($data = mysqli_fetch_array($query)) {
                                             ?>
                                             <tr>
-                                                <td><?php echo $no; ?></td>
-                                                <td><?php echo $data["nama"]; ?></td>
-                                                <td><?php echo $data["umur"]; ?></td>
-                                                <td><?php echo $data["bio"]; ?></td>
+                                                <td scope="row"><?php echo $no?></td>
+                                                <td><?php echo($data['name']); ?></td>
+                                                <td><?php echo($data['email']); ?></td>
+                                                <td><?php echo($data['bio']); ?></td>
+                                                <td><?php echo($data['address']); ?></td>
+                                                <td><img class="w-75" src="../../../assets/img/uploads/<?php echo($data['photo']); ?>" alt=""></td>
                                                 <td>
                                                     <a class="btn btn-warning btn-sm mb-1" 
-                                                        href="edit-act.php?id=<?php echo $data["id"]; ?>">
+                                                        href="edit-usr.php?id=<?php echo $data['id']?>">
                                                         <i class="align-middle" data-feather="edit"></i> 
                                                         <span class="align-middle">Update</span>
-                                                    </a>
-                                                    |
+                                                    </a>|
                                                     <a class="btn btn-danger btn-sm mt-1" 
-                                                        href="../../../controllers/actor/delete-act.php?id=<?php echo $data["id"]; ?>" 
+                                                        href="../../../controllers/user/destroy-usr.php?id=<?php echo $data['id']?>" 
                                                         onclick="alert('Anda yakin ingin menghapus data ini?')">
                                                         <i class="align-middle" data-feather="trash-2"></i> 
                                                         <span class="align-middle">Delete</span>
@@ -163,8 +187,8 @@
                                                 </td>
                                             </tr>
                                             <?php 
-                                            $no++;
-                                                    } 
+                                                        $no++; 
+                                                    }
                                                 } 
                                             ?>
                                         </tbody>

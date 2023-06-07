@@ -77,27 +77,13 @@
                             </li>
                         </ul>
                         <ul class="navbar-nav mb-0 ms-auto">
-                            <li class="nav-item">
-                                <select name="categories" class="form-select bg-light" required="">
-                                    <option value="">All Categories</option>
-                                    <option value=""></option>
-                                </select>
-                                <div class="input-group">
-                                    <input type="text" class="form-control border-start-0" placeholder="Search Movie">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary bg_yell" type="button">
-                                            <i class="fa fa-search"></i> 
-                                        </button>
-                                    </span>
-                                </div>                        
-                            </li>
                             <!-- Modal Start -->
-                            <li class="nav-item ms-3">
+                            <!-- <li class="nav-item ms-3">
                                 <a class="nav-link button" data-bs-toggle="modal" data-bs-target="#signin-modal"
                                     href="#">
                                     SIGN IN
                                 </a>
-                            </li>
+                            </li> -->
                             <!-- Modal End -->
                         </ul>
                     </div>
@@ -126,7 +112,7 @@
                     <div class="col-md-3 pe-0">
                         <div class="events_1i1 clearfix position-relative">
                             <div class="events_1i1i clearfix">
-                                <img src="assets/img/team/stefani.png" alt="abc" class="w-100">
+                                <img src="assets/img/team/stefani.jpeg" alt="abc" class="w-100">
                             </div>
                             <div class="events_1i1i1 clearfix position-absolute bottom-0 text-center w-100">
                                 <ul class="d-inline-block mb-0 p-2 ps-4 pe-4">

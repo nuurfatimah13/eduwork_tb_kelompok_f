@@ -22,14 +22,14 @@
                             style="text-align: center;">
                     </a>
                     <ul class="sidebar-nav">
-                        <li class="sidebar-item active">
+                        <li class="sidebar-item">
                             <a class="sidebar-link" href="../../index.php">
                                 <i class="align-middle" data-feather="sliders"></i>
                                 <span class="align-middle">Dashboard</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="../user/users.php">
+                            <a class="sidebar-link" href="../user/user.php">
                                 <i class="align-middle" data-feather="users"></i>
                                 <span class="align-middle">Users</span>
                             </a>
@@ -46,14 +46,14 @@
                                 <span class="align-middle">Genre</span>
                             </a>
                         </li>
-                        <li class="sidebar-item active">
+                        <li class="sidebar-item">
                             <a class="sidebar-link" href="../film/film.php">
                                 <i class="align-middle" data-feather="film"></i>
                                 <span class="align-middle">Film</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="../peran/peran.php">
+                        <li class="sidebar-item active">
+                            <a class="sidebar-link" href="peran.php">
                                 <i class="align-middle" data-feather="cast"></i>
                                 <span class="align-middle">Peran</span>
                             </a>
@@ -137,11 +137,10 @@
                                 <div class="card-body">
                                     <?php
                                         include "../../../database/db.php";
-                                        $query = $conn->query("SELECT film.judul, cast.nama, cast.umur, cast.bio, peran.peran FROM `cast` JOIN peran ON cast.id = peran.cast_id JOIN film ON film.id = peran.film_id;");
+                                        $query = $conn->query("SELECT peran.id, film.judul, cast.nama, cast.umur, cast.bio, peran.peran FROM `cast` JOIN peran ON cast.id = peran.cast_id JOIN film ON film.id = peran.film_id;");
                                     ?>
 
                                     <!-- Card Title -->
-                                    <h3 class="card-title">Data Template</h3>
                                     <a class="btn btn-primary btn-md mt-4 mb-3" 
                                         href="./create-pr.php" 
                                         role="button">
@@ -168,7 +167,7 @@
                                                 
                                             ?>
                                             <tr>
-                                                <td><?php echo $no++; ?></td>
+                                                <td><?php echo $no; ?></td>
                                                 <td><?php echo $data["judul"]; ?></td>
                                                 <td><?php echo $data["nama"]; ?></td>
                                                 <td><?php echo $data["umur"]; ?></td>
@@ -176,13 +175,13 @@
                                                 <td><?php echo $data["peran"]; ?></td>
                                                 <td>
                                                     <a class="btn btn-warning btn-sm mb-1" 
-                                                        href="./update-pr.php?id=1">
+                                                        href="edit-pr.php?id=<?php echo $data["id"]; ?>">
                                                         <i class="align-middle" data-feather="edit"></i> 
                                                         <span class="align-middle">Update</span>
                                                     </a>
                                                     |
                                                     <a class="btn btn-danger btn-sm mt-1" 
-                                                        href="../../../controllers/peran/delete-pr.php?id=1" 
+                                                        href="../../../controllers/peran/delete-pr.php?id=<?php echo $data["id"]; ?>" 
                                                         onclick="alert('Anda yakin ingin menghapus data ini?')">
                                                         <i class="align-middle" data-feather="trash-2"></i> 
                                                         <span class="align-middle">Delete</span>

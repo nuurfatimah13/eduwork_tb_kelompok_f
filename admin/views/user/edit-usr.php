@@ -28,14 +28,14 @@
                                 <span class="align-middle">Dashboard</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="../user/user.php">
+                        <li class="sidebar-item active">
+                            <a class="sidebar-link" href="user.php">
                                 <i class="align-middle" data-feather="users"></i> 
                                 <span class="align-middle">Users</span>
                             </a>
                         </li>
-                        <li class="sidebar-item active">
-                            <a class="sidebar-link" href="actor.php">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="../actor/actor.php">
                                 <i class="align-middle" data-feather="users"></i> 
                                 <span class="align-middle">Actors</span>
                             </a>
@@ -77,54 +77,107 @@
                 <main class="content">
                     <div class="container-fluid p-0">
                         <!-- Title -->
-                        <h1 class="h3 mb-3">Dashboard / <strong>Aktor</strong></h1>
+                        <h1 class="h3 mb-3">Dashboard / <strong>Users</strong></h1>
                         <div class="col-sm-12">
+                        <?php 
+                                // MESSAGE
+                                if (isset($_GET['message'])){
+                                    if ($_GET['message']=='empty'){
+                                        ?>
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            <strong><i class="icon fa fa-check"></i>The form must be filled!</strong>
+                                            <button type="button" class="btn-close" 
+                                                data-bs-dismiss="alert" aria-label="Close">
+                                            </button>
+                                        </div>			
+                                        <?php
+                                    }
+                                }
+                            ?>
                             <div class="card">
                                 <div class="card-body">
                                     <?php
                                         include "../../../database/db.php";
-                                        $id = $_GET['id'];
-                                        $query = $conn->query("SELECT * FROM cast WHERE id='$id'");
+                                        $id = $_GET['id']; 
+                                        $query = $conn->query("SELECT * FROM users WHERE id = $id");
                                         while ($data = mysqli_fetch_array($query)) {
                                             $id = $data["id"];
-                                            $nama = $data["nama"];
-                                            $umur = $data["umur"];
+                                            $name = $data["name"];
+                                            $address = $data["address"];
+                                            $email = $data["email"];
+                                            $password = $data["password"];
+                                            $age = $data["age"];
                                             $bio = $data["bio"];
+                                            $photo = $data["photo"];
+
                                         }
                                     ?>
                                     <!-- Card Title -->
-                                    <h3 class="card-title mb-4">Update Data Aktor</h3>
+                                    <h3 class="card-title mb-4">Update Data User</h3>
                                     <form class="row g-3 needs-validation" novalidate 
-                                        action="../../../controllers/actor/update-act.php?id=<?php echo $id; ?>" 
+                                        action="../../../controllers/user/update-usr.php?id=<?php echo $id;?>" 
                                         method="post" 
                                         enctype="multipart/form-data">
-                                        <div class="col md-12">
-                                            <label for="validationCustomName" class="form-label">Nama</label>
+                                        <div class="col-6">
+                                            <label for="validationCustomDescription" class="form-label">Name</label>
                                             <div class="input-group has-validation">
-                                                <input type="text" name="nama" class="form-control" 
-                                                    id="validationCustomName" value="<?php echo $nama; ?>"
+                                                <input type="text" name="name" value="<?php echo $name;?>"
+                                                    class="form-control" id="validationCustomDescription" 
                                                     aria-describedby="inputGroupPrepend" required>
                                                 <div class="invalid-feedback">
-                                                    Nama tidak boleh kosong.
+                                                    Name tidak boleh kosong.
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-3">
-                                            <label for="validationCustomPrice" class="form-label">Umur</label>
+                                        <div class="col-6">
+                                            <label for="validationCustomDescription" class="form-label">Address</label>
                                             <div class="input-group has-validation">
-                                                <input type="text" name="umur" class="form-control" 
-                                                    id="validationCustomPrice" value="<?php echo $umur; ?>" 
+                                                <input type="text" name="address" value="<?php echo $address;?>"
+                                                    class="form-control" id="validationCustomDescription" 
                                                     aria-describedby="inputGroupPrepend" required>
                                                 <div class="invalid-feedback">
-                                                    Umur tidak boleh kosong.
+                                                    Address tidak boleh kosong.
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12">
-                                            <label for="validationCustomPrice" class="form-label">Bio</label>
+                                        <div class="col-6">
+                                            <label for="validationCustomDescription" class="form-label">Email</label>
                                             <div class="input-group has-validation">
-                                                <input type="text" name="bio" class="form-control" 
-                                                    id="validationCustomPrice" value="<?php echo $bio; ?>"
+                                                <input type="email" name="email" value="<?php echo $email;?>"
+                                                    class="form-control" id="validationCustomDescription" 
+                                                    aria-describedby="inputGroupPrepend" required>
+                                                <div class="invalid-feedback">
+                                                    Email tidak boleh kosong.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="validationCustomDescription" class="form-label">Password</label>
+                                            <div class="input-group has-validation">
+                                                <input type="password" name="password" value="<?php echo $password;?>"
+                                                    class="form-control" id="validationCustomDescription" 
+                                                    aria-describedby="inputGroupPrepend" required>
+                                                <div class="invalid-feedback">
+                                                    Password tidak boleh kosong.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <label for="validationCustomDescription" class="form-label">Age</label>
+                                            <div class="input-group has-validation">
+                                                <input type="number" name="age" value="<?php echo $age;?>"
+                                                    class="form-control" id="validationCustomDescription" 
+                                                    aria-describedby="inputGroupPrepend" required>
+                                                <div class="invalid-feedback">
+                                                    Age tidak boleh kosong.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-10">
+                                            <label for="validationCustomDescription" class="form-label">Bio</label>
+                                            <div class="input-group has-validation">
+                                                <input type="text" name="bio" value="<?php echo $bio;?>"
+                                                    class="form-control" id="validationCustomDescription" 
                                                     aria-describedby="inputGroupPrepend" required>
                                                 <div class="invalid-feedback">
                                                     Bio tidak boleh kosong.
@@ -132,9 +185,20 @@
                                             </div>
                                         </div>
                                         <div class="col-12">
-                                            <button class="btn btn-primary" type="submit">Update</button>
+                                            <label for="validationCustomDescription" class="form-label">Photo</label>
+                                            <div class="input-group has-validation">
+                                                <input type="file" name="image[]" value="<?php echo $photo;?>"
+                                                    class="form-control" id="validationCustomDescription" 
+                                                    aria-describedby="inputGroupPrepend" required>
+                                                <div class="invalid-feedback">
+                                                    Photo tidak boleh kosong.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">    
+                                            <button class="btn btn-primary" type="submit" name="submit">Update</button>
                                             <a class="btn btn-secondary" 
-                                                href="actor.php" role="button">
+                                                href="user.php" role="button">
                                                 Cancel
                                             </a>
                                         </div>

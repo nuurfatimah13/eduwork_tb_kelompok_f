@@ -17,7 +17,7 @@
             <!-- Sidebar Start -->
             <nav id="sidebar" class="sidebar js-sidebar">
                 <div class="sidebar-content js-simplebar">
-                    <a class="sidebar-brand" href="index.php">
+                    <a class="sidebar-brand" href="../../index.php">
                         <img src="../../../assets/img/icons/logo-1.png" alt="logo" width="50%" 
                             style="text-align: center;">
                     </a>
@@ -29,13 +29,13 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="user/users.php">
+                            <a class="sidebar-link" href="../user/user.php">
                                 <i class="align-middle" data-feather="users"></i> 
                                 <span class="align-middle">Users</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="actor/actor.php">
+                            <a class="sidebar-link" href="../actor/actor.php">
                                 <i class="align-middle" data-feather="users"></i> 
                                 <span class="align-middle">Actors</span>
                             </a>
@@ -47,19 +47,19 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="film/film.php">
+                            <a class="sidebar-link" href="../film/film.php">
                                 <i class="align-middle" data-feather="film"></i> 
                                 <span class="align-middle">Film</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="peran/peran.php">
+                            <a class="sidebar-link" href="../peran/peran.php">
                                 <i class="align-middle" data-feather="cast"></i> 
                                 <span class="align-middle">Peran</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="kritik/kritik.php">
+                            <a class="sidebar-link" href="../kritik/kritik.php">
                                 <i class="align-middle" data-feather="message-square"></i> 
                                 <span class="align-middle">Kritik</span>
                             </a>

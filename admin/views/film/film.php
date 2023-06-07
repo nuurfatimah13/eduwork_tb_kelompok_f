@@ -18,18 +18,18 @@
         <!-- Sidebar Start -->
         <nav id="sidebar" class="sidebar js-sidebar">
             <div class="sidebar-content js-simplebar">
-                <a class="sidebar-brand" href="index.php">
+                <a class="sidebar-brand" href="../../index.php">
                     <img src="../../../assets/img/icons/logo-1.png" alt="logo" width="50%" style="text-align: center;">
                 </a>
                 <ul class="sidebar-nav">
-                    <li class="sidebar-item active">
+                    <li class="sidebar-item">
                         <a class="sidebar-link" href="../../index.php">
                             <i class="align-middle" data-feather="sliders"></i>
                             <span class="align-middle">Dashboard</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="../user/users.php">
+                        <a class="sidebar-link" href="../user/user.php">
                             <i class="align-middle" data-feather="users"></i>
                             <span class="align-middle">Users</span>
                         </a>
@@ -47,7 +47,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item active">
-                        <a class="sidebar-link" href="../film/film.php">
+                        <a class="sidebar-link" href="film.php">
                             <i class="align-middle" data-feather="film"></i>
                             <span class="align-middle">Film</span>
                         </a>
@@ -134,10 +134,9 @@
                             <div class="card-body">
                                 <?php
                                 include "../../../database/db.php";
-                                $query = $conn->query("SELECT film.id, film.poster, film.judul, genre.nama, film.ringkasan, film.tahun FROM film INNER JOIN genre ON film.genre_id = genre.id; ");
+                                $query = $conn->query("SELECT film.id, film.poster, film.judul, genre.nama, film.trailer, film.ringkasan, film.tahun FROM film INNER JOIN genre ON film.genre_id = genre.id; ");
                                 ?>
                                 <!-- Card Title -->
-                                <h3 class="card-title">Data Film</h3>
                                 <a class="btn btn-primary btn-md mt-4 mb-3" href="create-fm.php" role="button">
                                     Create Data
                                 </a>
@@ -148,6 +147,7 @@
                                             <th scope="col">Poster</th>
                                             <th scope="col">Movie</th>
                                             <th scope="col">Genre</th>
+                                            <th scope="col">Trailer</th>
                                             <th scope="col">Description</th>
                                             <th scope="col">Release Year</th>
                                             <th scope="col">Action</th>
@@ -165,6 +165,7 @@
                                                     <td><?php echo "<img src='../../../assets/img/film/" . $data['poster'] . "' width='100px' height='100px'/>"; ?></td>
                                                     <td><?php echo $data["judul"]; ?></td>
                                                     <td><?php echo $data["nama"]; ?></td>
+                                                    <td><?php echo $data["trailer"]; ?></td>
                                                     <td><?php echo $data["ringkasan"]; ?></td>
                                                     <td><?php echo $data["tahun"]; ?></td>
                                                     <td>
