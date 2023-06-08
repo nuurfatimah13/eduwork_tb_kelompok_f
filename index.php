@@ -240,8 +240,9 @@
                             <div class="upcome_2i row">
                                 <?php
                                     include "database/db.php";
-                                    $query = $conn->query("SELECT film.id, film.poster, film.judul, genre.nama, 
-                                        film.ringkasan, film.tahun, film.trailer, kritik.point AS rating
+                                    $query = $conn->query("SELECT film.id, film.poster, film.judul, 
+                                        genre.nama, film.ringkasan, film.tahun, film.trailer, 
+                                        kritik.point AS rating
                                     FROM film
                                     INNER JOIN genre ON film.genre_id = genre.id 
                                     LEFT JOIN kritik ON film.id = kritik.film_id 

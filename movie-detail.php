@@ -116,8 +116,7 @@
                                     include "database/db.php";
                                     $id = $_GET['id']; 
                                     $query = $conn->query("SELECT film.id, film.poster, film.judul, 
-                                        genre.nama AS genre, film.ringkasan AS ringkasan, film.tahun, 
-                                        film.trailer, kritik.point AS rating, 
+                                        film.genre_id, genre.nama AS genre, film.ringkasan AS ringkasan, film.tahun, film.trailer, kritik.point AS rating, 
                                         COUNT(kritik.content) AS comment
                                     FROM film
                                     INNER JOIN genre ON film.genre_id = genre.id 
@@ -133,6 +132,7 @@
                                         $trailer = $data["trailer"];
                                         $rating = $data["rating"];
                                         $comment = $data["comment"];
+                                        $genreId = $data["genre_id"];
 
                                     }
                                 ?>
@@ -146,15 +146,28 @@
                                     <h6 class="col_red">Released <?= $tahun; ?></h6>
                                     <h4 class="mt-3"><?= $judul; ?></h4>
                                     <h5 class="mt-1"><?= $genre; ?></h5>
-                                    <p>Deskripsi: <br /> <?= $ringkasan; ?></p>
+                                    <p class="mt-1"><b>Deskripsi:</b> <br /> <?= $ringkasan; ?></p>
                                     <div class="blog1l1id clearfix row">
-                                        <div class="col-md-4">
+                                        <h6><b>Aktor:</b></h6>
+                                        <?php 
+                                            $queryCast = $conn->query("SELECT cast.nama AS aktor
+                                                FROM peran
+                                                INNER JOIN cast ON cast.id = peran.cast_id
+                                                WHERE peran.film_id=$id;
+                                            ");
+                                            while ($dataCast = mysqli_fetch_array($queryCast)) {
+                                                $cast = $dataCast["aktor"];
+                                        ?>
+                                        <div class="">
                                             <div class="blog1l1idi">
                                                 <div class="grid clearfix">
-                                                    Actor
+                                                    <?= $cast; ?>,
                                                 </div>
                                             </div>
                                         </div>
+                                        <?php 
+                                            }
+                                        ?>
                                     </div>
                                 </div>
                                 <div class="blog1l1i1 clearfix row m-0 p-3">
@@ -181,26 +194,38 @@
                             </div>
                             <div class="blog1ld2 row m-0 mt-2 bg-white pt-3 pb-3 shadow_box">
                                 <?php 
-                                    
+                                    $id = $_GET['id'];
+                                    $query_cm = $conn->query("SELECT kritik.users_id, kritik.film_id, 
+                                        kritik.content, users.name, users.photo
+                                        FROM kritik
+                                        INNER JOIN users ON users.id = kritik.users_id
+                                        WHERE kritik.film_id=$id;
+                                    ");
+                                    while($row_cm = mysqli_fetch_array($query_cm)){
+                                        $content_cm = $row_cm["content"];
+                                        $name_cm = $row_cm["name"];
+                                        $photo_cm = $row_cm["photo"];
                                 ?>
                                 <div class="col-md-2 pe-0 col-sm-2">
                                     <div class="blog1ld2l">
                                         <div class="grid clearfix">
                                             <figure class="effect-jazz mb-0">
-                                                <img src="assets/img/uploads/" class="w-100" alt="abc">
+                                                <img src="assets/img/uploads/<?= $photo_cm; ?>" 
+                                                    class="w-100" alt="<?= $name_cm; ?>">
                                             </figure>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-10 col-sm-10">
                                     <div class="blog1ld2r">
-                                        <h5>Eget Nulla </h5>
-                                        <h6 class="col_red fw-bold font_14">Feb 3 , 2022 - Monday - <a class="col_red" href="#">Reply</a></h6>
-                                        <p class="mb-0 fs-6">The actor, director and producer, son to well-known stunt choreographer of
-                                            Bollywood, rried to one of the most vivacious, bubbly, live-wire actress, is none other than our
-                                            dashing Ajay Devgan, originally named Vishal Devgan !</p>
+                                        <h5><?= $name_cm; ?></h5>
+                                        <h6 class="col_red fw-bold font_14"></h6>
+                                        <p class="mb-0 fs-6"><?= $content_cm; ?></p>
                                     </div>
                                 </div>
+                                <?php 
+                                    }
+                                ?>
                             </div>
                             <!-- <div class="blog1ld1 row mt-4 text-light">
                                 <div class="col-md-12">
@@ -247,61 +272,48 @@
                     <div class="col-md-3">
                         <div class="blog1r">
                             <div class="blog1r2 shadow_box p-3 bg-white">
-                                <h5>Movie</h5>
+                                <h5>Similar Movies</h5>
                                 <hr class="line mb-3">
+                                <?php
+                                    // query for similar movies order by genre
+                                    $querysM = $conn->query("SELECT film.id, film.poster, film.judul, 
+                                        film.genre_id, film.tahun 
+                                        FROM film
+                                        WHERE film.genre_id=$genreId
+                                        LIMIT 4;
+                                    ");
+                                    while($rowsM = mysqli_fetch_array($querysM)){
+                                        $idsM = $rowsM['id'];
+                                        $postersM = $rowsM['poster'];
+                                        $judulsM = $rowsM['judul'];
+                                        $tahunsM = $rowsM['tahun'];
+                                ?>
                                 <div class="blog1r2i row">
                                     <div class="col-md-4 col-4 pe-0">
                                         <div class="blog1r2il">
                                             <div class="grid clearfix">
                                                 <figure class="effect-jazz mb-0">
-                                                    <a href="#"><img src="img/25.jpg" class="w-100" alt="abc"></a>
+                                                    <a href="movie-detail.php?id=<?= $idsM;?>">
+                                                        <img src="assets/img/film/<?= $postersM; ?>" 
+                                                            class="w-100" alt="<?= $judulsM; ?>">
+                                                    </a>
                                                 </figure>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-8 col-8">
                                         <div class="blog1r2il">
-                                            <p class="mb-1 lh-1"><a href="#">Lorem spum menus.</a></p>
-                                            <h6 class="mb-0 col_red">10 June 2022</h6>
+                                            <p class="mb-1 lh-1">
+                                                <a href="movie-detail.php?id=<?= $idsM;?>"><?= $judulsM; ?></a>
+                                            </p>
+                                            <h6 class="mb-0 col_red"><?= $tahunsM; ?></h6>
                                         </div>
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="blog1r2i row">
-                                    <div class="col-md-4 col-4 pe-0">
-                                        <div class="blog1r2il">
-                                            <div class="grid clearfix">
-                                                <figure class="effect-jazz mb-0">
-                                                    <a href="#"><img src="img/26.jpg" class="w-100" alt="abc"></a>
-                                                </figure>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8 col-8">
-                                        <div class="blog1r2il">
-                                            <p class="mb-1 lh-1"><a href="#">Lorem spum menus.</a></p>
-                                            <h6 class="mb-0 col_red">10 June 2022</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="blog1r2i row">
-                                    <div class="col-md-4 col-4 pe-0">
-                                        <div class="blog1r2il">
-                                            <div class="grid clearfix">
-                                                <figure class="effect-jazz mb-0">
-                                                    <a href="#"><img src="img/27.jpg" class="w-100" alt="abc"></a>
-                                                </figure>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8 col-8">
-                                        <div class="blog1r2il">
-                                            <p class="mb-1 lh-1"><a href="#">Lorem spum menus.</a></p>
-                                            <h6 class="mb-0 col_red">10 June 2022</h6>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php 
+                                    }
+                                ?>
                             </div>
                         </div>
                     </div>
