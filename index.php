@@ -78,12 +78,11 @@
                         </ul>
                         <ul class="navbar-nav mb-0 ms-auto">
                             <!-- Modal Start -->
-                            <!-- <li class="nav-item ms-3">
-                                <a class="nav-link button" data-bs-toggle="modal" data-bs-target="#signin-modal"
-                                    href="#">
+                            <li class="nav-item ms-3">
+                                <a class="nav-link button" href="index-login.php">
                                     SIGN IN
                                 </a>
-                            </li> -->
+                            </li>
                             <!-- Modal End -->
                         </ul>
                     </div>
