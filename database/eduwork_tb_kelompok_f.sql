@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Jun 2023 pada 06.33
--- Versi server: 10.4.27-MariaDB
--- Versi PHP: 8.2.0
+-- Waktu pembuatan: 08 Jun 2023 pada 04.57
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,21 +32,106 @@ CREATE TABLE `cast` (
   `nama` varchar(65) NOT NULL,
   `umur` int(11) NOT NULL,
   `bio` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `cast`
 --
 
 INSERT INTO `cast` (`id`, `nama`, `umur`, `bio`) VALUES
-(1, 'Arifin Putra', 30, 'Aktor terbaik Indonesian movie awards 2010'),
-(2, 'Alex Abbad', 31, 'penyair, pembawa acara, musisi, seniman visual, dan produser musik.'),
-(3, 'Christine Hakim', 40, 'aktris, produser film, dan aktivis Indonesia.'),
-(4, 'Cinta Laura', 29, 'Penyayi dan Aktris'),
-(5, 'Tania Gunadi', 39, 'Aktris Muslim Film Disney'),
-(6, 'Kiki Narendra', 43, 'Aktor dan Musisi'),
+(1, 'Ernest Prakasa', 30, 'Aktor'),
+(2, 'Dion Wiyoko', 31, 'Aktor'),
+(3, 'Chew Kinwah', 40, 'Aktor'),
+(4, 'Adinia Wirasti', 29, 'Aktris'),
+(5, 'Gisella Anastasia', 29, 'Aktris'),
+(6, 'Tora Sudiro', 30, 'Aktor'),
 (7, 'Jackie Chan', 50, 'aktor, sutradara, pemeran pengganti, produser film, aktor bela diri, aktor komedi, penulis naskah layar lebar dan penyanyi dari Hong Kong'),
-(8, 'Joseph Mazzello', 34, 'Aktor Amerika');
+(8, 'Asri Welas', 34, 'Aktris'),
+(9, 'Michelle Ferre', 30, 'Aktris'),
+(10, 'Mirai Yamamoto', 31, 'Aktor'),
+(11, 'Ron Smerczak', 39, 'Aktor'),
+(12, 'Ed Nelson', 34, 'Aktor'),
+(13, 'Iko Uwais', 30, 'Aktor'),
+(14, 'Donny Alamsyah', 31, 'Aktor'),
+(15, 'Pierre Gruno', 39, 'Aktor'),
+(16, 'Ray Sahetapy', 34, 'Aktor'),
+(17, 'Joe Taslim', 35, 'Aktor'),
+(18, 'Yayan Ruhian', 36, 'Aktor'),
+(19, 'Iqbaal Ramadhan', 29, 'Aktor'),
+(20, 'Angga Yunanda', 29, 'Aktor'),
+(21, 'Aghniny Haque', 28, 'Aktris'),
+(22, 'Rachel Amanda', 25, 'Aktris'),
+(23, 'Umay Shahab', 22, 'Aktor'),
+(24, 'Ari Irham', 21, 'Aktor'),
+(25, 'Chicco Jerikho', 38, 'Aktor, model'),
+(26, 'Rio Dewanto', 35, 'Aktor, Model'),
+(27, 'Hana Prinantina', 31, 'Aktris, Model'),
+(28, 'Arswendy Beningswara Nasution', 65, 'Aktor, Pelatih Akting'),
+(31, 'Luna Maya', 39, 'Aktris, Presenter, Model'),
+(32, 'Adipati Dolken', 31, 'Aktor'),
+(33, 'Aliando Syarief', 26, 'Aktor, penyanyi'),
+(34, 'Tio Pakusadewo', 59, 'Aktor'),
+(35, 'Jefri Nichol', 24, 'Aktor, Model'),
+(36, 'Guilio Parengkuan', 23, 'Aktor, Model'),
+(37, 'Widika Sidmore', 31, 'Aktris'),
+(38, 'Vanesha Prescilla', 23, 'Aktris, Penyanyi'),
+(39, 'Sissy Priscillia', 38, 'Aktris, Penyiar radio'),
+(40, 'Debo Andryos', 26, 'Aktor, Penyanyi'),
+(41, 'Omara Esteghlal', 23, 'Aktor, Penulis'),
+(42, 'Yoriko Angeline', 20, 'Aktris, Presenter'),
+(43, 'Zulfa Maharani', 23, 'Aktris, Model'),
+(44, 'Caitlin Halderman', 22, 'Aktris, Model'),
+(45, 'Salshabilla Adriani', 22, 'Aktris, Model'),
+(46, 'Ricky Cuaca', 34, 'Aktor, komedian'),
+(47, 'Teuku Ryzki', 25, 'Aktor, Penyanyi'),
+(48, 'Kevin Royano', 26, 'Aktor, Model'),
+(49, 'Meriam Bellina', 58, 'Aktris, Penyanyi'),
+(50, 'Rianti Cartwright', 39, 'Aktris, VJ, Model'),
+(51, 'Ramzi', 47, 'Aktor, Komedian'),
+(52, 'Gading Marten', 41, 'Aktor, Fotografer'),
+(53, 'Boris Bokir', 35, 'Aktor, Komedian'),
+(54, 'Kevin Ardilova', 24, 'Aktor, Model'),
+(55, 'Ibnu Jamil', 41, 'Aktor, Presenter'),
+(56, 'Shakira Jasmine', 20, 'Aktris, Penyanyi'),
+(57, 'Faradina Mufti', 33, 'Aktris, Model'),
+(58, 'Dian Sastrowardoyo', 41, 'Model, Artis, Penyanyi'),
+(60, 'Kiki Narendra', 43, 'Musisi'),
+(61, 'Muryati', 30, 'Penduduk Desa Genikan'),
+(62, 'Sudardi', 32, 'Penduduk Desa Genikan'),
+(63, 'Arifin', 12, 'Anak Penduduk Desa Genikan'),
+(64, 'Tom Holland', 27, 'Aktor'),
+(65, 'Mark Wahlberg', 52, 'Aktor, Prouser, Pebisnis'),
+(66, 'Sophia Taylor', 27, 'Aktris'),
+(67, 'Tati Gabrielle', 27, 'Aktris'),
+(68, 'Antonio Banderas', 62, 'Aktor'),
+(69, 'Tom Blyth', 28, 'Aktor'),
+(70, 'Rachel Zegler', 22, 'Aktris, Youtuber'),
+(71, 'Peter Dinklage', 53, 'Aktor, Produser Film'),
+(72, 'Hunter Schafer', 24, 'Aktris, Model, Aktivis'),
+(73, 'Jason Schwartzman', 35, 'Aktor'),
+(74, 'Viola Davis', 57, 'Produser, Aktris'),
+(75, 'Ashley Liao', 21, 'Aktris'),
+(76, 'Tom Cruise', 60, 'Aktor, Penulis, Sutradara'),
+(77, 'Simon Pegg', 53, 'Aktor,Komedian, Penulis'),
+(78, 'Ving Rhames', 64, 'Aktor'),
+(79, 'Rebecca Ferguson', 39, 'Aktris'),
+(80, 'Vanessa Kirby', 35, 'Aktris'),
+(81, 'Hayley Atwell', 41, 'Aktris'),
+(82, 'Shea Whigham', 54, 'Aktor'),
+(83, 'Henry Czerny', 64, 'Aktor'),
+(84, 'Harrison Ford', 80, 'Aktor'),
+(85, 'Mads Mikkelsen', 41, 'Aktor'),
+(86, 'Toby Jones', 56, 'Aktor'),
+(87, 'Boyd Holbrook', 43, 'Aktor, Model'),
+(88, 'Phoebe Waller-Bridge', 37, 'Aktris, Penulis'),
+(89, 'John Rhys-Davies', 43, 'Aktor'),
+(90, 'Grant Gustin', 28, 'Aktor'),
+(91, 'Candice Patton', 30, 'Aktris'),
+(92, 'Rick Cossnett', 35, 'Aktor'),
+(93, 'Danielle Panabaker', 30, 'Aktris'),
+(94, 'Carlos Veldes', 32, 'Aktor'),
+(95, 'Tom Cavanagh', 39, 'Aktor'),
+(96, 'Jesse L.Martin', 39, 'Aktor');
 
 -- --------------------------------------------------------
 
@@ -62,7 +147,7 @@ CREATE TABLE `film` (
   `trailer` varchar(255) NOT NULL,
   `ringkasan` text NOT NULL,
   `tahun` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `film`
@@ -94,7 +179,7 @@ INSERT INTO `film` (`id`, `poster`, `judul`, `genre_id`, `trailer`, `ringkasan`,
 CREATE TABLE `genre` (
   `id` int(11) NOT NULL,
   `nama` varchar(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `genre`
@@ -124,7 +209,7 @@ CREATE TABLE `kritik` (
   `film_id` int(11) NOT NULL,
   `content` text DEFAULT NULL,
   `point` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `kritik`
@@ -146,7 +231,113 @@ CREATE TABLE `peran` (
   `film_id` int(11) NOT NULL,
   `cast_id` int(11) NOT NULL,
   `peran` varchar(65) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `peran`
+--
+
+INSERT INTO `peran` (`id`, `film_id`, `cast_id`, `peran`) VALUES
+(10, 1, 1, 'Erwin'),
+(11, 1, 2, 'Yohan'),
+(12, 1, 3, 'Koh Afuk'),
+(13, 1, 4, 'Ayu'),
+(14, 1, 5, 'Natalie'),
+(15, 1, 6, 'Robert'),
+(16, 1, 8, 'Ibu Sonya'),
+(17, 2, 7, 'WhoAmI'),
+(18, 2, 9, 'Christine Stark'),
+(19, 2, 10, 'Yuki'),
+(20, 2, 11, 'Morgan'),
+(21, 2, 12, 'General Sherman'),
+(22, 3, 13, 'Rama'),
+(23, 3, 17, 'Sersan Jaka'),
+(24, 3, 18, 'Mad Dog'),
+(25, 3, 15, 'Letnan Wahyu'),
+(26, 3, 14, 'Andi'),
+(27, 3, 16, 'Tama Riyadi'),
+(28, 4, 19, 'Piko Subiakto'),
+(29, 4, 20, 'Yusuf Hamdan'),
+(30, 4, 21, 'Sarah \'the Brute\''),
+(31, 4, 22, 'Fella \'the Negotiator\''),
+(32, 4, 23, 'Gofar \'the Handyman\''),
+(33, 4, 24, 'Tuktuk \'the Driver\''),
+(34, 5, 25, 'Ben'),
+(35, 5, 26, 'Jody'),
+(36, 5, 18, 'Aa Tubir'),
+(37, 5, 27, 'Rinjani'),
+(38, 5, 28, 'Pak Hasan'),
+(39, 5, 21, 'Tambora'),
+(40, 5, 31, 'Tarra'),
+(41, 6, 32, 'Ibra'),
+(42, 6, 33, 'Amar'),
+(43, 6, 34, 'Pak Musa'),
+(44, 6, 35, 'Elzan'),
+(45, 6, 36, 'Faisal'),
+(46, 6, 37, 'Jamila'),
+(47, 7, 19, 'Dilan'),
+(48, 7, 38, 'Milea'),
+(49, 7, 39, 'Milea(narator)'),
+(50, 7, 40, 'Nandan'),
+(51, 7, 36, 'Anhar'),
+(52, 7, 41, 'Piyan'),
+(53, 7, 42, 'Wati'),
+(54, 7, 43, 'Rani'),
+(55, 8, 35, 'Hema'),
+(56, 8, 44, 'Starla'),
+(57, 8, 45, 'Athena'),
+(58, 8, 46, 'Romeo'),
+(59, 8, 47, 'Kiki'),
+(60, 8, 48, 'Bimo'),
+(61, 8, 49, 'Gladys'),
+(62, 8, 50, 'Bulan'),
+(63, 8, 51, 'Polisi'),
+(64, 9, 52, 'Taat Pribadi'),
+(65, 9, 53, 'Nelson Manulang'),
+(66, 9, 54, 'Ipang'),
+(67, 9, 55, 'Gagah Perkasa'),
+(68, 9, 56, 'Saulina'),
+(69, 9, 57, 'Rahayu Paramitha'),
+(70, 9, 58, 'Nirmala'),
+(71, 9, 28, 'Purnama'),
+(72, 9, 8, 'Indah'),
+(73, 9, 60, 'Pak Le'),
+(74, 10, 62, 'Tokoh Protagonis'),
+(75, 10, 61, 'Tokoh Protagonis'),
+(76, 10, 63, 'Tokoh Protagonis'),
+(77, 39, 64, 'Nathan'),
+(78, 39, 65, 'Victor'),
+(79, 39, 66, 'Chloe Frazer'),
+(80, 39, 67, 'Braddock'),
+(81, 39, 68, 'Santiago Moncada'),
+(82, 40, 69, 'Coriolanus\"Coryo\"'),
+(83, 40, 70, 'Lucy Gray Baird'),
+(84, 40, 71, 'Casca Highbootom'),
+(85, 40, 72, 'Tigris Snow'),
+(86, 40, 73, 'Lucretius\"Lucky\"'),
+(87, 40, 74, 'Dr. Volumnia Gaul'),
+(88, 43, 76, 'Ethan Hunt, agen IMF'),
+(89, 43, 77, 'Benji Dunn, teknisi IMF'),
+(90, 43, 78, 'Luther Stickell'),
+(91, 43, 79, 'Ilsa Faust'),
+(92, 43, 80, 'Alanna Mitsopolis'),
+(93, 43, 81, 'Grace'),
+(94, 43, 82, 'Jasper Briggs'),
+(95, 43, 83, 'Eugene Kittridge'),
+(96, 44, 84, 'Indiana Jones'),
+(97, 44, 85, 'Jourgen Voller'),
+(98, 44, 68, 'Renaldo'),
+(99, 44, 86, 'Basil Shaw'),
+(100, 44, 87, 'Klaber'),
+(101, 44, 88, 'Helena Shaw'),
+(102, 44, 89, 'Sallah'),
+(103, 46, 90, 'Barry Allen \"Flash\"'),
+(104, 46, 91, 'Iris Wess'),
+(105, 46, 92, 'Eddle Thawn'),
+(106, 46, 93, 'Dr. Caitlin Sno'),
+(107, 46, 94, 'Cisco Ramo'),
+(108, 46, 95, 'Dr. Harrison Well'),
+(109, 46, 96, 'Detective Joe West');
 
 -- --------------------------------------------------------
 
@@ -163,7 +354,7 @@ CREATE TABLE `users` (
   `bio` varchar(255) DEFAULT NULL,
   `address` text DEFAULT NULL,
   `photo` varchar(60) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `users`
@@ -225,7 +416,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `cast`
 --
 ALTER TABLE `cast`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT untuk tabel `film`
@@ -249,7 +440,7 @@ ALTER TABLE `kritik`
 -- AUTO_INCREMENT untuk tabel `peran`
 --
 ALTER TABLE `peran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
