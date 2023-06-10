@@ -192,20 +192,20 @@
                                     <hr class="line">
                                 </div>
                             </div>
+                            <?php 
+                                $id = $_GET['id'];
+                                $query_cm = $conn->query("SELECT kritik.users_id, kritik.film_id, 
+                                    kritik.content, users.name, users.photo
+                                    FROM kritik
+                                    INNER JOIN users ON users.id = kritik.users_id
+                                    WHERE kritik.film_id=$id;
+                                ");
+                                while($row_cm = mysqli_fetch_array($query_cm)){
+                                    $content_cm = $row_cm["content"];
+                                    $name_cm = $row_cm["name"];
+                                    $photo_cm = $row_cm["photo"];
+                            ?>
                             <div class="blog1ld2 row m-0 mt-2 bg-white pt-3 pb-3 shadow_box">
-                                <?php 
-                                    $id = $_GET['id'];
-                                    $query_cm = $conn->query("SELECT kritik.users_id, kritik.film_id, 
-                                        kritik.content, users.name, users.photo
-                                        FROM kritik
-                                        INNER JOIN users ON users.id = kritik.users_id
-                                        WHERE kritik.film_id=$id;
-                                    ");
-                                    while($row_cm = mysqli_fetch_array($query_cm)){
-                                        $content_cm = $row_cm["content"];
-                                        $name_cm = $row_cm["name"];
-                                        $photo_cm = $row_cm["photo"];
-                                ?>
                                 <div class="col-md-2 pe-0 col-sm-2">
                                     <div class="blog1ld2l">
                                         <div class="grid clearfix">
@@ -223,10 +223,10 @@
                                         <p class="mb-0 fs-6"><?= $content_cm; ?></p>
                                     </div>
                                 </div>
-                                <?php 
-                                    }
-                                ?>
                             </div>
+                            <?php 
+                                }
+                            ?>
                             <!-- <div class="blog1ld1 row mt-4 text-light">
                                 <div class="col-md-12">
                                     <h3>LEAVE A COMMENT</h3>

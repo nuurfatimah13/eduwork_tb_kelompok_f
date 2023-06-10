@@ -98,7 +98,7 @@
                     <div class="col-md-12">
                         <h2>CONTACT US</h2>
                         <h5 class="bg_dark d-inline-block p-4 mb-0 mt-4 pt-2 pb-2 fw-normal col_red">
-                            <a class="text-white" href="#">Home</a> 
+                            <a class="text-white" href="index.php">Home</a> 
                             <span class="me-2 ms-2 text-muted"> /</span> Contact Us
                         </h5>
                     </div>
