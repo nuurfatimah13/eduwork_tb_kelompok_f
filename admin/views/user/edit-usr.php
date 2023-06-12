@@ -187,6 +187,7 @@
                                         <div class="col-12">
                                             <label for="validationCustomDescription" class="form-label">Photo</label>
                                             <div class="input-group has-validation">
+                                                <input type="hidden" name="previous"value="<?= $photo ?>"/>
                                                 <input type="file" name="image[]" value="<?php echo $photo;?>"
                                                     class="form-control" id="validationCustomDescription" 
                                                     aria-describedby="inputGroupPrepend" required>

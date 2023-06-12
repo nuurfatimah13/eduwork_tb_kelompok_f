@@ -14,7 +14,7 @@ body {
 }
 
 .wrapper {
-    max-width: 350px;
+    max-width: 450px;
     min-height: 500px;
     margin: 80px auto;
     padding: 40px 30px 30px 30px;
@@ -40,11 +40,10 @@ body {
 }
 
 .wrapper .name {
-    font-weight: 600px;
-    margin-bottom: 20px;
+    font-weight: 600;
     font-size: 1.4rem;
     letter-spacing: 1.3px;
-    padding-left: 99px;
+    padding-left: 10px;
     color: #555;
 }
 
@@ -57,7 +56,6 @@ body {
     font-size: 1.2rem;
     color: #666;
     padding: 10px 15px 10px 10px;
-    /* border: 1px solid red; */
 }
 
 .wrapper .form-field {

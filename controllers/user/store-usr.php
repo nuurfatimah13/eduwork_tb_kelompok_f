@@ -6,7 +6,7 @@ if($_POST['name']=="" || $_POST['email']=="" || $_POST['password']=="" || $_POST
 if(isset($_POST['submit'])){
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
     $bio = $_POST['bio'];
     $age = $_POST['age'];
     $address = $_POST['address'];
