@@ -170,11 +170,15 @@
                             <?php
                             include "database/db.php";
                             $query = $conn->query("SELECT film.id, film.poster, film.judul, genre.nama, 
-                                    film.ringkasan, film.tahun, film.trailer, kritik.point AS rating
+                                    film.ringkasan, film.tahun, film.trailer AS rating
                                     FROM film 
                                     INNER JOIN genre ON film.genre_id = genre.id
                                     LEFT JOIN kritik ON film.id = kritik.film_id 
                                     WHERE film.tahun>YEAR(NOW());");
+                            $query1 = $conn->query("SELECT film_id , count(film_id) as jumlah_kritik ,sum(point) as jumlah_point, sum(point)/count(film_id) as rating FROM `kritik` group by film_id ;");
+                            while ($data1 = mysqli_fetch_array($query1)) {
+                                $film_rating = $data1["rating"];
+                            }
                             while ($row = mysqli_fetch_array($query)) {
                                 $id = $row['id'];
                                 $poster = $row['poster'];
@@ -183,7 +187,6 @@
                                 $ringkasan = $row['ringkasan'];
                                 $tahun = $row['tahun'];
                                 $trailer = $row['trailer'];
-                                $rating = $row['rating'];
                             ?>
                                 <div class="col-md-3">
                                     <div class="upcome_2i1 clearfix position-relative">
@@ -212,10 +215,10 @@
                                                     <span class="col_red">
                                                         <i class="fa fa-star"></i>
                                                         <?php
-                                                        if ($rating == NULL) {
+                                                        if ($film_rating == NULL) {
                                                             echo 0;
                                                         } else {
-                                                            echo $rating;
+                                                            echo round($film_rating, 1);
                                                         }
                                                         ?>
                                                     </span>

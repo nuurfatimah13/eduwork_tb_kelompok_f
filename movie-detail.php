@@ -116,7 +116,8 @@
                             $id = $_GET['id'];
                             $query = $conn->query("SELECT film.id, film.poster, film.judul, 
                                         film.genre_id, genre.nama AS genre, film.ringkasan AS ringkasan, film.tahun, film.trailer, kritik.point AS rating, 
-                                        COUNT(kritik.content) AS comment
+                                        COUNT(kritik.content) AS comment,
+                                        film_id , count(film_id) as jumlah_kritik ,sum(point) as jumlah_point, sum(point)/count(film_id) as rating_film 
                                     FROM film
                                     INNER JOIN genre ON film.genre_id = genre.id 
                                     LEFT JOIN kritik ON film.id = kritik.film_id 
@@ -129,8 +130,8 @@
                                 $ringkasan = $data["ringkasan"];
                                 $tahun = $data["tahun"];
                                 $trailer = $data["trailer"];
-                                $rating = $data["rating"];
                                 $comment = $data["comment"];
+                                $film_rating = $data["rating_film"];
                                 $genreId = $data["genre_id"];
                             }
                             ?>
@@ -172,7 +173,15 @@
                                     <div class="blog1l1i1l">
                                         <ul class="mb-0">
                                             <li class="d-inline-block col_red me-3">
-                                                <i class="fa fa-star"></i> <?= $rating; ?>
+                                                <i class="fa fa-star"></i>
+                                                <?php
+                                                if ($film_rating == NULL) {
+                                                            echo 0;
+                                                }else {
+                                                    echo round($film_rating, 1);
+                                                }
+                                                            ?>
+                                                
                                             </li>
                                             <li class="d-inline-block col_red me-3">
                                                 <i class="fa fa-comments me-1"></i>
@@ -223,94 +232,58 @@
                         <?php
                         }
                         ?>
+                        <!-- end comment dan rating -->
 
-                        <!-- comment dan rating -->
-                        <div class="blog1ld1 row mt-4 text-light">
-                            <div class="col-md-12">
-                                <h3>LEAVE A COMMENT</h3>
-                                <hr class="line">
-                            </div>
-                        </div>
-
-                        <?php
-                        include "../../../database/db.php";
-                        $id = $_GET['id'];
-                        $query = $conn->query("SELECT * FROM film where id='$id'");
-                        $query1 = $conn->query("SELECT * FROM kritik");
-                        ?>
-                        <form action="controllers/kritik/rating.php" method="post">
-                            <div class="blog1ld3  mt-2 bg-white p-3 shadow_box">
-                                <div class="blog1ld3 row">
-                                    <div class="col-md-12">
-                                        <input type="hidden" name="users_id" value="1">
-                                        <input type="hidden" name="film_id" value="<?php echo $id; ?>">
-                                        <div class="blog1ld3l">
-                                            <textarea placeholder="Message" class="form-control form_text mt-3" name="content"></textarea>
-                                            <div class="rateyo" id="point" data-rateyo-rating="4" data-rateyo-num-stars="5" data-rateyo-score="3">
-                                            </div>
-
-                                            <span class='result'>0</span>
-                                            <input type="hidden" name="point">
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <h6 class="mb-0 mt-3 text-light"><button class="button_1">Send a Comment </button></h6>
-                            </div>
                     </div>
-                    </form>
-                    <!-- end comment dan rating -->
-
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="blog1r">
-                    <div class="blog1r2 shadow_box p-3 bg-white">
-                        <h5>Similar Movies</h5>
-                        <hr class="line mb-3">
-                        <?php
-                        // query for similar movies order by genre
-                        $querysM = $conn->query("SELECT film.id, film.poster, film.judul, 
+                <div class="col-md-3">
+                    <div class="blog1r">
+                        <div class="blog1r2 shadow_box p-3 bg-white">
+                            <h5>Similar Movies</h5>
+                            <hr class="line mb-3">
+                            <?php
+                            // query for similar movies order by genre
+                            $querysM = $conn->query("SELECT film.id, film.poster, film.judul, 
                                         film.genre_id, film.tahun 
                                         FROM film
                                         WHERE film.genre_id=$genreId
                                         LIMIT 4;
                                     ");
-                        while ($rowsM = mysqli_fetch_array($querysM)) {
-                            $idsM = $rowsM['id'];
-                            $postersM = $rowsM['poster'];
-                            $judulsM = $rowsM['judul'];
-                            $tahunsM = $rowsM['tahun'];
-                        ?>
-                            <div class="blog1r2i row">
-                                <div class="col-md-4 col-4 pe-0">
-                                    <div class="blog1r2il">
-                                        <div class="grid clearfix">
-                                            <figure class="effect-jazz mb-0">
-                                                <a href="movie-detail.php?id=<?= $idsM; ?>">
-                                                    <img src="assets/img/film/<?= $postersM; ?>" class="w-100" alt="<?= $judulsM; ?>">
-                                                </a>
-                                            </figure>
+                            while ($rowsM = mysqli_fetch_array($querysM)) {
+                                $idsM = $rowsM['id'];
+                                $postersM = $rowsM['poster'];
+                                $judulsM = $rowsM['judul'];
+                                $tahunsM = $rowsM['tahun'];
+                            ?>
+                                <div class="blog1r2i row">
+                                    <div class="col-md-4 col-4 pe-0">
+                                        <div class="blog1r2il">
+                                            <div class="grid clearfix">
+                                                <figure class="effect-jazz mb-0">
+                                                    <a href="movie-detail.php?id=<?= $idsM; ?>">
+                                                        <img src="assets/img/film/<?= $postersM; ?>" class="w-100" alt="<?= $judulsM; ?>">
+                                                    </a>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 col-8">
+                                        <div class="blog1r2il">
+                                            <p class="mb-1 lh-1">
+                                                <a href="movie-detail.php?id=<?= $idsM; ?>"><?= $judulsM; ?></a>
+                                            </p>
+                                            <h6 class="mb-0 col_red"><?= $tahunsM; ?></h6>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-8 col-8">
-                                    <div class="blog1r2il">
-                                        <p class="mb-1 lh-1">
-                                            <a href="movie-detail.php?id=<?= $idsM; ?>"><?= $judulsM; ?></a>
-                                        </p>
-                                        <h6 class="mb-0 col_red"><?= $tahunsM; ?></h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                        <?php
-                        }
-                        ?>
+                                <hr>
+                            <?php
+                            }
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 
