@@ -170,7 +170,7 @@
                             <?php
                             include "database/db.php";
                             $query = $conn->query("SELECT film.id, film.poster, film.judul, genre.nama, 
-                                    film.ringkasan, film.tahun, film.trailer AS rating
+                                    film.ringkasan, film.tahun, film.trailer AS trailer
                                     FROM film 
                                     INNER JOIN genre ON film.genre_id = genre.id
                                     LEFT JOIN kritik ON film.id = kritik.film_id 
