@@ -204,13 +204,13 @@
                                             </h6>
                                         </div>
                                     </div>
-                                    <div class="upcome_2i_last bg-white p-3">
+                                    <div style="background-color: #08142c;" class="upcome_2i_last p-3">
                                         <div class="upcome_2i_lasti row">
                                             <div class="col-md-9 col-9">
                                                 <div class="upcome_2i_lastil">
                                                     <input type="hidden" value="<?php echo $id; ?>">
-                                                    <h5><?php echo $judul; ?></h5>
-                                                    <h6 class="text-muted"><?php echo $genre; ?></h6>
+                                                    <h5 class="text-white"><?php echo $judul; ?></h5>
+                                                    <h6 class="text-white"><?php echo $genre; ?></h6>
                                                     <!-- rating -->
                                                     <span class="col_red">
                                                         <i class="fa fa-star"></i>
@@ -270,12 +270,12 @@
                                             </h6>
                                         </div>
                                     </div>
-                                    <div class="upcome_2i_last bg-white p-3">
+                                    <div style="background-color: #08142c;" class="upcome_2i_last p-3">
                                         <div class="upcome_2i_lasti row">
                                             <div class="col-md-9 col-9">
                                                 <div class="upcome_2i_lastil">
-                                                    <h5><?php echo $judul; ?></h5>
-                                                    <h6 class="text-muted"><?php echo $genre; ?></h6>
+                                                    <h5 class="text-white"><?php echo $judul; ?></h5>
+                                                    <h6 class="text-white"><?php echo $genre; ?></h6>
                                                     <span class="col_red">
                                                         <i class="fa fa-star"></i>
                                                         <?php
@@ -333,12 +333,12 @@
                                             </h6>
                                         </div>
                                     </div>
-                                    <div class="upcome_2i_last bg-white p-3">
+                                    <div style="background-color: #08142c;" class="upcome_2i_last p-3">
                                         <div class="upcome_2i_lasti row">
                                             <div class="col-md-9 col-9">
                                                 <div class="upcome_2i_lastil">
-                                                    <h5><?= $judul_best; ?></h5>
-                                                    <h6 class="text-muted"><?= $genre_best; ?></h6>
+                                                    <h5 class="text-white"><?= $judul_best; ?></h5>
+                                                    <h6 class="text-white"><?= $genre_best; ?></h6>
                                                     <span class="col_red">
                                                         <i class="fa fa-star"></i> <?= $rating_best; ?>
                                                     </span>
@@ -409,12 +409,12 @@
                                                     </h6>
                                                 </div>
                                             </div>
-                                            <div class="upcome_2i_last bg-white p-3">
+                                            <div style="background-color: #08142c;"  class="upcome_2i_last p-3 ">
                                                 <div class="upcome_2i_lasti row">
                                                     <div class="col-md-9 col-9">
                                                         <div class="upcome_2i_lastil">
-                                                            <h5><?= $judul_tm; ?></h5>
-                                                            <h6 class="text-muted"><?= $genre_tm; ?></h6>
+                                                            <h5 class="text-white"><?= $judul_tm; ?></h5>
+                                                            <h6 class="text-white"><?= $genre_tm; ?></h6>
                                                             <span class="col_red">
                                                                 <i class="fa fa-star"></i> <?= $rating_tm; ?>
                                                             </span>

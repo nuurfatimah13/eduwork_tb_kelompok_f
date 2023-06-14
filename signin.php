@@ -14,7 +14,7 @@
     </head>
     <body>
         <div class="wrapper">
-            <div class="logo">
+            <div class="logo bg-white">
                 <img src="assets/img/icons/logo-1.png" alt="logo">
             </div>
             <div class="text-center mt-4 name">
