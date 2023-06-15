@@ -379,7 +379,7 @@
                                                     </h6>
                                                 </div>
                                             </div>
-                                            <div style="background-color: #08142c;"  class="upcome_2i_last p-3 ">
+                                            <div style="background-color: #08142c;" class="upcome_2i_last p-3 ">
                                                 <div class="upcome_2i_lasti row">
                                                     <div class="col-md-9 col-9">
                                                         <div class="upcome_2i_lastil">
