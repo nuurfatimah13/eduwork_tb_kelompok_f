@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Jun 2023 pada 11.30
--- Versi server: 10.4.27-MariaDB
--- Versi PHP: 8.2.0
+-- Waktu pembuatan: 15 Jun 2023 pada 03.08
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `cast` (
   `nama` varchar(65) NOT NULL,
   `umur` int(11) NOT NULL,
   `bio` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `cast`
@@ -131,11 +131,7 @@ INSERT INTO `cast` (`id`, `nama`, `umur`, `bio`) VALUES
 (93, 'Danielle Panabaker', 30, 'Aktris'),
 (94, 'Carlos Veldes', 32, 'Aktor'),
 (95, 'Tom Cavanagh', 39, 'Aktor'),
-(96, 'Jesse L.Martin', 39, 'Aktor'),
-(97, 'Amie Donald', 11, 'Aktor'),
-(98, 'Allison Williams', 27, 'Aktor'),
-(99, 'Violet McGraw', 11, 'Aktor'),
-(100, 'Ronny Chieng', 35, 'Aktor');
+(96, 'Jesse L.Martin', 39, 'Aktor');
 
 -- --------------------------------------------------------
 
@@ -151,7 +147,7 @@ CREATE TABLE `film` (
   `trailer` varchar(255) NOT NULL,
   `ringkasan` text NOT NULL,
   `tahun` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `film`
@@ -172,10 +168,7 @@ INSERT INTO `film` (`id`, `poster`, `judul`, `genre_id`, `trailer`, `ringkasan`,
 (40, 'hunger.jpeg', 'The Hunger Games : The Ballad Of SongsBirds And Snake', 1, 'https://youtu.be/RDE6Uz73A7g', 'Bertahun-tahun sebelum menjadi Presiden Panem yang keji, Coriolanus Snow adalah remaja 18 tahun yang harus mengubah takdir keluarganya. Lewat Hunger Games ke-10. Coriolanus harus menjadi mentor seorang peserta bernama Lucy Gray Baird dari Distrik 12. Mengetahui sifat pemberontak yang dimiliki muridnya, Coriolanus membangun rencana licik untuk mendapatkan keunggulan secara politis', 2024),
 (43, 'mi.jpeg', 'MISSION IMPOSSIBLE : DEAD RECKONING', 1, 'https://youtu.be/avz06PDqDbM', 'Pada IMPOSSIBLE : DEAD RECKONING PART 1, Tom Cruise yang berperan sebagai Ethan Hunt masih melanjutkan misi sebagai agen Impossible Missions Force (IMF). Ethan Hunt dan agen IMF lainnya akan melakukan berbagai aksi berbahaya untuk menyelesaikan misinya.', 2024),
 (44, 'jones.jpeg', 'Indiana Jones And The Dial Of Destiny 5', 1, 'https://youtu.be/eQfMbSe7F2g', 'Indiana Jones and The Dial of Destiny 5', 2024),
-(46, 'flash.jpeg', 'The Flash', 1, 'https://youtu.be/hebWYacbdvc', 'The Flash (2023) masih berkisah tentang pahlawan super bernama Barry Allen yang dikenal dengan The Flash. Sebagai salah satu pahlawan super, kekuatan utama The Flash adalah kemampuannya memiliki kecepatan super secepat kilat. Barry Allen memanfaatkan kekuatan yang ia miliki untuk kembali ke masa lalu.  Tujuan perjalanan ke masa lalu yang ditempuh Barry Allen adalah untuk mencegah kematian ibu. Perjalanan menembus ruang dan waktu memiliki resiko besar dan Barry Allen pun sudah diperingati oleh Batman, tapi keputusan Barry Allen sudah bulat. Dalam perjalanannya The Flash menabrak garis waktu lain dan membawanya ke zaman di mana Jenderal Zod berkuasa.', 2023),
-(50, 'megan2.jpg', 'Megan', 11, 'https://youtu.be/3mqPSTJMjCA', 'Seorang insinyur robotika di sebuah perusahaan mainan membuat boneka yang penampilannya seperti gadis kecil dan diprogram agar menjadi teman sekaligus penjaga bagi anak-anak. Sampai petaka dimulai saat boneka M3gan ternyata mulai hidup dan meneror penciptanya.', 2023),
-(51, 'edr2.jpg', 'Evil Dead Rise', 11, 'https://youtu.be/BqQNO7BzN08', 'Evil Dead Rise menceritakan kisah mengejutkan tentang dua saudara perempuan yang terasing yang reuninya dipersingkat oleh munculnya setan yang merasuki manusia, mendorong mereka ke dalam pertempuran utama untuk bertahan hidup saat mereka menghadapi versi keluarga paling mengerikan yang bisa dibayangkan.', 2023),
-(52, 'kkn.jpg', 'KKN di Desa Penari', 11, 'https://youtu.be/jtDRXPTZT-M', 'KKN Di Desa Penari diadaptasi dari salah satu cerita horror yang telah viral di tahun 2019 melalui Twitter, menurut sang penulis, cerita ini diambil dari sebuah kisah nyata sekelompok mahasiswa yang tengah melakukan program KKN (Kuliah Kerja Nyata) di Desa Penari. Tak berjalan mulus, serentetan pengalaman horror pun menghantui mereka hingga program KKN tersebut berakhir tragis.', 2022);
+(46, 'flash.jpeg', 'The Flash', 1, 'https://youtu.be/hebWYacbdvc', 'The Flash (2023) masih berkisah tentang pahlawan super bernama Barry Allen yang dikenal dengan The Flash. Sebagai salah satu pahlawan super, kekuatan utama The Flash adalah kemampuannya memiliki kecepatan super secepat kilat. Barry Allen memanfaatkan kekuatan yang ia miliki untuk kembali ke masa lalu.  Tujuan perjalanan ke masa lalu yang ditempuh Barry Allen adalah untuk mencegah kematian ibu. Perjalanan menembus ruang dan waktu memiliki resiko besar dan Barry Allen pun sudah diperingati oleh Batman, tapi keputusan Barry Allen sudah bulat. Dalam perjalanannya The Flash menabrak garis waktu lain dan membawanya ke zaman di mana Jenderal Zod berkuasa.', 2024);
 
 -- --------------------------------------------------------
 
@@ -186,7 +179,7 @@ INSERT INTO `film` (`id`, `poster`, `judul`, `genre_id`, `trailer`, `ringkasan`,
 CREATE TABLE `genre` (
   `id` int(11) NOT NULL,
   `nama` varchar(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `genre`
@@ -201,6 +194,7 @@ INSERT INTO `genre` (`id`, `nama`) VALUES
 (6, 'Documentary'),
 (7, 'Fantasy'),
 (8, 'Science-Fiction'),
+(10, 'Sport'),
 (11, 'Horror');
 
 -- --------------------------------------------------------
@@ -215,7 +209,7 @@ CREATE TABLE `kritik` (
   `film_id` int(11) NOT NULL,
   `content` text DEFAULT NULL,
   `point` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `kritik`
@@ -224,7 +218,77 @@ CREATE TABLE `kritik` (
 INSERT INTO `kritik` (`id`, `users_id`, `film_id`, `content`, `point`) VALUES
 (1, 1, 4, 'Filmnya Bagus Banget, Jarang banget Genre film Heist kaya gini di indonesiaa', 5),
 (2, 1, 1, 'Film  Buatan Ernest sih Geprlu di Ragukan lagi ya Pokonya the best', 4),
-(3, 1, 3, 'Gokillll', 5);
+(3, 1, 3, 'Gokillll', 5),
+(4, 1, 9, 'Jalan cerita menyenangkan dan kadar komedinya pas, tidak berlebihan.', 4),
+(5, 1, 9, 'Endingnya kurang mantepp, pemeran antagonis tiba-tiba melemah begitu saja.', 3),
+(6, 1, 1, 'Brilliant script, and great ensemble cast. I love the soundtrack as well. Bravo -oleh Morgan', 5),
+(7, 1, 1, 'film yang punya paket komplit, ga cuma lucu2an, tapi story n cast nya kuat banget. Apalagi koh afuk. -oleh noe123', 5),
+(8, 1, 1, 'Ampun dah, pertamanya gue kira ini film kgk seseru itu, tapi asli dari awal nonton ngakak teruss, satu studio rame. Ngeliat muka dodit aja udh kocak. Konyol bngt ni film, jadi pengen nonton lagi..', 5),
+(9, 1, 1, '\"oey traktir pizza!!\" \"yeayyy!\" \"pizza, pizza, ini roti depan mata!\" \"oey traktir roti!!\" \"huuuuu\" Ngakak bett, dibagian ini..wkwkwk', 5),
+(10, 1, 1, 'Suka sama akting pemeran Koh Afuk dan Dion Wiyoko juga Adinia Wirasti..dapet banget perannya.. Yang kurang, ane rasa si Gisel, agak berlebihan dan terasa mengganggu. Overall lebih bagus dari film Ernest yang pertama -oleh nikprapur', 5),
+(11, 1, 10, 'Saya sangat terharu melihat film ini, dan tak lupa apresiasi yang sangat bessar bagi tim pembuatnya. -oleh Damar', 5),
+(12, 1, 10, 'cuma lihat beberapa still photo aja, bikin mata berkaca-kaca.Bersyukur bisa nonton film ini di kineforum bulan lalu. Bravo Shalahuddin Siregar! Semoga film ini juga dirilis DVD nya.. -oleh thiya', 5),
+(13, 1, 2, 'My fav movie -entong', 5),
+(14, 1, 2, 'Gilaa sihh ini film nya..keren kebangetan -oleh Lisa Anggraini', 5),
+(15, 1, 2, 'Gua udah nonton semua film yang diperankan jackie chan, walaupun di tonton berulang\" tetep seru -oleh ceper', 5),
+(16, 1, 2, 'Ane mah demen ama pelm\" nya kang Jeki, the best lah..banyakin plotnya kang..hehe -oleh Susanto', 5),
+(17, 1, 2, 'Jackie Chen memang filmnya berkualitas..tanpa cgi', 5),
+(18, 1, 5, 'film ini kayak film hantu aja, kok malam terus..wkwk -oleh Sodikin', 3),
+(19, 1, 5, 'ternyata ben & jody ngeprank judulnya, menit ght bus, terakhir baru tahu ini night bus, makanya gelap terus.. o-oleh Murnita', 4),
+(20, 1, 5, 'Filmnya keren, logat medan banget. Tapi cover sama pemainnya zonk -oleh pakpahan', 4),
+(21, 1, 5, 'Film aneh, gelap2 mulu..apa yang diliat', 3),
+(22, 1, 5, 'Lepas dari perkopian,langsung dibawa ke action,asli keren banget! Adegan action-nya bikin tegang dan ikut ngerasain sakitnya dihajar habis-habisan -oleh Aje', 5),
+(23, 1, 5, 'Seru banget! Sepanjang nonton gemes sama adegan fighting-nya. Terharu sama persahabatan Ben & Jody', 5),
+(24, 1, 7, 'Mantep banget alur ceritanya..serasa nostalgia jaman sekolah..xixi -oleh Ahmad Sutopo', 5),
+(25, 1, 7, 'Baperr.. :\')  -oleh Teressa', 5),
+(26, 1, 7, 'Ga suka film drama, tapi nyoba nonton film ini -oleh Agus', 3),
+(27, 1, 7, 'Jengkel sama Milea, curang sama Beni waktu LDR..kalu aku jadi Beni pasti ku cari tuu si Dilan, liat sapa yang kuat.', 4),
+(28, 1, 7, 'Gak bosen nonton film Dilan, udh 5kali nonton..Cowok kek dilan ada dibelahan dunia mana ya?..wkwk -oleh Putrii', 5),
+(29, 1, 7, 'Film ini slalu bikin aku salting -oleh PutriSandriya', 5),
+(30, 1, 7, 'Menurutku film dilan itu biasa saja. Cuman yang bikin orang kesemsem dan luar biasa itu karakter dilan-nya, sangat cocok dengan pemerannya si Iqbal', 3),
+(31, 1, 7, 'Ada pak ridwan kamil..wkwkwk', 5),
+(32, 1, 3, 'Film Indo terbaik, menurutku', 5),
+(33, 1, 3, 'Film yang gw cari\" -olehZeakata', 5),
+(34, 1, 3, 'kereen bang Iko...Aktor laga terbaik -olehAbie85', 5),
+(35, 1, 3, 'Semoga masih bnyak Iko Uwais dan Joe Taslim berikutnya yg main film di luar negeri.. Indonesia semakin di depan -oleh WongWeleri', 5),
+(36, 1, 4, 'Suka bangett sama film ini. Walau 2 jam nggak boring, karena plotnya fast paced dan banyak twist2 yang nggak terduga, tapi makes sense. Recomended -oleh Aulia', 5),
+(37, 1, 4, 'Nahh..film Indonesia yang kayak gini yang gua idamkan dari dulu..jangan melulu tentang horror sm percintaan -oleh Jaka', 5),
+(38, 1, 4, 'Pembuat film paling berani di Indonesia, siapa lagi kalau bukan Angga Sasongko -oleh Zayn Ahmed', 5),
+(39, 1, 4, 'Poin minus film ini, kurang memerhatikan pemeran pendukung yg harusnya sama pentingnya dgn aktor utama..seperti anaknya presiden, polisi\", pembantu,dll. seakan-akan asal comot aja \'tuk masuk film ini. Akting mereka yg kaku membuat film ini berasa jd ftv saat scene yang ada merekanya..mentah..  -oleh Berta Yurezka', 3),
+(40, 1, 6, 'Film tidak banyak efek, tidak banyak pemain.Namun tetap seru. 2x nonton tidak bosan -oleh Hartono', 5),
+(41, 1, 6, 'Abah Tarzan emang pelawak legend. Liat beliau diam aja udah lucu dan bikin ngakak :D', 5),
+(42, 1, 6, 'Gua nangis gara\" nonton film ini woy, -oleh alfiansyah', 5),
+(43, 1, 6, 'Kayaknya setiap laki\" punya adek laki, pasti gak pernah akur -oleh Iqbal Havindra', 5),
+(44, 1, 6, 'Perampokan yang sangat konyol -oleh Danto', 4),
+(45, 1, 6, 'Emang gila sii..si ibra ama si amar koplak..wkwkwk. ini gua dah terhitung 15kali nonton,gaa bosen  -oleh harumichii', 5),
+(46, 1, 8, 'Ini film kesukaan saya', 5),
+(47, 1, 8, 'lebih cakep dulu mereka natural..', 4),
+(48, 1, 8, 'Semnjak thu flm ini q jdi suka sma jefri nikol', 5),
+(49, 1, 8, 'ga bisa move on dari film ini?', 5),
+(50, 1, 8, 'Semnjak thu flm ini q jdi suka sma jefri nikol', 5),
+(51, 1, 8, 'ga bisa move on dari film ini..', 5),
+(52, 1, 8, 'keren asli...mantul bgt asli...pantulkan', 5),
+(53, 1, 9, 'Suka sama ceritanya, lucu, menghibur, tapi mirip film anime : Great Teacher Onizuka, recommended buat di tonton', 5),
+(54, 1, 9, 'Suka sama ceritanya, lucu, menghibur, tapi mirip film anime : Great Teacher Onizuka, recommended buat di tonton', 5),
+(55, 1, 10, 'ini istimewa.....film istimewa...', 5),
+(56, 1, 10, 'Film yang sangat epic sekaligus menyentuh, belajar arti kerja keras dan kekeluargaan dr bapa Petani', 5),
+(57, 1, 39, 'Wah seru juga', 4),
+(58, 1, 39, 'aku lumayan ragu apakah Tom Holland sukses memerankan Nathan Drake atau tidak. Yang untungnya dia berhasil dan sangat karismatik!', 5),
+(59, 1, 40, 'this is actually so good!', 5),
+(60, 1, 43, 'Tidak suka awal filmnya', 3),
+(61, 1, 40, 'Saya suka film ballad-hunger games, yang bercerita asal-usul hunger games itu sendiri.', 5),
+(62, 1, 40, 'So excited!', 5),
+(63, 1, 40, 'lumayan seru laah..', 4),
+(64, 1, 40, 'this looks melodramatic, over the top and takes itself too serious. I love it.', 5),
+(65, 1, 43, 'Tom Cruise ahlinya', 5),
+(66, 1, 43, 'keren..full action', 5),
+(67, 1, 44, 'aku sangat menyukai bagian saat Indy menggunakan Dial o Destiny untuk menyelamatkan rose dan jack.', 4),
+(68, 1, 44, 'thank you Disney, for making the Original trilogy that much more exiciting to watch!', 5),
+(69, 1, 44, 'adegan pertarungannya bikin merinding..', 5),
+(70, 1, 46, 'keren..', 5),
+(71, 1, 46, 'jadi inget kartunnya, flashpoint', 5),
+(72, 1, 46, 'this movie have terrible cgi', 5),
+(73, 1, 46, 'Hyped!!!!', 5);
 
 -- --------------------------------------------------------
 
@@ -237,7 +301,7 @@ CREATE TABLE `peran` (
   `film_id` int(11) NOT NULL,
   `cast_id` int(11) NOT NULL,
   `peran` varchar(65) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `peran`
@@ -343,11 +407,7 @@ INSERT INTO `peran` (`id`, `film_id`, `cast_id`, `peran`) VALUES
 (106, 46, 93, 'Dr. Caitlin Sno'),
 (107, 46, 94, 'Cisco Ramo'),
 (108, 46, 95, 'Dr. Harrison Well'),
-(109, 46, 96, 'Detective Joe West'),
-(110, 50, 97, 'Megan'),
-(111, 50, 98, 'Gemma'),
-(112, 50, 99, 'Caddy'),
-(113, 50, 100, 'David');
+(109, 46, 96, 'Detective Joe West');
 
 -- --------------------------------------------------------
 
@@ -364,14 +424,33 @@ CREATE TABLE `users` (
   `bio` varchar(255) DEFAULT NULL,
   `address` text DEFAULT NULL,
   `photo` varchar(60) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `age`, `bio`, `address`, `photo`) VALUES
-(1, 'Reza', 'expetasiagroup@gmail.com', 'bangjali', 20, 'Mahasiswa Semester 6', 'Jalan Sungai Bambu', '1867514920_reza.jpg');
+(1, 'Reza', 'expetasiagroup@gmail.com', 'bangjali', 20, 'Mahasiswa Semester 6', 'Jalan Sungai Bambu', '1867514920_reza.jpg'),
+(2, 'entong', 'entonk@gmail.com', 'entong123', 23, 'penulis', 'bandung', '1867514920_reza.jpg'),
+(3, 'Morgan', 'morgan@gmail.com', 'morgan1', 25, 'photographer', 'England', '1867514920_reza.jpg'),
+(4, 'noe123', 'noe@gmail.com', 'bangnoe', 27, 'pebisnis', 'Semarang', '1867514920_reza.jpg'),
+(5, 'nikprapur', 'nik11@gmail.com', 'pur001', 25, 'Musisi', 'Gorontalo', '1867514920_reza.jpg'),
+(6, 'Damar', 'dhamar123@gmail.com', 'bangdham', 30, 'PengusahaPertanian', 'Kalimantan', '1867514920_reza.jpg'),
+(7, 'thiya', 'thiaaa@gmail.com', 'thiA1', 30, 'Penulis', 'Jakarta', '1867514920_reza.jpg'),
+(8, 'Lisa Anggraini', 'Liaini@gamil.com', 'lisaa22', 20, 'mhswi', 'Bogor', '1867514920_reza.jpg'),
+(9, 'ceper', 'ceper@gmail.com', 'ceperrr', 25, 'Pengusaha', 'Blitar', '1867514920_reza.jpg'),
+(10, 'Susanto', 'santo@gmail.com', 'suss', 27, 'Pedagang', 'Lampung', '1867514920_reza.jpg'),
+(11, 'Sodikin', 'sodikin@gmail.com', 'dikindikun', 25, 'designer', 'Makassar', '1867514920_reza.jpg'),
+(12, 'Aje', 'aje@gamilcom', 'AJ_123', 27, 'Barista', 'Jakarta', '1867514920_reza.jpg'),
+(13, 'Ahmad Sutopo', 'sutopo@gmail.com', 'sutopo55', 32, 'Percetakan', 'Sidoarjo', '1867514920_reza.jpg'),
+(14, 'Teressa', 'teressa@gmail.coom', 'sessa25', 23, 'mhswi', 'Bandung', '1867514920_reza.jpg'),
+(15, 'Agus', 'agus@gamil.com', 'gussopo', 25, 'Kepsek', 'Cirebon', '1867514920_reza.jpg'),
+(16, 'Zeakata', 'zieya@gmail.com', 'fauziyah01', 25, 'penulis', 'Nganjuk', '1867514920_reza.jpg'),
+(17, 'Axel Foley', 'axel@gmail.com', 'Axx123', 30, 'Architec', 'Germany', '1867514920_reza.jpg'),
+(18, 'keimzelle', 'zell@gmail.com', 'zelleOne', 25, 'ArtWork', 'Polandia', '1867514920_reza.jpg'),
+(19, 'josiahpayne', 'josi@gmailcom', 'josiahjosi', 33, 'Designer', 'Yaman', '1867514920_reza.jpg'),
+(20, 'juliante', 'juli@gmail.com', 'juli99', 27, 'CoffeeShop', 'Filipina', '1867514920_reza.jpg');
 
 --
 -- Indexes for dumped tables
@@ -426,13 +505,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `cast`
 --
 ALTER TABLE `cast`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT untuk tabel `film`
 --
 ALTER TABLE `film`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT untuk tabel `genre`
@@ -444,19 +523,19 @@ ALTER TABLE `genre`
 -- AUTO_INCREMENT untuk tabel `kritik`
 --
 ALTER TABLE `kritik`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT untuk tabel `peran`
 --
 ALTER TABLE `peran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
