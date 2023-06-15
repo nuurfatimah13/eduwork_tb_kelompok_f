@@ -216,7 +216,10 @@
                                     <div class="blog1ld2l">
                                         <div class="grid clearfix">
                                             <figure class="effect-jazz mb-0">
-                                                <img src="assets/img/uploads/<?= $photo_cm; ?>" class="w-100" alt="<?= $name_cm; ?>">
+                                                <img 
+                                                    src="assets/img/uploads/<?= $photo_cm; ?>" 
+                                                    class="w-50" 
+                                                    alt="<?= $name_cm; ?>">
                                             </figure>
                                         </div>
                                     </div>

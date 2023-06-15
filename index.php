@@ -13,45 +13,8 @@
     <body>
         <!-- Header Start -->
         <section style="background-color: #08142c;" id="header">
-            <!-- Sign In Modal Start -->
-            <div id="signin-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-                <!-- Modal Dialog Start -->
-                <div class="modal-dialog">
-                    <!-- Modal Content Start -->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">SIGN IN</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form class="ps-3 pe-3" action="#">
-                                <div class="mb-3">
-                                    <label for="username" class="form-label">Name</label>
-                                    <input class="form-control" type="email" id="username" required=""
-                                    placeholder="Eget Nulla">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="emailaddress" class="form-label">Email address</label>
-                                    <input class="form-control" type="email" id="emailaddress" required=""
-                                    placeholder="info@gmail.com">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="password" class="form-label">Password</label>
-                                    <input class="form-control" type="password" required="" id="password"
-                                    placeholder="Enter your password">
-                                </div>
-                                <div class="mb-3 text-center">
-                                    <h6><a class="button_1 d-block" href="#">SIGN IN</a></h6>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- Modal Content End -->
-                </div>
-                <!-- Modal Dialog End -->
-            </div>
-            <!-- Sign In Modal End -->
-            <nav style="background-color: #081c3c;" class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
+            <nav style="background-color: #081c3c;" 
+                class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
                 <div class="container-fluid">
                     <a class="navbar-brand fs-4 p-0 fw-bold text-white text-uppercase" href="index.php">
                         <img src="assets/img/icons/logo-1.png" alt="logo" width="20%" class="me-1 col_light fs-1 align-middle">
@@ -78,13 +41,11 @@
                             </li>
                         </ul>
                         <ul class="navbar-nav mb-0 ms-auto">
-                            <!-- Modal Start -->
                             <li class="nav-item ms-3">
                                 <a class="nav-link button" href="signin.php">
                                     SIGN IN
                                 </a>
                             </li>
-                            <!-- Modal End -->
                         </ul>
                     </div>
                 </div>
@@ -102,28 +63,28 @@
             </div>
             <div class="carousel-inner">
                 <?php
-                include "database/db.php";
-                $query1 = $conn->query("SELECT * FROM film WHERE tahun=2024  LIMIT 1");
-                if (mysqli_num_rows($query1) > 0) {
-                    while ($data1 = mysqli_fetch_array($query1)) {
+                    include "database/db.php";
+                    $query1 = $conn->query("SELECT * FROM film WHERE tahun=2024  LIMIT 1");
+                    if (mysqli_num_rows($query1) > 0) {
+                        while ($data1 = mysqli_fetch_array($query1)) {
                 ?>
-                        <div class="carousel-item active">
-                            <input type="hidden" value="<?php echo $data1['id']; ?>">
-                            <img src="assets/img/film/<?= $data1['poster'] ?>" class="d-block w-100" alt="<?= $data1['judul'] ?>" height="500">
-                        </div>
-                    <?php
-                    }
-                }
-                $query2 = $conn->query("SELECT * FROM film LIMIT 2");
-                if (mysqli_num_rows($query2) > 0) {
-                    while ($data2 = mysqli_fetch_array($query2)) {
-                    ?>
-                        <div class="carousel-item">
-                            <img src="assets/img/film/<?= $data2['poster'] ?>" class="d-block w-100" alt="<?= $data2['judul'] ?>" height="500">
-                        </div>
+                    <div class="carousel-item active">
+                        <input type="hidden" value="<?php echo $data1['id']; ?>">
+                        <img src="assets/img/film/<?= $data1['poster'] ?>" class="d-block w-100" alt="<?= $data1['judul'] ?>" height="500">
+                    </div>
                 <?php
+                        }
                     }
-                }
+                    $query2 = $conn->query("SELECT * FROM film LIMIT 2");
+                    if (mysqli_num_rows($query2) > 0) {
+                        while ($data2 = mysqli_fetch_array($query2)) {
+                ?>
+                    <div class="carousel-item">
+                        <img src="assets/img/film/<?= $data2['poster'] ?>" class="d-block w-100" alt="<?= $data2['judul'] ?>" height="500">
+                    </div>
+                <?php
+                        }
+                    }
                 ?>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -168,25 +129,27 @@
                     <div class="tab-pane active" id="home">
                         <div class="upcome_2i row">
                             <?php
-                            include "database/db.php";
-                            $query = $conn->query("SELECT film.id, film.poster, film.judul, genre.nama, 
-                                    film.ringkasan, film.tahun, film.trailer AS trailer
+                                include "database/db.php";
+                                $query = $conn->query("SELECT film.id, film.poster, 
+                                    film.judul, genre.nama, 
+                                    film.ringkasan, film.tahun, film.trailer AS trailer, 
+                                    COUNT(kritik.film_id) AS jumlah_kritik, 
+                                    SUM(kritik.point) AS jumlah_point, 
+                                    SUM(kritik.point)/COUNT(kritik.film_id) AS rating
                                     FROM film 
                                     INNER JOIN genre ON film.genre_id = genre.id
                                     LEFT JOIN kritik ON film.id = kritik.film_id 
-                                    WHERE film.tahun>YEAR(NOW());");
-                            $query1 = $conn->query("SELECT film_id , count(film_id) as jumlah_kritik ,sum(point) as jumlah_point, sum(point)/count(film_id) as rating FROM `kritik` group by film_id ;");
-                            while ($data1 = mysqli_fetch_array($query1)) {
-                                $film_rating = $data1["rating"];
-                            }
-                            while ($row = mysqli_fetch_array($query)) {
-                                $id = $row['id'];
-                                $poster = $row['poster'];
-                                $judul = $row['judul'];
-                                $genre = $row['nama'];
-                                $ringkasan = $row['ringkasan'];
-                                $tahun = $row['tahun'];
-                                $trailer = $row['trailer'];
+                                    WHERE film.tahun>YEAR(NOW())
+                                    GROUP BY kritik.film_id;");
+                                while ($row = mysqli_fetch_array($query)) {
+                                    $id = $row['id'];
+                                    $poster = $row['poster'];
+                                    $judul = $row['judul'];
+                                    $genre = $row['nama'];
+                                    $ringkasan = $row['ringkasan'];
+                                    $tahun = $row['tahun'];
+                                    $trailer = $row['trailer'];
+                                    $rating = $row['rating'];
                             ?>
                                 <div class="col-md-3">
                                     <div class="upcome_2i1 clearfix position-relative">
@@ -215,11 +178,11 @@
                                                     <span class="col_red">
                                                         <i class="fa fa-star"></i>
                                                         <?php
-                                                        if ($film_rating == NULL) {
-                                                            echo 0;
-                                                        } else {
-                                                            echo round($film_rating, 1);
-                                                        }
+                                                            if ($rating == NULL) {
+                                                                echo 0;
+                                                            } else {
+                                                                echo round($rating, 1);
+                                                            }
                                                         ?>
                                                     </span>
                                                     <!-- rating end -->
@@ -229,30 +192,33 @@
                                     </div>
                                 </div>
                             <?php
-                            }
+                                }
                             ?>
                         </div>
                     </div>
                     <div class="tab-pane" id="profile">
                         <div class="upcome_2i row">
                             <?php
-                            include "database/db.php";
-                            $query = $conn->query("SELECT film.id, film.poster, film.judul, 
+                                include "database/db.php";
+                                $query = $conn->query("SELECT film.id, film.poster, film.judul, 
                                         genre.nama, film.ringkasan, film.tahun, film.trailer, 
-                                        kritik.point AS rating
+                                        COUNT(kritik.film_id) AS jumlah_kritik, 
+                                        SUM(kritik.point) AS jumlah_point, 
+                                        SUM(kritik.point)/COUNT(kritik.film_id) AS rating
                                     FROM film
                                     INNER JOIN genre ON film.genre_id = genre.id 
                                     LEFT JOIN kritik ON film.id = kritik.film_id 
-                                    WHERE film.tahun<=YEAR(NOW());");
-                            while ($row = mysqli_fetch_array($query)) {
-                                $id = $row['id'];
-                                $poster = $row['poster'];
-                                $judul = $row['judul'];
-                                $genre = $row['nama'];
-                                $ringkasan = $row['ringkasan'];
-                                $tahun = $row['tahun'];
-                                $trailer = $row['trailer'];
-                                $rating = $row['rating'];
+                                    WHERE film.tahun<=YEAR(NOW())
+                                    GROUP BY kritik.film_id;");
+                                while ($row = mysqli_fetch_array($query)) {
+                                    $id = $row['id'];
+                                    $poster = $row['poster'];
+                                    $judul = $row['judul'];
+                                    $genre = $row['nama'];
+                                    $ringkasan = $row['ringkasan'];
+                                    $tahun = $row['tahun'];
+                                    $trailer = $row['trailer'];
+                                    $rating = $row['rating'];
                             ?>
                                 <div class="col-md-3">
                                     <div class="upcome_2i1 clearfix position-relative">
@@ -279,11 +245,11 @@
                                                     <span class="col_red">
                                                         <i class="fa fa-star"></i>
                                                         <?php
-                                                        if ($rating == NULL) {
-                                                            echo 0;
-                                                        } else {
-                                                            echo $rating;
-                                                        }
+                                                            if ($rating == NULL) {
+                                                                echo 0;
+                                                            } else {
+                                                                echo round($rating, 1);
+                                                            }
                                                         ?>
                                                     </span>
                                                 </div>
@@ -292,29 +258,32 @@
                                     </div>
                                 </div>
                             <?php
-                            }
+                                }
                             ?>
                         </div>
                     </div>
                     <div class="tab-pane" id="settings">
                         <div class="upcome_2i row">
                             <?php
-                            $query_best = $conn->query("SELECT film.id, film.poster, film.judul,    
+                                $query_best = $conn->query("SELECT film.id, film.poster, film.judul,    
                                         genre.nama, film.ringkasan, film.tahun, film.trailer, 
-                                        kritik.point AS rating
-                                        FROM film 
-                                        INNER JOIN genre ON film.genre_id = genre.id 
-                                        INNER JOIN kritik ON film.id = kritik.film_id 
-                                        WHERE kritik.point=5;");
-                            while ($row_best = mysqli_fetch_array($query_best)) {
-                                $id_best = $row_best['id'];
-                                $poster_best = $row_best['poster'];
-                                $judul_best = $row_best['judul'];
-                                $genre_best = $row_best['nama'];
-                                $ringkasan_best = $row_best['ringkasan'];
-                                $tahun_best = $row_best['tahun'];
-                                $trailer_best = $row_best['trailer'];
-                                $rating_best = $row_best['rating'];
+                                        COUNT(kritik.film_id) AS jumlah_kritik, 
+                                        SUM(kritik.point) AS jumlah_point, 
+                                        SUM(kritik.point)/COUNT(kritik.film_id) AS rating
+                                    FROM film 
+                                    INNER JOIN genre ON film.genre_id = genre.id 
+                                    INNER JOIN kritik ON film.id = kritik.film_id 
+                                    WHERE kritik.point=5
+                                    GROUP BY kritik.film_id;");
+                                while ($row_best = mysqli_fetch_array($query_best)) {
+                                    $id_best = $row_best['id'];
+                                    $poster_best = $row_best['poster'];
+                                    $judul_best = $row_best['judul'];
+                                    $genre_best = $row_best['nama'];
+                                    $ringkasan_best = $row_best['ringkasan'];
+                                    $tahun_best = $row_best['tahun'];
+                                    $trailer_best = $row_best['trailer'];
+                                    $rating_best = $row_best['rating'];
                             ?>
                                 <div class="col-md-3">
                                     <div class="upcome_2i1 clearfix position-relative">
@@ -340,7 +309,8 @@
                                                     <h5 class="text-white"><?= $judul_best; ?></h5>
                                                     <h6 class="text-white"><?= $genre_best; ?></h6>
                                                     <span class="col_red">
-                                                        <i class="fa fa-star"></i> <?= $rating_best; ?>
+                                                        <i class="fa fa-star"></i> 
+                                                        <?= round($rating_best, 1); ?>
                                                     </span>
                                                 </div>
                                             </div>
@@ -348,7 +318,7 @@
                                     </div>
                                 </div>
                             <?php
-                            }
+                                }
                             ?>
                         </div>
                     </div>
@@ -368,29 +338,29 @@
                 </div>
                 <div class="trend_m1 row mt-3">
                     <div id="carouselExampleCaptions2" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
-                            <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-                        </div>
                         <div style="background-color: #08142c;" class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="upcome_2i row">
                                     <?php
-                                    $query3 = $conn->query("SELECT film.id, film.poster, film.judul, genre.nama, 
-                                                film.ringkasan, film.tahun, film.trailer, kritik.point AS rating
-                                                FROM film 
-                                                INNER JOIN genre ON film.genre_id = genre.id 
-                                                INNER JOIN kritik ON film.id = kritik.film_id 
-                                                WHERE kritik.point>=4;");
-                                    while ($row2 = mysqli_fetch_array($query3)) {
-                                        $id_tm = $row2['id'];
-                                        $poster_tm = $row2['poster'];
-                                        $judul_tm = $row2['judul'];
-                                        $genre_tm = $row2['nama'];
-                                        $ringkasan_tm = $row2['ringkasan'];
-                                        $tahun_tm = $row2['tahun'];
-                                        $trailer_tm = $row2['trailer'];
-                                        $rating_tm = $row2['rating'];
+                                        $query3 = $conn->query("SELECT film.id, film.poster, film.judul, 
+                                                genre.nama, film.ringkasan, film.tahun, film.trailer, 
+                                                COUNT(kritik.film_id) AS jumlah_kritik, 
+                                                SUM(kritik.point) AS jumlah_point, 
+                                                SUM(kritik.point)/COUNT(kritik.film_id) AS rating
+                                            FROM film 
+                                            INNER JOIN genre ON film.genre_id = genre.id 
+                                            INNER JOIN kritik ON film.id = kritik.film_id 
+                                            WHERE kritik.point>=4
+                                            GROUP BY kritik.film_id;");
+                                        while ($row2 = mysqli_fetch_array($query3)) {
+                                            $id_tm = $row2['id'];
+                                            $poster_tm = $row2['poster'];
+                                            $judul_tm = $row2['judul'];
+                                            $genre_tm = $row2['nama'];
+                                            $ringkasan_tm = $row2['ringkasan'];
+                                            $tahun_tm = $row2['tahun'];
+                                            $trailer_tm = $row2['trailer'];
+                                            $rating_tm = $row2['rating'];
                                     ?>
                                         <div class="col-md-3">
                                             <div class="upcome_2i1 clearfix position-relative">
@@ -416,7 +386,8 @@
                                                             <h5 class="text-white"><?= $judul_tm; ?></h5>
                                                             <h6 class="text-white"><?= $genre_tm; ?></h6>
                                                             <span class="col_red">
-                                                                <i class="fa fa-star"></i> <?= $rating_tm; ?>
+                                                                <i class="fa fa-star"></i> 
+                                                                <?= round($rating_tm, 1); ?>
                                                             </span>
                                                         </div>
                                                     </div>
@@ -424,7 +395,7 @@
                                             </div>
                                         </div>
                                     <?php
-                                    }
+                                        }
                                     ?>
                                 </div>
                             </div>

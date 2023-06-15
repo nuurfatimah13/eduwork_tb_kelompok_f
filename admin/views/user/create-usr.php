@@ -161,7 +161,18 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-10">
+                                        <div class="col-2">
+                                            <label for="validationCustomDescription" class="form-label">Role</label>
+                                            <div class="input-group has-validation">
+                                                <input type="text" name="role"
+                                                    class="form-control" id="validationCustomDescription" 
+                                                    aria-describedby="inputGroupPrepend" required>
+                                                <div class="invalid-feedback">
+                                                    Role tidak boleh kosong.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
                                             <label for="validationCustomDescription" class="form-label">Bio</label>
                                             <div class="input-group has-validation">
                                                 <input type="text" name="bio"

@@ -7,6 +7,7 @@
         $password = $_POST["password"];
         $epassword = password_hash($password, PASSWORD_BCRYPT);
         $age = filter_input(INPUT_POST, 'age', FILTER_SANITIZE_NUMBER_INT);
+        $role = "user";
 
         $rand = rand();
         $ekstensi =  array('png','jpg','jpeg','gif');
@@ -21,8 +22,8 @@
                 $photo = $rand.'_'.$filename;
                 move_uploaded_file($_FILES['photo']['tmp_name'], '../../assets/img/uploads/'.$rand.'_'.$filename);
                 
-                $sql = $conn->query("INSERT INTO users (name, email, password, age, photo) 
-                VALUES ('$name', '$email', '$epassword', '$age', '$photo')");
+                $sql = $conn->query("INSERT INTO users (name, email, password, role, age, photo) 
+                VALUES ('$name', '$email', '$epassword', '$role', '$age', '$photo')");
     
                 header("Location: ../../signin.php?message=saved");
             }else{

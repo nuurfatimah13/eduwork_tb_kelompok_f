@@ -10,12 +10,19 @@
 
         $user = mysqli_fetch_array($sql);
         $passwordhash = $user['password'];
+        $roleuser = $user['role'];
 
         if ($jumlah > 0) {
             if (password_verify($password, $passwordhash)) {
-                session_start();
-                $_SESSION["user"] = $user;
-                header("Location: ../../coba.php");
+                if ($roleuser == 'admin') {
+                    session_start();
+                    $_SESSION["user"] = $user;
+                    header("Location: ../../admin/index.php");
+                } else if ($roleuser == 'user') {
+                    session_start();
+                    $_SESSION["user"] = $user;
+                    header("Location: ../../user/index.php");
+                }
             } else {
                 header("Location: ../../signin.php?message=error");
             }

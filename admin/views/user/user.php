@@ -153,7 +153,7 @@
                                                 <th scope="col">#</th>
                                                 <th scope="col">Name</th>
                                                 <th scope="col">Email</th>
-                                                <th scope="col">Bio</th>
+                                                <th scope="col">Role</th>
                                                 <th scope="col">Address</th>
                                                 <th scope="col">Photo</th>
                                                 <th scope="col">Aksi</th>
@@ -169,7 +169,7 @@
                                                 <td scope="row"><?php echo $no?></td>
                                                 <td><?php echo($data['name']); ?></td>
                                                 <td><?php echo($data['email']); ?></td>
-                                                <td><?php echo($data['bio']); ?></td>
+                                                <td><?php echo($data['role']); ?></td>
                                                 <td><?php echo($data['address']); ?></td>
                                                 <td><img class="w-75" src="../../../assets/img/uploads/<?php echo($data['photo']); ?>" alt=""></td>
                                                 <td>
