@@ -7,90 +7,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home | MovApp</title>
 
-        <!-- Assets Link -->
-        <?php include_once ("layouts/assetsLink.php"); ?>
-    </head>
-    <body>
-        <!-- Header Start -->
-        <section style="background-color: #08142c;" id="header">
-            <!-- Sign In Modal Start -->
-            <div id="signin-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-                <!-- Modal Dialog Start -->
-                <div class="modal-dialog">
-                    <!-- Modal Content Start -->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">SIGN IN</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form class="ps-3 pe-3" action="#">
-                                <div class="mb-3">
-                                    <label for="username" class="form-label">Name</label>
-                                    <input class="form-control" type="email" id="username" required=""
-                                    placeholder="Eget Nulla">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="emailaddress" class="form-label">Email address</label>
-                                    <input class="form-control" type="email" id="emailaddress" required=""
-                                    placeholder="info@gmail.com">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="password" class="form-label">Password</label>
-                                    <input class="form-control" type="password" required="" id="password"
-                                    placeholder="Enter your password">
-                                </div>
-                                <div class="mb-3 text-center">
-                                    <h6><a class="button_1 d-block" href="#">SIGN IN</a></h6>
-                                </div>
-                            </form>
-                        </div>
+    <!-- Assets Link -->
+    <?php include_once("layouts/assetsLink.php"); ?>
+</head>
+
+<body>
+    <!-- Header Start -->
+    <section style="background-color: #08142c;" id="header">
+        <!-- Sign In Modal Start -->
+        <div id="signin-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+            <!-- Modal Dialog Start -->
+            <div class="modal-dialog">
+                <!-- Modal Content Start -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">SIGN IN</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <!-- Modal Content End -->
+                    <div class="modal-body">
+                        <form class="ps-3 pe-3" action="#">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Name</label>
+                                <input class="form-control" type="email" id="username" required="" placeholder="Eget Nulla">
+                            </div>
+                            <div class="mb-3">
+                                <label for="emailaddress" class="form-label">Email address</label>
+                                <input class="form-control" type="email" id="emailaddress" required="" placeholder="info@gmail.com">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
+                            </div>
+                            <div class="mb-3 text-center">
+                                <h6><a class="button_1 d-block" href="#">SIGN IN</a></h6>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <!-- Modal Dialog End -->
+                <!-- Modal Content End -->
             </div>
-            <!-- Sign In Modal End -->
-            <nav style="background-color: #081c3c;" class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
-                <div class="container-fluid">
-                    <a class="navbar-brand fs-4 p-0 fw-bold text-white text-uppercase" href="index.php">
-                        <img src="assets/img/icons/logo-1.png" alt="logo" width="20%" class="me-1 col_light fs-1 align-middle">
-                        MovApp
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mb-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="about.php">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="team.php">Team</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="contact.php">Contact</a>
-                            </li>
-                        </ul>
-                        <ul class="navbar-nav mb-0 ms-auto">
-                            <!-- Modal Start -->
-                            <li class="nav-item ms-3">
-                                <a class="nav-link button" href="signin.php">
-                                    SIGN IN
-                                </a>
-                            </li>
-                            <!-- Modal End -->
-                        </ul>
-                    </div>
+            <!-- Modal Dialog End -->
+        </div>
+        <!-- Sign In Modal End -->
+        <nav style="background-color: #081c3c;" class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
+            <div class="container-fluid">
+                <a class="navbar-brand fs-4 p-0 fw-bold text-white text-uppercase" href="index.php">
+                    <img src="assets/img/icons/logo-1.png" alt="logo" width="20%" class="me-1 col_light fs-1 align-middle">
+                    MovApp
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.php">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="team.php">Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.php">Contact</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav mb-0 ms-auto">
+                        <!-- Modal Start -->
+                        <li class="nav-item ms-3">
+                            <a class="nav-link button" href="signin.php">
+                                SIGN IN
+                            </a>
+                        </li>
+                        <!-- Modal End -->
+                    </ul>
                 </div>
-            </nav>
-        </section>
-        <!-- Header End -->
+            </div>
+        </nav>
+    </section>
+    <!-- Header End -->
 
     <!-- Hero Start -->
     <section style="background-color: #08142c;" id="center" class="center_home">
@@ -169,16 +165,12 @@
                         <div class="upcome_2i row">
                             <?php
                             include "database/db.php";
-                            $query = $conn->query("SELECT film.id, film.poster, film.judul, genre.nama, 
-                                    film.ringkasan, film.tahun, film.trailer AS trailer
-                                    FROM film 
-                                    INNER JOIN genre ON film.genre_id = genre.id
-                                    LEFT JOIN kritik ON film.id = kritik.film_id 
-                                    WHERE film.tahun>YEAR(NOW());");
-                            $query1 = $conn->query("SELECT film_id , count(film_id) as jumlah_kritik ,sum(point) as jumlah_point, sum(point)/count(film_id) as rating FROM `kritik` group by film_id ;");
-                            while ($data1 = mysqli_fetch_array($query1)) {
-                                $film_rating = $data1["rating"];
-                            }
+                            $query = $conn->query("SELECT film.id, film.poster, film.judul, genre.nama, film.ringkasan, film.tahun, film.trailer AS trailer,
+                            kritik.film_id, count(kritik.film_id) as jumlah_kritik, sum(kritik.point) as jumlah_point, sum(kritik.point) / count(kritik.film_id) as rating
+                                                                FROM film 
+                                                                INNER JOIN genre ON film.genre_id = genre.id
+                                                                LEFT JOIN kritik ON film.id = kritik.film_id 
+                                                                WHERE film.tahun>YEAR(NOW()) GROUP BY id;");
                             while ($row = mysqli_fetch_array($query)) {
                                 $id = $row['id'];
                                 $poster = $row['poster'];
@@ -187,6 +179,7 @@
                                 $ringkasan = $row['ringkasan'];
                                 $tahun = $row['tahun'];
                                 $trailer = $row['trailer'];
+                                $film_rating = $row['rating'];
                             ?>
                                 <div class="col-md-3">
                                     <div class="upcome_2i1 clearfix position-relative">
@@ -237,13 +230,12 @@
                         <div class="upcome_2i row">
                             <?php
                             include "database/db.php";
-                            $query = $conn->query("SELECT film.id, film.poster, film.judul, 
-                                        genre.nama, film.ringkasan, film.tahun, film.trailer, 
-                                        kritik.point AS rating
-                                    FROM film
-                                    INNER JOIN genre ON film.genre_id = genre.id 
-                                    LEFT JOIN kritik ON film.id = kritik.film_id 
-                                    WHERE film.tahun<=YEAR(NOW());");
+                            $query = $conn->query("SELECT film.id, film.poster, film.judul, genre.nama, film.ringkasan, film.tahun, film.trailer AS trailer,
+                            kritik.film_id, count(kritik.film_id) as jumlah_kritik, sum(kritik.point) as jumlah_point, sum(kritik.point) / count(kritik.film_id) as rating
+                                                                FROM film 
+                                                                INNER JOIN genre ON film.genre_id = genre.id
+                                                                LEFT JOIN kritik ON film.id = kritik.film_id 
+                                                                WHERE film.tahun<=YEAR(NOW()) GROUP BY id;");
                             while ($row = mysqli_fetch_array($query)) {
                                 $id = $row['id'];
                                 $poster = $row['poster'];
@@ -282,7 +274,7 @@
                                                         if ($rating == NULL) {
                                                             echo 0;
                                                         } else {
-                                                            echo $rating;
+                                                            echo round($rating, 1);
                                                         }
                                                         ?>
                                                     </span>
@@ -299,13 +291,12 @@
                     <div class="tab-pane" id="settings">
                         <div class="upcome_2i row">
                             <?php
-                            $query_best = $conn->query("SELECT film.id, film.poster, film.judul,    
-                                        genre.nama, film.ringkasan, film.tahun, film.trailer, 
-                                        kritik.point AS rating
-                                        FROM film 
-                                        INNER JOIN genre ON film.genre_id = genre.id 
-                                        INNER JOIN kritik ON film.id = kritik.film_id 
-                                        WHERE kritik.point=5;");
+                            $query_best = $conn->query("SELECT film.id, film.poster, film.judul, genre.nama, film.ringkasan, film.tahun, film.trailer AS trailer,
+                            kritik.film_id, count(kritik.film_id) as jumlah_kritik, sum(kritik.point) as jumlah_point, sum(kritik.point) / count(kritik.film_id) as rating
+                                                                FROM film 
+                                                                INNER JOIN genre ON film.genre_id = genre.id
+                                                                LEFT JOIN kritik ON film.id = kritik.film_id 
+                                                                WHERE kritik.point=5 GROUP BY id;");
                             while ($row_best = mysqli_fetch_array($query_best)) {
                                 $id_best = $row_best['id'];
                                 $poster_best = $row_best['poster'];
@@ -314,7 +305,7 @@
                                 $ringkasan_best = $row_best['ringkasan'];
                                 $tahun_best = $row_best['tahun'];
                                 $trailer_best = $row_best['trailer'];
-                                $rating_best = $row_best['rating'];
+                                $rating = $row_best['rating'];
                             ?>
                                 <div class="col-md-3">
                                     <div class="upcome_2i1 clearfix position-relative">
@@ -340,7 +331,14 @@
                                                     <h5 class="text-white"><?= $judul_best; ?></h5>
                                                     <h6 class="text-white"><?= $genre_best; ?></h6>
                                                     <span class="col_red">
-                                                        <i class="fa fa-star"></i> <?= $rating_best; ?>
+                                                        <i class="fa fa-star"></i>
+                                                        <?php
+                                                        if ($rating == NULL) {
+                                                            echo 0;
+                                                        } else {
+                                                            echo round($rating, 1);
+                                                        }
+                                                        ?>
                                                     </span>
                                                 </div>
                                             </div>
@@ -376,12 +374,12 @@
                             <div class="carousel-item active">
                                 <div class="upcome_2i row">
                                     <?php
-                                    $query3 = $conn->query("SELECT film.id, film.poster, film.judul, genre.nama, 
-                                                film.ringkasan, film.tahun, film.trailer, kritik.point AS rating
-                                                FROM film 
-                                                INNER JOIN genre ON film.genre_id = genre.id 
-                                                INNER JOIN kritik ON film.id = kritik.film_id 
-                                                WHERE kritik.point>=4;");
+                                    $query3 = $conn->query("SELECT film.id, film.poster, film.judul, genre.nama, film.ringkasan, film.tahun, film.trailer AS trailer,
+                                    kritik.film_id, count(kritik.film_id) as jumlah_kritik, sum(kritik.point) as jumlah_point, sum(kritik.point) / count(kritik.film_id) as rating
+                                                                        FROM film 
+                                                                        INNER JOIN genre ON film.genre_id = genre.id
+                                                                        LEFT JOIN kritik ON film.id = kritik.film_id
+                                                WHERE kritik.point>=4 GROUP BY id;");
                                     while ($row2 = mysqli_fetch_array($query3)) {
                                         $id_tm = $row2['id'];
                                         $poster_tm = $row2['poster'];
@@ -390,7 +388,7 @@
                                         $ringkasan_tm = $row2['ringkasan'];
                                         $tahun_tm = $row2['tahun'];
                                         $trailer_tm = $row2['trailer'];
-                                        $rating_tm = $row2['rating'];
+                                        $rating = $row2['rating'];
                                     ?>
                                         <div class="col-md-3">
                                             <div class="upcome_2i1 clearfix position-relative">
@@ -409,14 +407,21 @@
                                                     </h6>
                                                 </div>
                                             </div>
-                                            <div style="background-color: #08142c;"  class="upcome_2i_last p-3 ">
+                                            <div style="background-color: #08142c;" class="upcome_2i_last p-3 ">
                                                 <div class="upcome_2i_lasti row">
                                                     <div class="col-md-9 col-9">
                                                         <div class="upcome_2i_lastil">
                                                             <h5 class="text-white"><?= $judul_tm; ?></h5>
                                                             <h6 class="text-white"><?= $genre_tm; ?></h6>
                                                             <span class="col_red">
-                                                                <i class="fa fa-star"></i> <?= $rating_tm; ?>
+                                                                <i class="fa fa-star"></i>
+                                                                <?php
+                                                                if ($rating == NULL) {
+                                                                    echo 0;
+                                                                } else {
+                                                                    echo round($rating, 1);
+                                                                }
+                                                                ?>
                                                             </span>
                                                         </div>
                                                     </div>
