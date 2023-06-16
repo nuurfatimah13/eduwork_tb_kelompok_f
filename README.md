@@ -19,7 +19,10 @@ Project about Movie App by final project studi independen in Eduwork
 - [x] CRUD Kritik -> _[ZarssssTz](https://github.com/ZarssssTz)_
 - [ ] Menyambungkan landing page dengan data database -> _[ZarssssTz](https://github.com/ZarssssTz), [nuurfatimah13](https://github.com/nuurfatimah13), [IndiStefani](https://github.com/IndiStefani)_
 - [x] Login page -> _[nuurfatimah13](https://github.com/nuurfatimah13)_
+- [x] Pagination -> _[nuurfatimah13](https://github.com/nuurfatimah13)_
 
 #### _Templating design landing page by [TemplateOnWeb](www.templateonweb.com)_
 
 #### _Templating design admin page by [AdminKit](adminkit.io)_
+
+#### _Templating design Sign In and Sign Up page by [Anand Vunnam](https://bbbootstrap.com/snippets/bootstrap-5-login-form-using-neomorphism-89456141)_

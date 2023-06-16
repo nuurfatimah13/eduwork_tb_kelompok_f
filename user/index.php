@@ -154,7 +154,14 @@
                             <div class="upcome_2i row">
                                 <?php
                                     include "../database/db.php";
-                                    $query = $conn->query("SELECT film.id, film.poster, 
+                                    $btupcom = 4;
+                                    $pageupcom = isset($_GET['page_upcom']) ? (int)$_GET['page_upcom'] : 1;
+                                    $pagewalup = ($pageupcom > 1) ? ($pageupcom * $btupcom) - $btupcom : 0;
+
+                                    $previousup = $pageupcom - 1;
+                                    $nextup = $pageupcom + 1;
+
+                                    $dtup = $conn->query("SELECT film.id, film.poster, 
                                         film.judul, genre.nama, 
                                         film.ringkasan, film.tahun, film.trailer AS trailer, 
                                         COUNT(kritik.film_id) AS jumlah_kritik, 
@@ -165,6 +172,21 @@
                                         LEFT JOIN kritik ON film.id = kritik.film_id 
                                         WHERE film.tahun>YEAR(NOW())
                                         GROUP BY kritik.film_id;");
+                                    $jml_dtup = mysqli_num_rows($dtup);
+                                    $tl_pageup = ceil($jml_dtup / $btupcom);
+
+                                    $query = $conn->query("SELECT film.id, film.poster, 
+                                        film.judul, genre.nama, 
+                                        film.ringkasan, film.tahun, film.trailer AS trailer, 
+                                        COUNT(kritik.film_id) AS jumlah_kritik, 
+                                        SUM(kritik.point) AS jumlah_point, 
+                                        SUM(kritik.point)/COUNT(kritik.film_id) AS rating
+                                        FROM film 
+                                        INNER JOIN genre ON film.genre_id = genre.id
+                                        LEFT JOIN kritik ON film.id = kritik.film_id 
+                                        WHERE film.tahun>YEAR(NOW())
+                                        GROUP BY kritik.film_id
+                                        LIMIT $pagewalup, $btupcom");
                                     while ($row = mysqli_fetch_array($query)) {
                                         $id = $row['id'];
                                         $poster = $row['poster'];
@@ -219,12 +241,52 @@
                                     }
                                 ?>
                             </div>
+                            <nav>
+                                <ul class="pagination justify-content-end">
+                                    <li class="page-item">
+                                        <a class="page-link" 
+                                            <?php if($pageupcom > 1){ echo "href='index.php?page_upcom=$previousup'"; } ?>>
+                                            Previous
+                                        </a>
+                                    </li>
+                                    <?php 
+                                        for ($i = 1; $i <= $tl_pageup; $i++) { 
+                                            $active = "";
+                                            if(isset($_GET["page_upcom"])){
+                                                if($i == $_GET["page_upcom"]){
+                                                    $active = "active";
+                                                }
+                                            }
+                                    ?>
+                                        <li class="page-item <?= $active; ?>">
+                                            <a class="page-link" href="index.php?page_upcom=<?= $i; ?>">
+                                                <?= $i; ?>
+                                            </a>
+                                        </li>
+                                    <?php
+                                        }
+                                    ?>
+                                    <li class="page-item">
+                                        <a class="page-link" 
+                                            <?php if($pageupcom < $tl_pageup){ echo "href='index.php?page_upcom=$nextup'"; } ?>>
+                                            Next
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                         <div class="tab-pane" id="profile">
                             <div class="upcome_2i row">
                                 <?php
                                     include "../database/db.php";
-                                    $query = $conn->query("SELECT film.id, film.poster, film.judul, 
+                                    $btreleas = 4;
+                                    $pagereleas = isset($_GET['page_releas']) ? (int)$_GET['page_releas'] : 1;
+                                    $pagewalrs = ($pagereleas > 1) ? ($pagereleas * $btreleas) - $btreleas : 0;
+
+                                    $previousrs = $pagereleas - 1;
+                                    $nextrs = $pagereleas + 1;
+
+                                    $dtr = $conn->query("SELECT film.id, film.poster, film.judul, 
                                             genre.nama, film.ringkasan, film.tahun, film.trailer, 
                                             COUNT(kritik.film_id) AS jumlah_kritik, 
                                             SUM(kritik.point) AS jumlah_point, 
@@ -234,6 +296,20 @@
                                         LEFT JOIN kritik ON film.id = kritik.film_id 
                                         WHERE film.tahun<=YEAR(NOW())
                                         GROUP BY kritik.film_id;");
+                                    $jml_dtr = mysqli_num_rows($dtr);
+                                    $tl_pagers = ceil($jml_dtr / $btreleas);
+
+                                    $query = $conn->query("SELECT film.id, film.poster, film.judul, 
+                                            genre.nama, film.ringkasan, film.tahun, film.trailer, 
+                                            COUNT(kritik.film_id) AS jumlah_kritik, 
+                                            SUM(kritik.point) AS jumlah_point, 
+                                            SUM(kritik.point)/COUNT(kritik.film_id) AS rating
+                                        FROM film
+                                        INNER JOIN genre ON film.genre_id = genre.id 
+                                        LEFT JOIN kritik ON film.id = kritik.film_id 
+                                        WHERE film.tahun<=YEAR(NOW())
+                                        GROUP BY kritik.film_id
+                                        LIMIT $pagewalrs, $btreleas");
                                     while ($row = mysqli_fetch_array($query)) {
                                         $id = $row['id'];
                                         $poster = $row['poster'];
@@ -285,11 +361,51 @@
                                     }
                                 ?>
                             </div>
+                            <nav>
+                                <ul class="pagination justify-content-end">
+                                    <li class="page-item">
+                                        <a class="page-link" 
+                                            <?php if($pagereleas > 1){ echo "href='index.php?page_releas=$previousrs'"; } ?>>
+                                            Previous
+                                        </a>
+                                    </li>
+                                    <?php 
+                                        for ($i = 1; $i <= $tl_pagers; $i++) { 
+                                            $active = "";
+                                            if(isset($_GET["page_releas"])){
+                                                if($i == $_GET["page_releas"]){
+                                                    $active = "active";
+                                                }
+                                            }
+                                    ?>
+                                        <li class="page-item <?= $active; ?>">
+                                            <a class="page-link" href="index.php?page_releas=<?= $i; ?>">
+                                                <?= $i; ?>
+                                            </a>
+                                        </li>
+                                    <?php
+                                        }
+                                    ?>
+                                    <li class="page-item">
+                                        <a class="page-link" 
+                                            <?php if($pagereleas < $tl_pagers){ echo "href='index.php?page_releas=$nextrs'"; } ?>>
+                                            Next
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                         <div class="tab-pane" id="settings">
                             <div class="upcome_2i row">
                                 <?php
-                                    $query_best = $conn->query("SELECT film.id, film.poster, film.judul,    
+                                    $btbest = 4;
+                                    $pagebest = isset($_GET['page_best']) ? (int)$_GET['page_best'] : 1;
+                                    $pagewal = ($pagebest > 1) ? ($pagebest * $btbest) - $btbest : 0;
+
+                                    $previousbs = $pagebest - 1;
+                                    $nextbs = $pagebest + 1;
+
+                                    $dts = $conn->query("SELECT film.id, film.poster, film.judul,    
                                             genre.nama, film.ringkasan, film.tahun, film.trailer, 
                                             COUNT(kritik.film_id) AS jumlah_kritik, 
                                             SUM(kritik.point) AS jumlah_point, 
@@ -299,6 +415,20 @@
                                         INNER JOIN kritik ON film.id = kritik.film_id 
                                         WHERE kritik.point=5
                                         GROUP BY kritik.film_id;");
+                                    $jml_dts = mysqli_num_rows($dts);
+                                    $tl_page = ceil($jml_dts / $btbest);
+
+                                    $query_best = $conn->query("SELECT film.id, film.poster, film.judul,    
+                                            genre.nama, film.ringkasan, film.tahun, film.trailer, 
+                                            COUNT(kritik.film_id) AS jumlah_kritik, 
+                                            SUM(kritik.point) AS jumlah_point, 
+                                            SUM(kritik.point)/COUNT(kritik.film_id) AS rating
+                                        FROM film 
+                                        INNER JOIN genre ON film.genre_id = genre.id 
+                                        INNER JOIN kritik ON film.id = kritik.film_id 
+                                        WHERE kritik.point=5
+                                        GROUP BY kritik.film_id
+                                        LIMIT $pagewal, $btbest");
                                     while ($row_best = mysqli_fetch_array($query_best)) {
                                         $id_best = $row_best['id'];
                                         $poster_best = $row_best['poster'];
@@ -345,6 +475,39 @@
                                     }
                                 ?>
                             </div>
+                            <nav>
+                                <ul class="pagination justify-content-end">
+                                    <li class="page-item">
+                                        <a class="page-link" 
+                                            <?php if($pagebest > 1){ echo "href='index.php?page_best=$previousbs'"; } ?>>
+                                            Previous
+                                        </a>
+                                    </li>
+                                    <?php 
+                                        for ($i = 1; $i <= $tl_page; $i++) { 
+                                            $active = "";
+                                            if(isset($_GET["page_best"])){
+                                                if($i == $_GET["page_best"]){
+                                                    $active = "active";
+                                                }
+                                            }
+                                    ?>
+                                        <li class="page-item <?= $active; ?>">
+                                            <a class="page-link" href="index.php?page_best=<?= $i; ?>">
+                                                <?= $i; ?>
+                                            </a>
+                                        </li>
+                                    <?php
+                                        }
+                                    ?>
+                                    <li class="page-item">
+                                        <a class="page-link" 
+                                            <?php if($pagebest < $tl_page){ echo "href='index.php?page_best=$nextbs'"; } ?>>
+                                            Next
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>
@@ -366,16 +529,36 @@
                                 <div class="carousel-item active">
                                     <div class="upcome_2i row">
                                         <?php
-                                            $query3 = $conn->query("SELECT film.id, film.poster, film.judul, 
-                                                    genre.nama, film.ringkasan, film.tahun, film.trailer, 
-                                                    COUNT(kritik.film_id) AS jumlah_kritik, 
+                                            $batas = 4;
+                                            $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+                                            $page_awal = ($page > 1) ? ($page * $batas) - $batas : 0;
+
+                                            $previous = $page - 1;
+                                            $next = $page + 1;
+
+                                            $dt = $conn->query("SELECT film.id, film.poster, 
+                                                        film.judul, genre.nama, film.ringkasan, film.tahun, film.trailer, COUNT(kritik.film_id) AS jumlah_kritik, 
+                                                        SUM(kritik.point) AS jumlah_point, 
+                                                        SUM(kritik.point)/COUNT(kritik.film_id) AS rating
+                                                    FROM film 
+                                                    INNER JOIN genre ON film.genre_id = genre.id 
+                                                    INNER JOIN kritik ON film.id = kritik.film_id 
+                                                    WHERE kritik.point>=4
+                                                    GROUP BY kritik.film_id;");
+                                            $jml_dt = mysqli_num_rows($dt);
+                                            $total_page = ceil($jml_dt / $batas);
+
+                                            $query3 = $conn->query("SELECT film.id, film.poster, 
+                                                    film.judul, genre.nama, film.ringkasan, film.tahun, film.trailer, COUNT(kritik.film_id) AS jumlah_kritik, 
                                                     SUM(kritik.point) AS jumlah_point, 
                                                     SUM(kritik.point)/COUNT(kritik.film_id) AS rating
                                                 FROM film 
                                                 INNER JOIN genre ON film.genre_id = genre.id 
                                                 INNER JOIN kritik ON film.id = kritik.film_id 
                                                 WHERE kritik.point>=4
-                                                GROUP BY kritik.film_id;");
+                                                GROUP BY kritik.film_id
+                                                LIMIT $page_awal, $batas");
+
                                             while ($row2 = mysqli_fetch_array($query3)) {
                                                 $id_tm = $row2['id'];
                                                 $poster_tm = $row2['poster'];
@@ -386,42 +569,76 @@
                                                 $trailer_tm = $row2['trailer'];
                                                 $rating_tm = $row2['rating'];
                                         ?>
-                                            <div class="col-md-3">
-                                                <div class="upcome_2i1 clearfix position-relative">
-                                                    <div class="upcome_2i1i clearfix">
-                                                        <input type="hidden" value="<?php echo $id_tm; ?>">
-                                                        <img src="../assets/img/film/<?= $poster_tm; ?>" alt="<?= $judul_tm; ?>" width="260" height="330">
-                                                    </div>
-                                                    <div class="upcome_2i1i1 clearfix position-absolute top-0 text-center w-100">
-                                                        <h6 class="text-uppercase">
-                                                            <a class="button_1" href="<?= $trailer_tm; ?>">View Trailer</a>
-                                                        </h6>
-                                                        <h6 class="text-uppercase mb-0">
-                                                            <a class="button_2" href="movie-detail.php?id=<?php echo $id_tm; ?>">
-                                                                View Details
-                                                            </a>
-                                                        </h6>
-                                                    </div>
+                                        <div class="col-md-3">
+                                            <div class="upcome_2i1 clearfix position-relative">
+                                                <div class="upcome_2i1i clearfix">
+                                                    <input type="hidden" value="<?php echo $id_tm; ?>">
+                                                    <img src="../assets/img/film/<?= $poster_tm; ?>" alt="<?= $judul_tm; ?>" width="260" height="330">
                                                 </div>
-                                                <div style="background-color: #08142c;"  class="upcome_2i_last p-3 ">
-                                                    <div class="upcome_2i_lasti row">
-                                                        <div class="col-md-9 col-9">
-                                                            <div class="upcome_2i_lastil">
-                                                                <h5 class="text-white"><?= $judul_tm; ?></h5>
-                                                                <h6 class="text-white"><?= $genre_tm; ?></h6>
-                                                                <span class="col_red">
-                                                                    <i class="fa fa-star"></i> 
-                                                                    <?= round($rating_tm, 1); ?>
-                                                                </span>
-                                                            </div>
+                                                <div class="upcome_2i1i1 clearfix position-absolute top-0 text-center w-100">
+                                                    <h6 class="text-uppercase">
+                                                        <a class="button_1" href="<?= $trailer_tm; ?>">View Trailer</a>
+                                                    </h6>
+                                                    <h6 class="text-uppercase mb-0">
+                                                        <a class="button_2" href="movie-detail.php?id=<?php echo $id_tm; ?>">
+                                                            View Details
+                                                        </a>
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                            <div style="background-color: #08142c;" 
+                                                class="upcome_2i_last p-3 ">
+                                                <div class="upcome_2i_lasti row">
+                                                    <div class="col-md-9 col-9">
+                                                        <div class="upcome_2i_lastil">
+                                                            <h5 class="text-white"><?= $judul_tm; ?></h5>
+                                                            <h6 class="text-white"><?= $genre_tm; ?></h6>
+                                                            <span class="col_red">
+                                                                <i class="fa fa-star"></i> 
+                                                                <?= round($rating_tm, 1); ?>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
                                         <?php
                                             }
                                         ?>
                                     </div>
+                                    <nav>
+                                        <ul class="pagination justify-content-end">
+                                            <li class="page-item">
+                                                <a class="page-link" 
+                                                    <?php if($page > 1){ echo "href='index.php?page=$previous'"; } ?>>
+                                                    Previous
+                                                </a>
+                                            </li>
+                                            <?php 
+                                                for ($i = 1; $i <= $total_page; $i++) { 
+                                                    $active = "";
+                                                    if(isset($_GET["page"])){
+                                                        if($i == $_GET["page"]){
+                                                            $active = "active";
+                                                        }
+                                                    }
+                                            ?>
+                                                <li class="page-item <?= $active; ?>">
+                                                    <a class="page-link" href="index.php?page=<?= $i; ?>">
+                                                        <?= $i; ?>
+                                                    </a>
+                                                </li>
+                                            <?php
+                                                }
+                                            ?>
+                                            <li class="page-item">
+                                                <a class="page-link" 
+                                                    <?php if($page < $total_page){ echo "href='index.php?page=$next'"; } ?>>
+                                                    Next
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
                                 </div>
                             </div>
                         </div>
