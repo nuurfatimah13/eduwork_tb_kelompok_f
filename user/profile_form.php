@@ -80,10 +80,12 @@
             <div class="container">
                 <div class="row center_o1 text-center">
                     <div class="col-md-12">
-                        <h2>PROFILE</h2>
+                        <h2>PROFILE FORM</h2>
                         <h5 class="bg_dark d-inline-block p-4 mb-0 mt-4 pt-2 pb-2 fw-normal col_red">
-                            <a class="text-white" href="index.php">Home</a>
-                            <span class="me-2 ms-2 text-muted"> /</span> Profile
+                            <a class="text-white" href="profile.php?id=<?= $iduser; ?>">
+                                Profile
+                            </a>
+                            <span class="me-2 ms-2 text-muted"> /</span> Profile Form
                         </h5>
                     </div>
                 </div>
@@ -107,117 +109,90 @@
                                     $age = $data["age"];
                                     $bio = $data["bio"];
                                     $address = $data["address"];
-                                    $photo = $data["photo"];
                                 }
                                 ?>
                                 <div class="grid clearfix row">
-                                    <div class="col-md-5">
-                                        <figure class="effect-jazz">
-                                            <img 
-                                                src="../assets/img/uploads/<?= $photo; ?>"     
-                                                class="w-50" 
-                                                style="border-radius: 100%"
-                                                alt="<?= $name; ?>">
-                                                <br />
-                                                <a class="btn btn-warning btn-sm mt-2" 
-                                                    href="photo_form.php?id=<?= $id; ?>">
-                                                    <i class="fa fa-pencil-square-o"></i>
-                                                    &nbsp;
-                                                    Update Photo
-                                                </a>
-                                        </figure>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <div class="mb-2">
-                                            <h3 class="text-center col_light">
-                                                Data Profile
-                                            </h3>
-                                            <table class="table">
-                                                <tbody>
-                                                    <tr>
-                                                        <th class="col_light">Name</th>
-                                                        <th class="col_light">:</th>
-                                                        <th class="col_light">
-                                                            <?= $name; ?>
-                                                        </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="col_light">Email</th>
-                                                        <th class="col_light">:</th>
-                                                        <th class="col_light">
-                                                            <?= $email; ?>
-                                                        </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="col_light">Age</th>
-                                                        <th class="col_light">:</th>
-                                                        <th class="col_light">
-                                                            <?= $age; ?>
-                                                        </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="col_light">
-                                                            Biograph
-                                                        </th>
-                                                        <th class="col_light">:</th>
-                                                        <th class="col_light">
-                                                            <?= $bio; ?>
-                                                        </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="col_light">Address</th>
-                                                        <th class="col_light">:</th>
-                                                        <th class="col_light">
-                                                            <?= $address; ?>
-                                                        </th>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <a class="btn btn-warning btn-sm" 
-                                                href="profile_form.php?id=<?= $id; ?>">
-                                                <i class="fa fa-pencil-square-o"></i>
-                                                &nbsp;
-                                                Update Profile
-                                            </a>
-                                        </div>
-                                        <div class="mt-1">
-                                            <?php 
-                                                $query = $conn->query("SELECT * FROM users WHERE id=$id;");
-                                                while ($data = mysqli_fetch_array($query)) {
-                                                    $password = $data["password"];
-                                                }
-                                            ?>
-                                            <h3 class="text-center col_light">
-                                                Manage Password
-                                            </h3>
-                                            <form class="row g-3 needs-validation" 
-                                                novalidate 
-                                                action="../controllers/profile/profile-user.php?id=<?= $id; ?>" 
-                                                method="post" 
-                                                enctype="multipart/form-data">
-                                                <div class="col-md-12">
-                                                    <label for="validationCustomName" class="form-label col_light">
-                                                        Password
-                                                    </label>
-                                                    <div class="input-group has-validation">
-                                                        <input type="password" name="password" class="form-control" 
-                                                            id="validationCustomName" value="<?= $password; ?>"
-                                                            aria-describedby="inputGroupPrepend" required>
-                                                        <div class="invalid-feedback">
-                                                            Password tidak boleh kosong.
-                                                        </div>
+                                    <div class="col-md-12">
+                                        <form class="row g-3 needs-validation" 
+                                            novalidate 
+                                            action="../controllers/profile/profile-user.php?id=<?= $id; ?>" 
+                                            method="post" 
+                                            enctype="multipart/form-data">
+                                            <div class="col-md-6">
+                                                <label for="validationCustomName" class="form-label col_light">
+                                                    Name
+                                                </label>
+                                                <div class="input-group has-validation">
+                                                    <input type="text" name="name" class="form-control" 
+                                                        id="validationCustomName" value="<?= $name; ?>"
+                                                        aria-describedby="inputGroupPrepend" required>
+                                                    <div class="invalid-feedback">
+                                                        Name cannot be empty.
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
-                                                    <button class="btn btn-sm btn-warning" 
-                                                        type="submit" name="update-password">
-                                                        <i class="fa fa-pencil-square-o"></i>
-                                                        &nbsp;
-                                                        Update Password
-                                                    </button>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="validationCustomEmail" class="form-label col_light">
+                                                    Email
+                                                </label>
+                                                <div class="input-group has-validation">
+                                                    <input type="text" name="email" class="form-control" 
+                                                        id="validationCustomEmail" value="<?= $email; ?>"
+                                                        aria-describedby="inputGroupPrepend" required>
+                                                    <div class="invalid-feedback">
+                                                        Email cannot be empty.
+                                                    </div>
                                                 </div>
-                                            </form>
-                                        </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label for="validationCustomAge" class="form-label col_light">
+                                                    Age
+                                                </label>
+                                                <div class="input-group has-validation">
+                                                    <input type="text" name="age" class="form-control" 
+                                                        id="validationCustomAge" value="<?= $age; ?>"
+                                                        aria-describedby="inputGroupPrepend" required>
+                                                    <div class="invalid-feedback">
+                                                        Age cannot be empty.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <label for="validationCustomBio" class="form-label col_light">
+                                                    Biograph
+                                                </label>
+                                                <div class="input-group has-validation">
+                                                    <input type="text" name="bio" class="form-control" 
+                                                        id="validationCustomBio" value="<?= $bio; ?>"
+                                                        aria-describedby="inputGroupPrepend" required>
+                                                    <div class="invalid-feedback">
+                                                        Biograph cannot be empty.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label for="validationCustomAddress" class="form-label col_light">
+                                                    Address
+                                                </label>
+                                                <div class="input-group has-validation">
+                                                    <textarea class="form-control" name="address" 
+                                                        id="validationCustomAddress" cols="5" rows="4">
+                                                        <?= $address; ?>
+                                                    </textarea>
+                                                    <div class="invalid-feedback">
+                                                        Address cannot be empty.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <button class="btn btn-sm btn-warning" 
+                                                    type="submit" name="update-profile">
+                                                    <i class="fa fa-pencil-square-o"></i>
+                                                    &nbsp;
+                                                    Update Profile
+                                                </button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

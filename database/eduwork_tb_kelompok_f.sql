@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 15 Jun 2023 pada 04.13
--- Versi server: 10.4.24-MariaDB
--- Versi PHP: 7.4.29
+-- Generation Time: Jun 16, 2023 at 01:35 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `cast`
+-- Table structure for table `cast`
 --
 
 CREATE TABLE `cast` (
@@ -35,7 +35,7 @@ CREATE TABLE `cast` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `cast`
+-- Dumping data for table `cast`
 --
 
 INSERT INTO `cast` (`id`, `nama`, `umur`, `bio`) VALUES
@@ -136,7 +136,7 @@ INSERT INTO `cast` (`id`, `nama`, `umur`, `bio`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `film`
+-- Table structure for table `film`
 --
 
 CREATE TABLE `film` (
@@ -150,7 +150,7 @@ CREATE TABLE `film` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `film`
+-- Dumping data for table `film`
 --
 
 INSERT INTO `film` (`id`, `poster`, `judul`, `genre_id`, `trailer`, `ringkasan`, `tahun`) VALUES
@@ -173,7 +173,7 @@ INSERT INTO `film` (`id`, `poster`, `judul`, `genre_id`, `trailer`, `ringkasan`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `genre`
+-- Table structure for table `genre`
 --
 
 CREATE TABLE `genre` (
@@ -182,7 +182,7 @@ CREATE TABLE `genre` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `genre`
+-- Dumping data for table `genre`
 --
 
 INSERT INTO `genre` (`id`, `nama`) VALUES
@@ -200,7 +200,7 @@ INSERT INTO `genre` (`id`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kritik`
+-- Table structure for table `kritik`
 --
 
 CREATE TABLE `kritik` (
@@ -212,7 +212,7 @@ CREATE TABLE `kritik` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kritik`
+-- Dumping data for table `kritik`
 --
 
 INSERT INTO `kritik` (`id`, `users_id`, `film_id`, `content`, `point`) VALUES
@@ -288,12 +288,17 @@ INSERT INTO `kritik` (`id`, `users_id`, `film_id`, `content`, `point`) VALUES
 (70, 11, 46, 'keren..', 5),
 (71, 12, 46, 'jadi inget kartunnya, flashpoint', 5),
 (72, 17, 46, 'this movie have terrible cgi', 5),
-(73, 20, 46, 'Hyped!!!!', 5);
+(73, 20, 46, 'Hyped!!!!', 5),
+(74, 2, 44, 'thanks MovApp, this is the best!', 5),
+(75, 2, 43, 'the best ...', 5),
+(76, 2, 39, 'movie paling bagus ....', 5),
+(77, 2, 39, 'movie paling bagus ....', 4),
+(78, 2, 43, 'all best', 5);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `peran`
+-- Table structure for table `peran`
 --
 
 CREATE TABLE `peran` (
@@ -304,7 +309,7 @@ CREATE TABLE `peran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `peran`
+-- Dumping data for table `peran`
 --
 
 INSERT INTO `peran` (`id`, `film_id`, `cast_id`, `peran`) VALUES
@@ -412,14 +417,15 @@ INSERT INTO `peran` (`id`, `film_id`, `cast_id`, `peran`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` enum('admin','user') NOT NULL,
   `age` int(11) NOT NULL,
   `bio` varchar(255) DEFAULT NULL,
   `address` text DEFAULT NULL,
@@ -427,56 +433,56 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `age`, `bio`, `address`, `photo`) VALUES
-(1, 'Reza', 'expetasiagroup@gmail.com', 'bangjali', 20, 'Mahasiswa Semester 6', 'Jalan Sungai Bambu', '1867514920_reza.jpg'),
-(2, 'entong', 'entonk@gmail.com', 'entong123', 23, 'penulis', 'bandung', 'pria.jpg'),
-(3, 'Morgan', 'morgan@gmail.com', 'morgan1', 25, 'photographer', 'England', 'pria.jpg'),
-(4, 'noe123', 'noe@gmail.com', 'bangnoe', 27, 'pebisnis', 'Semarang', 'pria.jpg'),
-(5, 'nikprapur', 'nik11@gmail.com', 'pur001', 25, 'Musisi', 'Gorontalo', 'pria.jpg'),
-(6, 'Damar', 'dhamar123@gmail.com', 'bangdham', 30, 'PengusahaPertanian', 'Kalimantan', 'pria.jpg'),
-(7, 'thiya', 'thiaaa@gmail.com', 'thiA1', 30, 'Penulis', 'Jakarta', 'wanita.jpg'),
-(8, 'Lisa Anggraini', 'Liaini@gamil.com', 'lisaa22', 20, 'mhswi', 'Bogor', 'wanita.jpg'),
-(9, 'ceper', 'ceper@gmail.com', 'ceperrr', 25, 'Pengusaha', 'Blitar', 'pria.jpg'),
-(10, 'Susanto', 'santo@gmail.com', 'suss', 27, 'Pedagang', 'Lampung', 'pria.jpg'),
-(11, 'Sodikin', 'sodikin@gmail.com', 'dikindikun', 25, 'designer', 'Makassar', 'pria.jpg'),
-(12, 'Aje', 'aje@gmail.com', 'AJ_123', 27, 'Barista', 'Jakarta', 'pria.jpg'),
-(13, 'Ahmad Sutopo', 'sutopo@gmail.com', 'sutopo55', 32, 'Percetakan', 'Sidoarjo', 'pria.jpg'),
-(14, 'Teressa', 'teressa@gmail.coom', 'sessa25', 23, 'mhswi', 'Bandung', 'wanita.jpg'),
-(15, 'Agus', 'agus@gamil.com', 'gussopo', 25, 'Kepsek', 'Cirebon', 'pria.jpg'),
-(16, 'Zeakata', 'zieya@gmail.com', 'fauziyah01', 25, 'penulis', 'Nganjuk', 'wanita.jpg'),
-(17, 'Axel Foley', 'axel@gmail.com', 'Axx123', 30, 'Architec', 'Germany', 'pria.jpg'),
-(18, 'keimzelle', 'zell@gmail.com', 'zelleOne', 25, 'ArtWork', 'Polandia', 'wanita.jpg'),
-(19, 'josiahpayne', 'josi@gmailcom', 'josiahjosi', 33, 'Designer', 'Yaman', 'pria.jpg'),
-(20, 'juliante', 'juli@gmail.com', 'juli99', 27, 'CoffeeShop', 'Filipina', 'wanita.jpg');
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `age`, `bio`, `address`, `photo`) VALUES
+(1, 'Reza', 'expetasiagroup@gmail.com', '$2y$10$F0rs17efRhewRySlURh3uOwOO7rnZlW5ZTwK635qoKiVNFTRQsPQ2', 'admin', 20, 'Mahasiswa Semester 6', 'Jalan Sungai Bambu', '1867514920_reza.jpg'),
+(2, 'entong', 'entonk@gmail.com', '$2y$10$EUKtISDJhDvLWaE1dxr0n.pqehA1gHCNrbJD1WwFbiR4oph1q00U6', 'user', 23, 'penulis', 'bandung', '1010644562_images2.jpg'),
+(3, 'Morgan Alexander', 'morgan@gmail.com', '$2y$10$1ciRuSzA39hgTdr7dMMR8OJWPO/XQAr55F3FbTbTX8h3wmwRBJez.', 'admin', 25, 'photographer', '                                                                                                                                                                                                                                                                                                                                                England                                                                                                                                                                                                                                                                                                                        ', '76473446_images.jpg'),
+(4, 'noe123', 'noe@gmail.com', '$2y$10$AlgRg0v6SlhIhw8L6Mg/EuOHE.jHEFae5uz9q21Az.BU4GYY.IEWm', 'user', 27, 'pebisnis', 'Semarang', 'pria.jpg'),
+(5, 'nikprapur', 'nik11@gmail.com', '$2y$10$acjjn9PzOY5HCr/313Yxz.KKfYaeQgNS15ke52afxdykpWQBBpsF.', 'user', 25, 'Musisi', 'Gorontalo', 'pria.jpg'),
+(6, 'Damar Arganta', 'dhamar123@gmail.com', '$2y$10$JnIHtSxpWMmpAmklxbQqc.HQ6hS2pmDNyDS4jJ3XqyXrpjJJ8vnsK', 'user', 30, 'Pengusaha Pertanian', '                                                                                                                Kalimantan                                                                                                        ', '2023381471_profil2.jpg'),
+(7, 'thiya', 'thiaaa@gmail.com', '$2y$10$ryG5fxT0dwUruBvV3souueH/X2D9sDSwGoTjsn5RMexDbwSAqzHo2', 'user', 30, 'Penulis', 'Jakarta', 'wanita.jpg'),
+(8, 'Lisa Anggraini', 'Liaini@gamil.com', '$2y$10$uaDTc10KaREZBAdJ1XScq.jYPgPWDaATAbRL2/v8rNz7f7Ccjee3S', 'user', 20, 'mhswi', 'Bogor', 'wanita.jpg'),
+(9, 'ceper', 'ceper@gmail.com', '$2y$10$p..L9vUVqQwhkWYmlF.XH.Uk3vgN05rGCo7p6lyUmHpoKT1eZeeoa', 'user', 25, 'Pengusaha', 'Blitar', 'pria.jpg'),
+(10, 'Susanto', 'santo@gmail.com', '$2y$10$k3qIe7cwjxrFN.TeBhUNUuT72rhLjLN5pfMg21bEuBeNceV8rSGpG', 'user', 27, 'Pedagang', 'Lampung', 'pria.jpg'),
+(11, 'Sodikin', 'sodikin@gmail.com', '$2y$10$2q9u1d3zvvXh9Sl1/sB7XOR29JDGVhIq.kgXvgUBZJZuGkPtpZ8Yi', 'user', 25, 'designer', 'Makassar', 'pria.jpg'),
+(12, 'Aje', 'aje@gmail.com', '$2y$10$VTaYFRVuO7oA/pLyeQnCCemIKElwV86xbIAjLgjSB.i5A8lCD04Gy', 'user', 27, 'Barista', 'Jakarta', 'pria.jpg'),
+(13, 'Ahmad Sutopo', 'sutopo@gmail.com', '$2y$10$.EQknKA07GkLJWpkQZ.2J.XRq5mpK4ABH36qQvW3JvK4NEW0S7vV2', 'user', 32, 'Percetakan', 'Sidoarjo', 'pria.jpg'),
+(14, 'Teressa', 'teressa@gmail.coom', '$2y$10$OXhui6au.G3jmybZkhozTuAE9OEzzKRFYqEiOn1/8y91FUmZXAi1O', 'user', 23, 'mhswi', 'Bandung', 'wanita.jpg'),
+(15, 'Agus', 'agus@gamil.com', '$2y$10$9bgD4rCmEsAgd8nx5pb67uTB.vhdlgke55v2bpG4zSNz30GiD.RxC', 'user', 25, 'Kepsek', 'Cirebon', 'pria.jpg'),
+(16, 'Zeakata', 'zieya@gmail.com', '$2y$10$sdaDckXD2/D83g9ypUsws.MQaEtZfhIqpeXe5OTx5TBLtDiuWLSxW', 'user', 25, 'penulis', 'Nganjuk', 'wanita.jpg'),
+(17, 'Axel Foley', 'axel@gmail.com', '$2y$10$D2T4n0eW1sSgO5aoHwe9uOVZnqeeHTVZvQwoE1/Cbv52YdZTTUnni', 'user', 30, 'Architec', 'Germany', 'pria.jpg'),
+(18, 'keimzelle', 'zell@gmail.com', '$2y$10$drfWUDlkA1t9f0bkGSGfFOlLL3/bxHWEbvwZcS1lREytgnJCvLHku', 'user', 25, 'ArtWork', 'Polandia', 'wanita.jpg'),
+(19, 'josiahpayne', 'josi@gmailcom', '$2y$10$UH1agAkM73FmWp6VrlfEUexa1mpkMMJellxmfNLX4tdEHu10nv5t2', 'user', 33, 'Designer', 'Yaman', 'pria.jpg'),
+(20, 'juliante', 'juli@gmail.com', '$2y$10$UH1agAkM73FmWp6VrlfEUexa1mpkMMJellxmfNLX4tdEHu10nv5t2', 'user', 27, 'CoffeeShop', 'Filipina', 'wanita.jpg');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `cast`
+-- Indexes for table `cast`
 --
 ALTER TABLE `cast`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `film`
+-- Indexes for table `film`
 --
 ALTER TABLE `film`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_film_genre` (`genre_id`);
 
 --
--- Indeks untuk tabel `genre`
+-- Indexes for table `genre`
 --
 ALTER TABLE `genre`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `kritik`
+-- Indexes for table `kritik`
 --
 ALTER TABLE `kritik`
   ADD PRIMARY KEY (`id`),
@@ -484,7 +490,7 @@ ALTER TABLE `kritik`
   ADD KEY `fk_kritik_film1` (`film_id`);
 
 --
--- Indeks untuk tabel `peran`
+-- Indexes for table `peran`
 --
 ALTER TABLE `peran`
   ADD PRIMARY KEY (`id`),
@@ -492,70 +498,70 @@ ALTER TABLE `peran`
   ADD KEY `fk_peran_cast1` (`cast_id`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `cast`
+-- AUTO_INCREMENT for table `cast`
 --
 ALTER TABLE `cast`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
--- AUTO_INCREMENT untuk tabel `film`
+-- AUTO_INCREMENT for table `film`
 --
 ALTER TABLE `film`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
--- AUTO_INCREMENT untuk tabel `genre`
+-- AUTO_INCREMENT for table `genre`
 --
 ALTER TABLE `genre`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT untuk tabel `kritik`
+-- AUTO_INCREMENT for table `kritik`
 --
 ALTER TABLE `kritik`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
--- AUTO_INCREMENT untuk tabel `peran`
+-- AUTO_INCREMENT for table `peran`
 --
 ALTER TABLE `peran`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `film`
+-- Constraints for table `film`
 --
 ALTER TABLE `film`
   ADD CONSTRAINT `fk_film_genre` FOREIGN KEY (`genre_id`) REFERENCES `genre` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ketidakleluasaan untuk tabel `kritik`
+-- Constraints for table `kritik`
 --
 ALTER TABLE `kritik`
   ADD CONSTRAINT `fk_kritik_film1` FOREIGN KEY (`film_id`) REFERENCES `film` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_kritik_users1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ketidakleluasaan untuk tabel `peran`
+-- Constraints for table `peran`
 --
 ALTER TABLE `peran`
   ADD CONSTRAINT `fk_peran_cast1` FOREIGN KEY (`cast_id`) REFERENCES `cast` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,

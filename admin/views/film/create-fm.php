@@ -1,3 +1,9 @@
+<?php 
+    require_once("../../../controllers/auth/auth.php"); 
+    $iduser = $_SESSION['user']['id'];
+    $nameuser = $_SESSION['user']['name'];
+    $photouser = $_SESSION['user']['photo'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
