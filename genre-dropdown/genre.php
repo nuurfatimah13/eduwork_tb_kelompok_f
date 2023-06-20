@@ -6,9 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home | MovApp</title>
+    <link rel="shortcut icon" href="../assets/img/icons/logo-1.ico" />
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+        <script href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+        <link rel="stylesheet" href="assets/css/login-style.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+
 
     <!-- Assets Link -->
-    <?php include_once ("layouts/assetsLink.php"); ?>
+    <?php include_once ("../layouts/assetsLink.php"); ?>
 </head>
 
 <body>
@@ -16,8 +26,8 @@
     <section style="background-color: #08142c;" id="header">
         <nav style="background-color: #081c3c;" class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
             <div class="container-fluid">
-                <a class="navbar-brand fs-4 p-0 fw-bold text-white text-uppercase" href="index.php">
-                    <img src="assets/img/icons/logo-1.png" alt="logo" width="20%"
+                <a class="navbar-brand fs-4 p-0 fw-bold text-white text-uppercase" href="genre.php">
+                    <img src="../assets/img/icons/logo-1.png" alt="logo" width="20%"
                         class="me-1 col_light fs-1 align-middle">
                     MovApp
                 </a>
@@ -29,21 +39,21 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mb-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                            <a class="nav-link active" aria-current="page" href="genre.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.php">About</a>
+                            <a class="nav-link" href="../about.php">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="team.php">Team</a>
+                            <a class="nav-link" href="../team.php">Team</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.php">Contact</a>
+                            <a class="nav-link" href="../contact.php">Contact</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav mb-0 ms-auto">
                         <li class="nav-item ms-3">
-                            <a class="nav-link button" href="signin.php">
+                            <a class="nav-link button" href="../signin.php">
                                 SIGN IN
                             </a>
                         </li>
@@ -67,14 +77,14 @@
             </div>
             <div class="carousel-inner">
                 <?php
-                        include "database/db.php";
+                        include "../database/db.php";
                         $query1 = $conn->query("SELECT * FROM film WHERE tahun=2024  LIMIT 1");
                         if (mysqli_num_rows($query1) > 0) {
                             while ($data1 = mysqli_fetch_array($query1)) {
                     ?>
                 <div class="carousel-item active">
                     <input type="hidden" value="<?php echo $data1['id']; ?>">
-                    <img src="assets/img/film/<?= $data1['poster'] ?>" class="d-block w-100"
+                    <img src="../assets/img/film/<?= $data1['poster'] ?>" class="d-block w-100"
                         alt="<?= $data1['judul'] ?>" height="500">
                 </div>
                 <?php
@@ -85,7 +95,7 @@
                             while ($data2 = mysqli_fetch_array($query2)) {
                     ?>
                 <div class="carousel-item">
-                    <img src="assets/img/film/<?= $data2['poster'] ?>" class="d-block w-100"
+                    <img src="../assets/img/film/<?= $data2['poster'] ?>" class="d-block w-100"
                         alt="<?= $data2['judul'] ?>" height="500">
                 </div>
                 <?php
@@ -130,10 +140,10 @@
                             </a>
                         </li>
                         <li class="dropdown">
-                            <a href="genre-dropdown/genre.php" data-bs-toggle="tab" aria-expanded="false" class="nav-link border-0">
+                            <a href="genre.php" data-bs-toggle="tab" aria-expanded="false" class="nav-link border-0">
                                 <span class="dropdown-toggle" after >Genre</span>
                             </a>
-                            <div class="dropdown-menu" data-bs-popper>
+                            <div class="dropdown-menu show" data-bs-popper>
                                 <a href="#adventure" class="dropdown-item">
                                     <span class="dropdown-item hover">Adventure</span>
                                 </a>
@@ -159,7 +169,7 @@
                     <div class="tab-pane active" id="home">
                         <div class="upcome_2i row">
                             <?php
-                                    include "database/db.php";
+                                    include "../database/db.php";
                                     $btupcom = 4;
                                     $pageupcom = isset($_GET['page_upcom']) ? (int)$_GET['page_upcom'] : 1;
                                     $pagewalup = ($pageupcom > 1) ? ($pageupcom * $btupcom) - $btupcom : 0;
@@ -206,7 +216,7 @@
                             <div class="col-md-3">
                                 <div class="upcome_2i1 clearfix position-relative">
                                     <div class="upcome_2i1i clearfix">
-                                        <img src="assets/img/film/<?php echo $poster; ?>" width="260" height="330">
+                                        <img src="../assets/img/film/<?php echo $poster; ?>" width="260" height="330">
                                     </div>
                                     <div class="upcome_2i1i1 clearfix position-absolute top-0 text-center w-100">
                                         <h6 class="text-uppercase">
@@ -255,7 +265,7 @@
                             <ul class="pagination justify-content-end">
                                 <li class="page-item">
                                     <a class="page-link" <?php if($pageupcom> 1){ echo
-                                        "href='index.php?page_upcom=$previousup'"; } ?>>
+                                        "href='genre.php?page_upcom=$previousup'"; } ?>>
                                         Previous
                                     </a>
                                 </li>
@@ -269,7 +279,7 @@
                                             }
                                     ?>
                                 <li class="page-item <?= $active; ?>">
-                                    <a class="page-link" href="index.php?page_upcom=<?= $i; ?>">
+                                    <a class="page-link" href="genre.php?page_upcom=<?= $i; ?>">
                                         <?= $i; ?>
                                     </a>
                                 </li>
@@ -278,7 +288,7 @@
                                     ?>
                                 <li class="page-item">
                                     <a class="page-link" <?php if($pageupcom < $tl_pageup){
-                                        echo "href='index.php?page_upcom=$nextup'" ; } ?>>
+                                        echo "href='genre.php?page_upcom=$nextup'" ; } ?>>
                                         Next
                                     </a>
                                 </li>
@@ -288,7 +298,7 @@
                     <div class="tab-pane" id="profile">
                         <div class="upcome_2i row">
                             <?php
-                                    include "database/db.php";
+                                    include "../database/db.php";
                                     $btreleas = 4;
                                     $pagereleas = isset($_GET['page_releas']) ? (int)$_GET['page_releas'] : 1;
                                     $pagewalrs = ($pagereleas > 1) ? ($pagereleas * $btreleas) - $btreleas : 0;
@@ -333,7 +343,7 @@
                             <div class="col-md-3">
                                 <div class="upcome_2i1 clearfix position-relative">
                                     <div class="upcome_2i1i clearfix">
-                                        <img src="assets/img/film/<?php echo $poster; ?>" alt="<?php echo $judul; ?>"
+                                        <img src="../assets/img/film/<?php echo $poster; ?>" alt="<?php echo $judul; ?>"
                                             width="260" height="330">
                                     </div>
                                     <div class="upcome_2i1i1 clearfix position-absolute top-0 text-center w-100">
@@ -341,7 +351,7 @@
                                             <a class="button_1" href="<?= $trailer; ?>">View Trailer</a>
                                         </h6>
                                         <h6 class="text-uppercase mb-0">
-                                            <a class="button_2" href="movie-detail.php?id=<?php echo $id; ?>">
+                                            <a class="button_2" href="../movie-detail.php?id=<?php echo $id; ?>">
                                                 View Details
                                             </a>
                                         </h6>
@@ -380,7 +390,7 @@
                             <ul class="pagination justify-content-end">
                                 <li class="page-item">
                                     <a class="page-link" <?php if($pagereleas> 1){ echo
-                                        "href='index.php?page_releas=$previousrs'"; } ?>>
+                                        "href='genre.php?page_releas=$previousrs'"; } ?>>
                                         Previous
                                     </a>
                                 </li>
@@ -394,7 +404,7 @@
                                             }
                                     ?>
                                 <li class="page-item <?= $active; ?>">
-                                    <a class="page-link" href="index.php?page_releas=<?= $i; ?>">
+                                    <a class="page-link" href="genre.php?page_releas=<?= $i; ?>">
                                         <?= $i; ?>
                                     </a>
                                 </li>
@@ -403,7 +413,7 @@
                                     ?>
                                 <li class="page-item">
                                     <a class="page-link" <?php if($pagereleas < $tl_pagers){
-                                        echo "href='index.php?page_releas=$nextrs'" ; } ?>>
+                                        echo "href='genre.php?page_releas=$nextrs'" ; } ?>>
                                         Next
                                     </a>
                                 </li>
@@ -458,7 +468,7 @@
                                 <div class="upcome_2i1 clearfix position-relative">
                                     <div class="upcome_2i1i clearfix">
                                         <input type="hidden" value="<?= $id_best; ?>">
-                                        <img src="assets/img/film/<?= $poster_best; ?>" alt="<?= $judul_best; ?>"
+                                        <img src="../assets/img/film/<?= $poster_best; ?>" alt="<?= $judul_best; ?>"
                                             width="260" height="330">
                                     </div>
                                     <div class="upcome_2i1i1 clearfix position-absolute top-0 text-center w-100">
@@ -466,7 +476,7 @@
                                             <a class="button_1" href="<?= $trailer_best; ?>">View Trailer</a>
                                         </h6>
                                         <h6 class="text-uppercase mb-0">
-                                            <a class="button_2" href="movie-detail.php?id=<?= $id_best; ?>">
+                                            <a class="button_2" href="../movie-detail.php?id=<?= $id_best; ?>">
                                                 View Details
                                             </a>
                                         </h6>
@@ -499,7 +509,7 @@
                             <ul class="pagination justify-content-end">
                                 <li class="page-item">
                                     <a class="page-link" <?php if($pagebest> 1){ echo
-                                        "href='index.php?page_best=$previousbs'"; } ?>>
+                                        "href='genre.php?page_best=$previousbs'"; } ?>>
                                         Previous
                                     </a>
                                 </li>
@@ -513,7 +523,7 @@
                                             }
                                     ?>
                                 <li class="page-item <?= $active; ?>">
-                                    <a class="page-link" href="index.php?page_best=<?= $i; ?>">
+                                    <a class="page-link" href="genre.php?page_best=<?= $i; ?>">
                                         <?= $i; ?>
                                     </a>
                                 </li>
@@ -522,7 +532,7 @@
                                     ?>
                                 <li class="page-item">
                                     <a class="page-link" <?php if($pagebest < $tl_page){
-                                        echo "href='index.php?page_best=$nextbs'" ; } ?>>
+                                        echo "href='genre.php?page_best=$nextbs'" ; } ?>>
                                         Next
                                     </a>
                                 </li>
@@ -572,7 +582,7 @@
                                 <div class="upcome_2i1 clearfix position-relative">
                                     <div class="upcome_2i1i clearfix">
                                         <input type="hidden" value="<?= $id_best; ?>">
-                                        <img src="assets/img/film/<?= $poster_best; ?>" alt="<?= $judul_best; ?>"
+                                        <img src="../assets/img/film/<?= $poster_best; ?>" alt="<?= $judul_best; ?>"
                                             width="260" height="330">
                                     </div>
                                     <div class="upcome_2i1i1 clearfix position-absolute top-0 text-center w-100">
@@ -580,7 +590,7 @@
                                             <a class="button_1" href="<?= $trailer_best; ?>">View Trailer</a>
                                         </h6>
                                         <h6 class="text-uppercase mb-0">
-                                            <a class="button_2" href="movie-detail.php?id=<?= $id_best; ?>">
+                                            <a class="button_2" href="../movie-detail.php?id=<?= $id_best; ?>">
                                                 View Details
                                             </a>
                                         </h6>
@@ -613,7 +623,7 @@
                             <ul class="pagination justify-content-end">
                                 <li class="page-item">
                                     <a class="page-link" <?php if($pagebest> 1){ echo
-                                        "href='index.php?page_best=$previousbs'"; } ?>>
+                                        "href='genre.php?page_best=$previousbs'"; } ?>>
                                         Previous
                                     </a>
                                 </li>
@@ -627,7 +637,7 @@
                                             }
                                     ?>
                                 <li class="page-item <?= $active; ?>">
-                                    <a class="page-link" href="index.php?page_best=<?= $i; ?>">
+                                    <a class="page-link" href="genre.php?page_best=<?= $i; ?>">
                                         <?= $i; ?>
                                     </a>
                                 </li>
@@ -636,7 +646,7 @@
                                     ?>
                                 <li class="page-item">
                                     <a class="page-link" <?php if($pagebest < $tl_page){
-                                        echo "href='index.php?page_best=$nextbs'" ; } ?>>
+                                        echo "href='genre.php?page_best=$nextbs'" ; } ?>>
                                         Next
                                     </a>
                                 </li>
@@ -707,7 +717,7 @@
                                         <div class="upcome_2i1 clearfix position-relative">
                                             <div class="upcome_2i1i clearfix">
                                                 <input type="hidden" value="<?php echo $id_tm; ?>">
-                                                <img src="assets/img/film/<?= $poster_tm; ?>" alt="<?= $judul_tm; ?>"
+                                                <img src="../assets/img/film/<?= $poster_tm; ?>" alt="<?= $judul_tm; ?>"
                                                     width="260" height="330">
                                             </div>
                                             <div
@@ -717,7 +727,7 @@
                                                 </h6>
                                                 <h6 class="text-uppercase mb-0">
                                                     <a class="button_2"
-                                                        href="movie-detail.php?id=<?php echo $id_tm; ?>">
+                                                        href="../movie-detail.php?id=<?php echo $id_tm; ?>">
                                                         View Details
                                                     </a>
                                                 </h6>
@@ -750,7 +760,7 @@
                                     <ul class="pagination justify-content-end">
                                         <li class="page-item">
                                             <a class="page-link" <?php if($page> 1){ echo
-                                                "href='index.php?page=$previous'"; } ?>>
+                                                "href='genre.php?page=$previous'"; } ?>>
                                                 Previous
                                             </a>
                                         </li>
@@ -764,7 +774,7 @@
                                                     }
                                             ?>
                                         <li class="page-item <?= $active; ?>">
-                                            <a class="page-link" href="index.php?page=<?= $i; ?>">
+                                            <a class="page-link" href="genre.php?page=<?= $i; ?>">
                                                 <?= $i; ?>
                                             </a>
                                         </li>
@@ -773,7 +783,7 @@
                                             ?>
                                         <li class="page-item">
                                             <a class="page-link" <?php if($page < $total_page){
-                                                echo "href='index.php?page=$next'" ; } ?>>
+                                                echo "href='genre.php?page=$next'" ; } ?>>
                                                 Next
                                             </a>
                                         </li>
@@ -788,7 +798,7 @@
     </section>
 
     <!-- Footer Start -->
-    <?php include_once("layouts/footer.php"); ?>
+    <?php include_once("../layouts/footer.php"); ?>
     <!-- Footer End -->
 
     <script>
@@ -810,6 +820,23 @@
             }
         }
     </script>
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+
+<script>
+    $(function() {
+        $(".rateyo").rateYo().on("rateyo.change", function(e, data) {
+            var point = data.rating;
+            $(this).parent().find('.score').text('score :' + $(this).attr('data-rateyo-score'));
+            $(this).parent().find('.result').text('point :' + point);
+            $(this).parent().find('input[name=point]').val(point); //add rating value to input field
+        });
+    });
+</script>
+
 </body>
 
 </html>
