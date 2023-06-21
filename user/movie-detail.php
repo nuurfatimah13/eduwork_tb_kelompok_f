@@ -16,6 +16,19 @@
 
         <!-- Assets Link -->
         <?php include_once("layouts/assetsLink.php"); ?>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+        </script>
+        <script src="https://use.fontawesome.com/fe459689b4.js">
+        </script>
+        <style>
+            button .like {
+                border: none;
+                background-color: #fff !important;
+            }
+            button .fa-heart {
+                color: red;
+            }
+        </style>
     </head>
     <body>
         <!-- Header Start -->
@@ -35,9 +48,15 @@
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="page" href="index.php">Home</a>
                             </li>
-                            <!-- <li class="nav-item">
-                                <a class="nav-link" href="category.php">Category Movies</a>
-                            </li> -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.php">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="team.php">Team</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.php">Contact</a>
+                            </li>
                         </ul>
                         <ul class="navbar-nav mb-0 ms-auto">
                             <li class="nav-item dropdown ms-3">
@@ -97,28 +116,43 @@
                         <div class="blog1l">
                             <div class="blog1l1 bg-white">
                                 <?php
-                                include "../database/db.php";
-                                $id = $_GET['id'];
-                                $query = $conn->query("SELECT film.id, film.poster, 
-                                        film.judul, 
-                                        film.genre_id, genre.nama AS genre, film.ringkasan AS ringkasan, film.tahun, film.trailer, kritik.point AS rating, 
-                                        COUNT(kritik.content) AS comment
-                                    FROM film
-                                    INNER JOIN genre ON film.genre_id = genre.id 
-                                    LEFT JOIN kritik ON film.id = kritik.film_id 
-                                    WHERE film.id=$id;");
-                                while ($data = mysqli_fetch_array($query)) {
-                                    $id = $data["id"];
-                                    $poster = $data["poster"];
-                                    $judul = $data["judul"];
-                                    $genre = $data["genre"];
-                                    $ringkasan = $data["ringkasan"];
-                                    $tahun = $data["tahun"];
-                                    $trailer = $data["trailer"];
-                                    $rating = $data["rating"];
-                                    $comment = $data["comment"];
-                                    $genreId = $data["genre_id"];
-                                }
+                                    include "../database/db.php";
+                                    $id = $_GET['id'];
+                                    $query = $conn->query("SELECT film.id, film.poster, 
+                                            film.judul, 
+                                            film.genre_id, genre.nama AS genre, film.ringkasan AS ringkasan, film.tahun, film.trailer, kritik.point AS rating, 
+                                            COUNT(kritik.content) AS comment
+                                        FROM film
+                                        INNER JOIN genre ON film.genre_id = genre.id 
+                                        LEFT JOIN kritik ON film.id = kritik.film_id 
+                                        WHERE film.id=$id;");
+                                        
+                                    foreach ($query as $film) {
+                                        $id = $film["id"];
+                                        $poster = $film["poster"];
+                                        $judul = $film["judul"];
+                                        $genre = $film["genre"];
+                                        $ringkasan = $film["ringkasan"];
+                                        $tahun = $film["tahun"];
+                                        $trailer = $film["trailer"];
+                                        $rating = $film["rating"];
+                                        $comment = $film["comment"];
+                                        $genreId = $film["genre_id"];
+
+                                        $likesCount = mysqli_fetch_assoc(mysqli_query($conn, 
+                                            "SELECT COUNT(*) AS likes FROM loves 
+                                            WHERE film_id = $id AND status = 1 "))
+                                            ['likes'];
+
+                                        $status = mysqli_query($conn, "SELECT status 
+                                            FROM loves 
+                                            WHERE film_id = $id AND users_id = $iduser");
+                                        if (mysqli_num_rows($status) > 0) {
+                                            $status = mysqli_fetch_assoc($status)['status'];
+                                        } else {
+                                            $status = 0;
+                                        }
+                                    }
                                 ?>
                                 <div class="grid clearfix">
                                     <figure class="effect-jazz mb-0">
@@ -161,6 +195,17 @@
                                                 <li class="d-inline-block col_red me-3">
                                                     <i class="fa fa-star"></i> 
                                                     <?= round($rating, 1); ?>
+                                                </li>
+                                                <li class="d-inline-block col_red me-3">
+                                                    <button class="col_red like <?php if($status == 1) echo "selected"; ?>" 
+                                                        style="border: none; background-color: #fff;"
+                                                        data-film-id = <?php echo $id; ?>>
+                                                        <i class="fa fa-heart-o fa-md ilike<?= $id; ?>"></i>
+                                                        <span class="likes_count<?= $id; ?>" 
+                                                            data-count = <?= $likesCount; ?>>
+                                                            <?= $likesCount; ?> Likes
+                                                        </span>
+                                                    </button>
                                                 </li>
                                                 <li class="d-inline-block col_red me-3">
                                                     <i class="fa fa-comments me-1"></i>
@@ -327,6 +372,40 @@
                     document.body.style.paddingTop = '0'
                 }
             }
+        </script>
+
+        <script>
+            $('.like').click(function() {
+                var data = {
+                    film_id: $(this).data('film-id'),
+                    users_id: <?= $iduser; ?>,
+                    status: $(this).hasClass('like') ? 1 : '',
+                };
+                $.ajax({
+                    url: "../controllers/like/like.php",
+                    type: 'POST',
+                    data: data,
+                    success: function(response) {
+                        var film_id = data['film_id'];
+                        var likes = $('.likes_count' + film_id);
+                        var likesCount = likes.data('count');
+                        var ilikes = $('.ilike' + film_id);
+
+                        var likeButton = $(".like[data-film-id=" + film_id + "]");
+                        if (response == 'new1') {
+                            likes.html(likesCount + 1);
+                            likeButton.addClass('selected');
+                            ilikes.removeClass('fa-heart-o');
+                            ilikes.addClass('fa-heart');
+                        } else if (response == 'delete1') {
+                            likes.html(parseInt($('.likes_count' + film_id).text()) - 1);
+                            likeButton.removeClass('selected');
+                            ilikes.removeClass('fa-heart');
+                            ilikes.addClass('fa-heart-o');
+                        }
+                    }
+                })
+            })
         </script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

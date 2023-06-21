@@ -46,7 +46,18 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mb-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                                <a class="nav-link active" aria-current="page" href="index.php">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.php">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="team.php">Team</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.php">Contact</a>
                             </li>
                         </ul>
                         <ul class="navbar-nav mb-0 ms-auto">
@@ -266,16 +277,6 @@
                                                                 <?= $likesCount; ?>
                                                             </span>
                                                         </button>
-                                                        <!-- <span class="col_red"> -->
-                                                            <!-- <i class="fa fa-heart"></i> -->
-                                                            <?php
-                                                                // if ($likesCount == NULL) {
-                                                                //     echo 0;
-                                                                // } else {
-                                                                //     echo $likesCount;
-                                                                // }
-                                                            ?>
-                                                        <!-- </span> -->
                                                         <!-- likes end -->
                                                     </div>
                                                 </div>
@@ -369,6 +370,15 @@
                                             "SELECT COUNT(*) AS likes FROM loves 
                                             WHERE film_id = $id AND status = 1 "))
                                             ['likes'];
+
+                                        $statusrs = mysqli_query($conn, "SELECT status 
+                                            FROM loves 
+                                            WHERE film_id = $id AND users_id = $iduser");
+                                        if (mysqli_num_rows($statusrs) > 0) {
+                                            $status = mysqli_fetch_assoc($statusrs)['status'];
+                                        } else {
+                                            $statusrs = 0;
+                                        }
                                 ?>
                                     <div class="col-md-3">
                                         <div class="upcome_2i1 clearfix position-relative">
@@ -403,16 +413,15 @@
                                                             ?>
                                                         </span>
                                                         <!-- likes -->
-                                                        <span class="col_red">
-                                                            <i class="fa fa-heart"></i>
-                                                            <?php
-                                                                if ($likesrs == NULL) {
-                                                                    echo 0;
-                                                                } else {
-                                                                    echo $likesrs;
-                                                                }
-                                                            ?>
-                                                        </span>
+                                                        <button class="col_red like <?php if($statusrs == 1) echo "selected"; ?>" 
+                                                            style="border: none; background-color: #08142c;"
+                                                            data-film-id = <?php echo $id; ?>>
+                                                            <i class="fa fa-heart-o fa-md ilike<?= $id; ?>"></i>
+                                                            <span class="likes_count<?= $id; ?>" 
+                                                                data-count = <?= $likesrs; ?>>
+                                                                <?= $likesrs; ?> 
+                                                            </span>
+                                                        </button>
                                                         <!-- likes end -->
                                                     </div>
                                                 </div>
@@ -491,7 +500,7 @@
                                         WHERE kritik.point=5
                                         GROUP BY kritik.film_id
                                         LIMIT $pagewal, $btbest");
-                                    while ($row_best = mysqli_fetch_array($query_best)) {
+                                    foreach ($query_best as $row_best) {
                                         $id_best = $row_best['id'];
                                         $poster_best = $row_best['poster'];
                                         $judul_best = $row_best['judul'];
@@ -500,6 +509,20 @@
                                         $tahun_best = $row_best['tahun'];
                                         $trailer_best = $row_best['trailer'];
                                         $rating_best = $row_best['rating'];
+
+                                        $likesbest = mysqli_fetch_assoc(mysqli_query($conn, 
+                                            "SELECT COUNT(*) AS likes FROM loves 
+                                            WHERE film_id = $id_best AND status = 1 "))
+                                            ['likes'];
+
+                                        $statusbest = mysqli_query($conn, "SELECT status 
+                                            FROM loves 
+                                            WHERE film_id = $id_best AND users_id = $iduser");
+                                        if (mysqli_num_rows($statusbest) > 0) {
+                                            $statusbest = mysqli_fetch_assoc($statusbest)['status'];
+                                        } else {
+                                            $statusbest = 0;
+                                        }
                                 ?>
                                     <div class="col-md-3">
                                         <div class="upcome_2i1 clearfix position-relative">
@@ -528,6 +551,17 @@
                                                             <i class="fa fa-star"></i> 
                                                             <?= round($rating_best, 1); ?>
                                                         </span>
+                                                        <!-- likes -->
+                                                        <button class="col_red like <?php if($statusbest == 1) echo "selected"; ?>" 
+                                                            style="border: none; background-color: #08142c;"
+                                                            data-film-id = <?php echo $id_best; ?>>
+                                                            <i class="fa fa-heart-o fa-md ilike<?= $id_best; ?>"></i>
+                                                            <span class="likes_count<?= $id_best; ?>" 
+                                                                data-count = <?= $likesbest; ?>>
+                                                                <?= $likesbest; ?> 
+                                                            </span>
+                                                        </button>
+                                                        <!-- likes end -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -621,7 +655,7 @@
                                                 GROUP BY kritik.film_id
                                                 LIMIT $page_awal, $batas");
 
-                                            while ($row2 = mysqli_fetch_array($query3)) {
+                                            foreach ($query3 as $row2) {
                                                 $id_tm = $row2['id'];
                                                 $poster_tm = $row2['poster'];
                                                 $judul_tm = $row2['judul'];
@@ -630,6 +664,20 @@
                                                 $tahun_tm = $row2['tahun'];
                                                 $trailer_tm = $row2['trailer'];
                                                 $rating_tm = $row2['rating'];
+
+                                                $likestm = mysqli_fetch_assoc(mysqli_query($conn, 
+                                                    "SELECT COUNT(*) AS likes FROM loves 
+                                                    WHERE film_id = $id_tm AND status = 1 "))
+                                                    ['likes'];
+
+                                                $statustm = mysqli_query($conn, "SELECT status 
+                                                    FROM loves 
+                                                    WHERE film_id = $id_tm AND users_id = $iduser");
+                                                if (mysqli_num_rows($statustm) > 0) {
+                                                    $statustm = mysqli_fetch_assoc($statustm)['status'];
+                                                } else {
+                                                    $statustm = 0;
+                                                }
                                         ?>
                                         <div class="col-md-3">
                                             <div class="upcome_2i1 clearfix position-relative">
@@ -659,6 +707,17 @@
                                                                 <i class="fa fa-star"></i> 
                                                                 <?= round($rating_tm, 1); ?>
                                                             </span>
+                                                            <!-- likes -->
+                                                            <button class="col_red like <?php if($statustm == 1) echo "selected"; ?>" 
+                                                                style="border: none; background-color: #08142c;"
+                                                                data-film-id = <?php echo $id_tm; ?>>
+                                                                <i class="fa fa-heart-o fa-md ilike<?= $id_tm; ?>"></i>
+                                                                <span class="likes_count<?= $id_tm; ?>" 
+                                                                    data-count = <?= $likestm; ?>>
+                                                                    <?= $likestm; ?> 
+                                                                </span>
+                                                            </button>
+                                                            <!-- likes end -->
                                                         </div>
                                                     </div>
                                                 </div>

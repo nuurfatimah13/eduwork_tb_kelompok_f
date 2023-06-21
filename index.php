@@ -132,13 +132,13 @@
                                 <span class="d-md-block">Best of library</span>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="#favorite" data-bs-toggle="tab" 
                                 aria-expanded="false" 
                                 class="nav-link border-0">
                                 <span class="d-md-block">Favorite</span>
                             </a>
-                        </li>
+                        </li> -->
                         <!-- <li class="nav-item">
                             <a href="#genre" data-bs-toggle="tab" aria-expanded="false" 
                                 class="nav-link border-0">
