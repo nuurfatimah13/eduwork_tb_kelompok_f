@@ -20,6 +20,7 @@ Project about Movie App by final project studi independen in Eduwork
 - [x] CRUD Peran -> _[IndiStefani](https://github.com/IndiStefani)_
 - [x] CRUD Kritik -> _[ZarssssTz](https://github.com/ZarssssTz)_
 - [x] Menyambungkan landing page dengan data database -> _[ZarssssTz](https://github.com/ZarssssTz), [nuurfatimah13](https://github.com/nuurfatimah13), [IndiStefani](https://github.com/IndiStefani)_
+- [x] Comment and rating in page user -> _[IndiStefani](https://github.com/IndiStefani)_
 - [x] Login page -> _[nuurfatimah13](https://github.com/nuurfatimah13)_
 - [x] Pagination -> _[nuurfatimah13](https://github.com/nuurfatimah13)_
 - [x] Love for like film in page user -> _[nuurfatimah13](https://github.com/nuurfatimah13)_
