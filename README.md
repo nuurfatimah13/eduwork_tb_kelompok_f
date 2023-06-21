@@ -2,6 +2,8 @@
 
 Project about Movie App by final project studi independen in Eduwork
 
+---
+
 ## **Progress**
 
 - [x] Database -> Diskusi Kelompok _[nuurfatimah13](https://github.com/nuurfatimah13), [rabiatulfitria](https://github.com/rabiatulfitria), [IndiStefani](https://github.com/IndiStefani), [ZarssssTz](https://github.com/ZarssssTz)_
@@ -27,3 +29,20 @@ Project about Movie App by final project studi independen in Eduwork
 #### _Templating design admin page by [AdminKit](adminkit.io)_
 
 #### _Templating design Sign In and Sign Up page by [Anand Vunnam](https://bbbootstrap.com/snippets/bootstrap-5-login-form-using-neomorphism-89456141)_
+---
+
+## **Hasil**
+  - Website
+    _[MovApp Eduwork](https://movapp-eduwork.000webhostapp.com/)_
+  - Akun Admin
+    1. Username: morgan@gmail.com
+       Password: morgan333
+    2. Username: expetasiagroup@gmail.com
+       Password: bangjali
+  - Akun User
+    1. Username: dhamar123@gmail.com
+       Password: bangdham123
+    2. Username: entonk@gmail.com
+       Password: entong123
+
+> Leaders without members will collapse. Members without a leaders will fall apart. Complete is the thing that makes the most perfect.

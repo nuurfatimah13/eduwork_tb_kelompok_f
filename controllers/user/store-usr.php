@@ -9,6 +9,7 @@ if(isset($_POST['submit'])){
     $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
     $bio = $_POST['bio'];
     $age = $_POST['age'];
+    $role = $_POST['role'];
     $address = $_POST['address'];
     $rand = rand();
     $ekstensi =  array('png','jpg','jpeg','gif');
@@ -22,7 +23,7 @@ if(isset($_POST['submit'])){
         if($ukuran < 1044070){		
             $image = $rand.'_'.$filename;
             move_uploaded_file($_FILES['image']['tmp_name'][0], '../../assets/img/uploads/'.$rand.'_'.$filename);
-            $query = mysqli_query($conn, "INSERT INTO users VALUES (NULL, '$name', '$email', '$password','$age','$bio','$address','$image')");
+            $query = mysqli_query($conn, "INSERT INTO users VALUES (NULL, '$name', '$email', '$password','$role','$age','$bio','$address','$image')");
             header("Location:../../admin/views/user/user.php?success=create");
         }else{
             header("Location:../../admin/views/user/user.php?alert=gagal_ukuran");
