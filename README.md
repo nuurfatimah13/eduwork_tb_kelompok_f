@@ -20,7 +20,7 @@ Project about Movie App by final project studi independen in Eduwork
 - [x] Menyambungkan landing page dengan data database -> _[ZarssssTz](https://github.com/ZarssssTz), [nuurfatimah13](https://github.com/nuurfatimah13), [IndiStefani](https://github.com/IndiStefani)_
 - [x] Login page -> _[nuurfatimah13](https://github.com/nuurfatimah13)_
 - [x] Pagination -> _[nuurfatimah13](https://github.com/nuurfatimah13)_
-- [ ] Love for like film in page user -> 
+- [x] Love for like film in page user -> _[nuurfatimah13](https://github.com/nuurfatimah13)_
 
 #### _Templating design landing page by [TemplateOnWeb](www.templateonweb.com)_
 
