@@ -116,21 +116,37 @@
                     <hr class="line me-auto ms-auto">
                     <ul class="nav nav-tabs justify-content-center border-0 mb-0 mt-4">
                         <li class="nav-item">
-                            <a href="#home" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">
+                            <a href="#upcoming" data-bs-toggle="tab" aria-expanded="false" 
+                                class="nav-link active">
                                 <span class="d-md-block">Upcoming</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#profile" data-bs-toggle="tab" aria-expanded="true" class="nav-link">
+                            <a href="#released" data-bs-toggle="tab" aria-expanded="true" 
+                                class="nav-link">
                                 <span class="d-md-block">Released</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#settings" data-bs-toggle="tab" aria-expanded="false" class="nav-link border-0">
+                            <a href="#best-library" data-bs-toggle="tab" aria-expanded="false" 
+                                class="nav-link border-0">
                                 <span class="d-md-block">Best of library</span>
                             </a>
                         </li>
-                        <li class="dropdown">
+                        <li class="nav-item">
+                            <a href="#favorite" data-bs-toggle="tab" 
+                                aria-expanded="false" 
+                                class="nav-link border-0">
+                                <span class="d-md-block">Favorite</span>
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a href="#genre" data-bs-toggle="tab" aria-expanded="false" 
+                                class="nav-link border-0">
+                                <span class="d-md-block">Genre</span>
+                            </a>
+                        </li> -->
+                        <!-- <li class="dropdown">
                             <a href="#genre" data-bs-toggle="tab" aria-expanded="false" class="nav-link border-0">
                                 <span class="dropdown-toggle after">Genre</span>
                             </a>
@@ -151,13 +167,13 @@
                                     <span class="dropdown-item hover">Documentary</span>
                                 </a>
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
             <div class="row upcome_2 mt-4">
                 <div class="tab-content">
-                    <div class="tab-pane active" id="home">
+                    <div class="tab-pane active" id="upcoming">
                         <div class="upcome_2i row">
                             <?php
                                     include "database/db.php";
@@ -194,15 +210,20 @@
                                         WHERE film.tahun>YEAR(NOW())
                                         GROUP BY kritik.film_id
                                         LIMIT $pagewalup, $btupcom");
-                                    while ($row = mysqli_fetch_array($query)) {
-                                        $id = $row['id'];
-                                        $poster = $row['poster'];
-                                        $judul = $row['judul'];
-                                        $genre = $row['nama'];
-                                        $ringkasan = $row['ringkasan'];
-                                        $tahun = $row['tahun'];
-                                        $trailer = $row['trailer'];
-                                        $rating = $row['rating'];
+                                    foreach ($query as $film) {
+                                        $id = $film['id'];
+                                        $poster = $film['poster'];
+                                        $judul = $film['judul'];
+                                        $genre = $film['nama'];
+                                        $ringkasan = $film['ringkasan'];
+                                        $tahun = $film['tahun'];
+                                        $trailer = $film['trailer'];
+                                        $rating = $film['rating'];
+
+                                        $likesCount = mysqli_fetch_assoc(mysqli_query($conn, 
+                                            "SELECT COUNT(*) AS likes FROM loves 
+                                            WHERE film_id = $id AND status = 1 "))
+                                            ['likes'];
                                 ?>
                             <div class="col-md-3">
                                 <div class="upcome_2i1 clearfix position-relative">
@@ -232,7 +253,7 @@
                                                     <?php echo $genre; ?>
                                                 </h6>
                                                 <!-- rating -->
-                                                <span class="col_red">
+                                                <span class="col_red me-2">
                                                     <i class="fa fa-star"></i>
                                                     <?php
                                                                 if ($rating == NULL) {
@@ -243,6 +264,18 @@
                                                             ?>
                                                 </span>
                                                 <!-- rating end -->
+                                                <!-- likes -->
+                                                <span class="col_red">
+                                                    <i class="fa fa-heart"></i>
+                                                    <?php
+                                                                if ($likesCount == NULL) {
+                                                                    echo 0;
+                                                                } else {
+                                                                    echo $likesCount;
+                                                                }
+                                                            ?>
+                                                </span>
+                                                <!-- likes end -->
                                             </div>
                                         </div>
                                     </div>
@@ -286,7 +319,7 @@
                             </ul>
                         </nav>
                     </div>
-                    <div class="tab-pane" id="profile">
+                    <div class="tab-pane" id="released">
                         <div class="upcome_2i row">
                             <?php
                                     include "database/db.php";
@@ -321,15 +354,20 @@
                                         WHERE film.tahun<=YEAR(NOW())
                                         GROUP BY kritik.film_id
                                         LIMIT $pagewalrs, $btreleas");
-                                    while ($row = mysqli_fetch_array($query)) {
-                                        $id = $row['id'];
-                                        $poster = $row['poster'];
-                                        $judul = $row['judul'];
-                                        $genre = $row['nama'];
-                                        $ringkasan = $row['ringkasan'];
-                                        $tahun = $row['tahun'];
-                                        $trailer = $row['trailer'];
-                                        $rating = $row['rating'];
+                                    foreach ($query as $film) {
+                                        $id = $film['id'];
+                                        $poster = $film['poster'];
+                                        $judul = $film['judul'];
+                                        $genre = $film['nama'];
+                                        $ringkasan = $film['ringkasan'];
+                                        $tahun = $film['tahun'];
+                                        $trailer = $film['trailer'];
+                                        $rating = $film['rating'];
+
+                                        $likesrs = mysqli_fetch_assoc(mysqli_query($conn, 
+                                            "SELECT COUNT(*) AS likes FROM loves 
+                                            WHERE film_id = $id AND status = 1 "))
+                                            ['likes'];
                                 ?>
                             <div class="col-md-3">
                                 <div class="upcome_2i1 clearfix position-relative">
@@ -358,7 +396,7 @@
                                                 <h6 class="text-white">
                                                     <?php echo $genre; ?>
                                                 </h6>
-                                                <span class="col_red">
+                                                <span class="col_red me-2">
                                                     <i class="fa fa-star"></i>
                                                     <?php
                                                                 if ($rating == NULL) {
@@ -368,6 +406,18 @@
                                                                 }
                                                             ?>
                                                 </span>
+                                                <!-- likes -->
+                                                <span class="col_red">
+                                                    <i class="fa fa-heart"></i>
+                                                    <?php
+                                                                if ($likesrs == NULL) {
+                                                                    echo 0;
+                                                                } else {
+                                                                    echo $likesrs;
+                                                                }
+                                                            ?>
+                                                </span>
+                                                <!-- likes end -->
                                             </div>
                                         </div>
                                     </div>
@@ -411,7 +461,7 @@
                             </ul>
                         </nav>
                     </div>
-                    <div class="tab-pane" id="settings">
+                    <div class="tab-pane" id="best-library">
                         <div class="upcome_2i row">
                             <?php
                                     $btbest = 4;
@@ -421,22 +471,20 @@
                                     $previousbs = $pagebest - 1;
                                     $nextbs = $pagebest + 1;
 
-                                    $dts = $conn->query("SELECT film.id, film.poster, film.judul,    
-                                            genre.nama, film.ringkasan, film.tahun, film.trailer, 
-                                            COUNT(kritik.film_id) AS jumlah_kritik, 
-                                            SUM(kritik.point) AS jumlah_point, 
-                                            SUM(kritik.point)/COUNT(kritik.film_id) AS rating
-                                        FROM film 
-                                        INNER JOIN genre ON film.genre_id = genre.id 
-                                        INNER JOIN kritik ON film.id = kritik.film_id 
-                                        WHERE kritik.point=5
-                                        GROUP BY kritik.film_id;");
+                                    $dts = $conn->query("SELECT film.id, film.poster, 
+                                        film.judul, genre.nama, film.ringkasan, film.tahun, film.trailer, COUNT(kritik.film_id) AS jumlah_kritik, 
+                                        SUM(kritik.point) AS jumlah_point, 
+                                        SUM(kritik.point)/COUNT(kritik.film_id) AS rating
+                                    FROM film 
+                                    INNER JOIN genre ON film.genre_id = genre.id 
+                                    INNER JOIN kritik ON film.id = kritik.film_id 
+                                    WHERE kritik.point=5
+                                    GROUP BY kritik.film_id;");
                                     $jml_dts = mysqli_num_rows($dts);
                                     $tl_page = ceil($jml_dts / $btbest);
 
-                                    $query_best = $conn->query("SELECT film.id, film.poster, film.judul,    
-                                            genre.nama, film.ringkasan, film.tahun, film.trailer, 
-                                            COUNT(kritik.film_id) AS jumlah_kritik, 
+                                    $query_best = $conn->query("SELECT film.id, film.poster, 
+                                            film.judul, genre.nama, film.ringkasan, film.tahun, film.trailer, COUNT(kritik.film_id) AS jumlah_kritik, 
                                             SUM(kritik.point) AS jumlah_point, 
                                             SUM(kritik.point)/COUNT(kritik.film_id) AS rating
                                         FROM film 
@@ -445,7 +493,7 @@
                                         WHERE kritik.point=5
                                         GROUP BY kritik.film_id
                                         LIMIT $pagewal, $btbest");
-                                    while ($row_best = mysqli_fetch_array($query_best)) {
+                                    foreach ($query_best as $row_best) {
                                         $id_best = $row_best['id'];
                                         $poster_best = $row_best['poster'];
                                         $judul_best = $row_best['judul'];
@@ -454,6 +502,11 @@
                                         $tahun_best = $row_best['tahun'];
                                         $trailer_best = $row_best['trailer'];
                                         $rating_best = $row_best['rating'];
+
+                                        $likesbest = mysqli_fetch_assoc(mysqli_query($conn, 
+                                            "SELECT COUNT(*) AS likes FROM loves 
+                                            WHERE film_id = $id_best AND status = 1 "))
+                                            ['likes'];
                                 ?>
                             <div class="col-md-3">
                                 <div class="upcome_2i1 clearfix position-relative">
@@ -483,10 +536,22 @@
                                                 <h6 class="text-white">
                                                     <?= $genre_best; ?>
                                                 </h6>
-                                                <span class="col_red">
+                                                <span class="col_red me-2">
                                                     <i class="fa fa-star"></i>
                                                     <?= round($rating_best, 1); ?>
                                                 </span>
+                                                <!-- likes -->
+                                                <span class="col_red">
+                                                    <i class="fa fa-heart"></i>
+                                                    <?php
+                                                        if ($likesbest == NULL) {
+                                                            echo 0;
+                                                        } else {
+                                                            echo $likesbest;
+                                                        }
+                                                    ?>
+                                                </span>
+                                                <!-- likes end -->
                                             </div>
                                         </div>
                                     </div>
@@ -530,58 +595,69 @@
                             </ul>
                         </nav>
                     </div>
-                    <div class="tab-pane" id="genre">
+                    <div class="tab-pane" id="favorite">
                         <div class="upcome_2i row">
                             <?php
-                                    $btbest = 4;
-                                    $pagebest = isset($_GET['page_best']) ? (int)$_GET['page_best'] : 1;
-                                    $pagewal = ($pagebest > 1) ? ($pagebest * $btbest) - $btbest : 0;
+                                $btrite = 4;
+                                $pagerite = isset($_GET['page_rite']) ? (int)$_GET['page_rite'] : 1;
+                                $pagewalite = ($pagerite > 1) ? ($pagerite * $btrite) - $btrite : 0;
 
-                                    $previousbs = $pagebest - 1;
-                                    $nextbs = $pagebest + 1;
+                                $previousrite = $pagerite - 1;
+                                $nextrite = $pagerite + 1;
 
-                                    $dts = $conn->query("SELECT film.id, film.poster, film.judul,
-                                            genre.nama, film.ringkasan, film.tahun, film.trailer
-                                            FROM film
-                                            INNER JOIN genre ON film.genre_id = genre.id
-                                            WHERE genre.id=1 GROUP BY film.id;");
-                                    $jml_dts = mysqli_num_rows($dts);
-                                    $tl_page = ceil($jml_dts / $btbest);
+                                $dtrite = $conn->query("SELECT film.id, film.poster, film.judul, 
+                                    genre.nama, film.ringkasan, film.tahun, film.trailer, 
+                                    COUNT(kritik.film_id) AS jumlah_kritik, 
+                                    SUM(kritik.point) AS jumlah_point, 
+                                    SUM(kritik.point)/COUNT(kritik.film_id) AS rating
+                                FROM film
+                                INNER JOIN genre ON film.genre_id = genre.id 
+                                LEFT JOIN kritik ON film.id = kritik.film_id 
+                                WHERE kritik.point>=0
+                                GROUP BY kritik.film_id");
+                                $jml_dtrite = mysqli_num_rows($dtrite);
+                                $rite_page = ceil($jml_dtrite / $btrite);
 
-                                    $query_best = $conn->query("SELECT film.id, film.poster, film.judul,    
-                                            genre.nama, film.ringkasan, film.tahun, film.trailer, 
-                                            COUNT(kritik.film_id) AS jumlah_kritik, 
-                                            SUM(kritik.point) AS jumlah_point, 
-                                            SUM(kritik.point)/COUNT(kritik.film_id) AS rating
-                                        FROM film 
-                                        INNER JOIN genre ON film.genre_id = genre.id 
-                                        INNER JOIN kritik ON film.id = kritik.film_id 
-                                        WHERE kritik.point=5
-                                        GROUP BY kritik.film_id
-                                        LIMIT $pagewal, $btbest");
-                                    while ($row_best = mysqli_fetch_array($query_best)) {
-                                        $id_best = $row_best['id'];
-                                        $poster_best = $row_best['poster'];
-                                        $judul_best = $row_best['judul'];
-                                        $genre_best = $row_best['nama'];
-                                        $ringkasan_best = $row_best['ringkasan'];
-                                        $tahun_best = $row_best['tahun'];
-                                        $trailer_best = $row_best['trailer'];
-                                        $rating_best = $row_best['rating'];
-                                ?>
+                                $query_rite = $conn->query("SELECT film.id, film.poster, film.judul, 
+                                        genre.nama, film.ringkasan, film.tahun, film.trailer, 
+                                        COUNT(kritik.film_id) AS jumlah_kritik, 
+                                        SUM(kritik.point) AS jumlah_point, 
+                                        SUM(kritik.point)/COUNT(kritik.film_id) AS rating
+                                    FROM film
+                                    INNER JOIN genre ON film.genre_id = genre.id 
+                                    LEFT JOIN kritik ON film.id = kritik.film_id 
+                                    WHERE kritik.point>=0 
+                                    GROUP BY kritik.film_id
+                                    LIMIT $pagewalite, $btrite");
+                                foreach ($query_rite as $row_rite) {
+                                    $id_rite = $row_rite['id'];
+                                    $poster_rite = $row_rite['poster'];
+                                    $judul_rite = $row_rite['judul'];
+                                    $genre_rite = $row_rite['nama'];
+                                    $ringkasan_rite = $row_rite['ringkasan'];
+                                    $tahun_rite = $row_rite['tahun'];
+                                    $trailer_rite = $row_rite['trailer'];
+                                    $rating_rite = $row_rite['rating'];
+
+                                    $likesrite = mysqli_fetch_assoc(mysqli_query($conn, 
+                                        "SELECT COUNT(*) AS likes FROM loves 
+                                        WHERE film_id = $id_rite AND status = 1 "))
+                                        ['likes'];
+                                    
+                            ?>
                             <div class="col-md-3">
                                 <div class="upcome_2i1 clearfix position-relative">
                                     <div class="upcome_2i1i clearfix">
-                                        <input type="hidden" value="<?= $id_best; ?>">
-                                        <img src="assets/img/film/<?= $poster_best; ?>" alt="<?= $judul_best; ?>"
+                                        <input type="hidden" value="<?= $id_rite; ?>">
+                                        <img src="assets/img/film/<?= $poster_rite; ?>" alt="<?= $judul_rite; ?>"
                                             width="260" height="330">
                                     </div>
                                     <div class="upcome_2i1i1 clearfix position-absolute top-0 text-center w-100">
                                         <h6 class="text-uppercase">
-                                            <a class="button_1" href="<?= $trailer_best; ?>">View Trailer</a>
+                                            <a class="button_1" href="<?= $trailer_rite; ?>">View Trailer</a>
                                         </h6>
                                         <h6 class="text-uppercase mb-0">
-                                            <a class="button_2" href="movie-detail.php?id=<?= $id_best; ?>">
+                                            <a class="button_2" href="movie-detail.php?id=<?= $id_rite; ?>">
                                                 View Details
                                             </a>
                                         </h6>
@@ -592,43 +668,55 @@
                                         <div class="col-md-9 col-9">
                                             <div class="upcome_2i_lastil">
                                                 <h5 class="text-white">
-                                                    <?= $judul_best; ?>
+                                                    <?= $judul_rite; ?>
                                                 </h5>
                                                 <h6 class="text-white">
-                                                    <?= $genre_best; ?>
+                                                    <?= $genre_rite; ?>
                                                 </h6>
-                                                <span class="col_red">
+                                                <span class="col_red me-2">
                                                     <i class="fa fa-star"></i>
-                                                    <?= round($rating_best, 1); ?>
+                                                    <?= round($rating_rite, 1); ?>
                                                 </span>
+                                                <!-- likes -->
+                                                <span class="col_red">
+                                                    <i class="fa fa-heart"></i>
+                                                    <?php
+                                                        if ($likesrite == NULL) {
+                                                            echo 0;
+                                                        } else {
+                                                            echo $likesrite;
+                                                        }
+                                                    ?>
+                                                </span>
+                                                <!-- likes end -->
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <?php
-                                    }
-                                ?>
+                                }
+                            ?>
                         </div>
                         <nav>
                             <ul class="pagination justify-content-end">
                                 <li class="page-item">
-                                    <a class="page-link" <?php if($pagebest> 1){ echo
-                                        "href='index.php?page_best=$previousbs'"; } ?>>
+                                    <a class="page-link" <?php if($pagerite> 1){ echo
+                                        "href='index.php?page_rite=$previousrite'"; } ?>>
                                         Previous
                                     </a>
                                 </li>
                                 <?php 
-                                        for ($i = 1; $i <= $tl_page; $i++) { 
+                                        for ($i = 1; $i <= $rite_page; $i++) { 
                                             $active = "";
-                                            if(isset($_GET["page_best"])){
-                                                if($i == $_GET["page_best"]){
+                                            if(isset($_GET["page_rite"])){
+                                                if($i == $_GET["page_rite"]){
                                                     $active = "active";
                                                 }
                                             }
                                     ?>
                                 <li class="page-item <?= $active; ?>">
-                                    <a class="page-link" href="index.php?page_best=<?= $i; ?>">
+                                    <a class="page-link" href="index.php?page_rite=<?= $i; ?>">
                                         <?= $i; ?>
                                     </a>
                                 </li>
@@ -636,8 +724,8 @@
                                         }
                                     ?>
                                 <li class="page-item">
-                                    <a class="page-link" <?php if($pagebest < $tl_page){
-                                        echo "href='index.php?page_best=$nextbs'" ; } ?>>
+                                    <a class="page-link" <?php if($pagerite < $rite_page){
+                                        echo "href='index.php?page_rite=$nextrite'" ; } ?>>
                                         Next
                                     </a>
                                 </li>
@@ -693,8 +781,8 @@
                                                 WHERE kritik.point>=4
                                                 GROUP BY kritik.film_id
                                                 LIMIT $page_awal, $batas");
-
-                                            while ($row2 = mysqli_fetch_array($query3)) {
+                                            
+                                            foreach ($query3 as $row2) {
                                                 $id_tm = $row2['id'];
                                                 $poster_tm = $row2['poster'];
                                                 $judul_tm = $row2['judul'];
@@ -703,6 +791,10 @@
                                                 $tahun_tm = $row2['tahun'];
                                                 $trailer_tm = $row2['trailer'];
                                                 $rating_tm = $row2['rating'];
+
+                                                $likestm = mysqli_fetch_assoc(mysqli_query($conn, 
+                                                    "SELECT COUNT(*) AS likes FROM loves 
+                                                    WHERE film_id = $id_tm AND status = 1 "))['likes'];
                                         ?>
                                     <div class="col-md-3">
                                         <div class="upcome_2i1 clearfix position-relative">
@@ -734,10 +826,22 @@
                                                         <h6 class="text-white">
                                                             <?= $genre_tm; ?>
                                                         </h6>
-                                                        <span class="col_red">
+                                                        <span class="col_red me-2">
                                                             <i class="fa fa-star"></i>
                                                             <?= round($rating_tm, 1); ?>
                                                         </span>
+                                                        <!-- likes -->
+                                                        <span class="col_red">
+                                                            <i class="fa fa-heart"></i>
+                                                            <?php
+                                                                if ($likestm == NULL) {
+                                                                    echo 0;
+                                                                } else {
+                                                                    echo $likestm;
+                                                                }
+                                                            ?>
+                                                        </span>
+                                                        <!-- likes end -->
                                                     </div>
                                                 </div>
                                             </div>

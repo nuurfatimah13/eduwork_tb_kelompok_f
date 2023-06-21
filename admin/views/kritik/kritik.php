@@ -70,6 +70,12 @@
                                 <span class="align-middle">Kritik</span>
                             </a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="../like/like.php">
+                                <i class="align-middle" data-feather="star"></i> 
+                                <span class="align-middle">Like</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>

@@ -40,13 +40,13 @@
                                 <span class="align-middle">Users</span>
                             </a>
                         </li>
-                        <li class="sidebar-item active">
-                            <a class="sidebar-link" href="actor.php">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="../actor/actor.php">
                                 <i class="align-middle" data-feather="users"></i> 
                                 <span class="align-middle">Actors</span>
                             </a>
                         </li>
-                        <li class="sidebar-item ">
+                        <li class="sidebar-item">
                             <a class="sidebar-link" href="../genre/genre.php">
                                 <i class="align-middle" data-feather="list"></i> 
                                 <span class="align-middle">Genre</span>
@@ -70,8 +70,8 @@
                                 <span class="align-middle">Kritik</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="../like/like.php">
+                        <li class="sidebar-item active">
+                            <a class="sidebar-link" href="like.php">
                                 <i class="align-middle" data-feather="star"></i> 
                                 <span class="align-middle">Like</span>
                             </a>
@@ -89,94 +89,43 @@
                 <main class="content">
                     <div class="container-fluid p-0">
                         <!-- Title -->
-                        <h1 class="h3 mb-3">Dashboard / <strong>Aktor</strong></h1>
+                        <h1 class="h3 mb-3">Dashboard / <strong>Like</strong></h1>
                         <div class="col-sm-12">
-                            <?php 
-                                // MESSAGE
-                                if (isset($_GET['success'])){
-                                    if ($_GET['success']=='create'){
-                                        ?>
-                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                            <strong><i class="icon fa fa-check"></i>Data added successfully!</strong>
-                                            <button type="button" class="btn-close" 
-                                                data-bs-dismiss="alert" aria-label="Close">
-                                            </button>
-                                        </div>			
-                                        <?php
-                                    } elseif($_GET['success']=="update"){
-                                        ?>
-                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                            <strong><i class="icon fa fa-check"></i>Data updated successfully!</strong>
-                                            <button type="button" class="btn-close" 
-                                                data-bs-dismiss="alert" aria-label="Close">
-                                            </button>
-                                        </div>							
-                                        <?php
-                                    } elseif($_GET['success']=="delete"){
-                                        ?>
-                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                            <strong><i class="icon fa fa-check"></i>Data deleted successfully!</strong>
-                                            <button type="button" class="btn-close" 
-                                                data-bs-dismiss="alert" aria-label="Close">
-                                            </button>
-                                        </div>							
-                                        <?php
-                                    }
-                                }
-                            ?>
                             <div class="card">
                                 <div class="card-body">
                                     <?php
                                         include "../../../database/db.php";
-                                        $query = $conn->query("SELECT * FROM cast");
+                                        $query = $conn->query("SELECT COUNT(*) AS suka, 
+                                          film.id as id_film, film.judul 
+                                          FROM loves 
+                                          JOIN film ON film.id=loves.film_id
+                                          GROUP BY loves.film_id");
                                     ?>
                                     <!-- Card Title -->
-                                    <h3 class="card-title">Data Aktor</h3>
-                                    <a class="btn btn-primary btn-md mt-4 mb-3" 
-                                        href="create-act.php" 
-                                        role="button">
-                                        Create Data
-                                    </a>
+                                    <h3 class="card-title">Data Like</h3>
                                     <table id="example" class="table table-striped" 
                                         style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
-                                                <th scope="col">Name</th>
-                                                <th scope="col">Age</th>
-                                                <th scope="col">Bio</th>
-                                                <th scope="col">Action</th>
+                                                <th scope="col">Film</th>
+                                                <th scope="col">Like</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php 
-                                                if(mysqli_num_rows($query)>0){
-                                                    $no=1; 
+                                                if(mysqli_num_rows($query)>0){ 
+                                                    $no = 1;
                                                     while ($data = mysqli_fetch_array($query)) {
                                             ?>
                                             <tr>
-                                                <td><?php echo $no; ?></td>
-                                                <td><?php echo $data["nama"]; ?></td>
-                                                <td><?php echo $data["umur"]; ?></td>
-                                                <td><?php echo $data["bio"]; ?></td>
-                                                <td>
-                                                    <a class="btn btn-warning btn-sm mb-1" 
-                                                        href="edit-act.php?id=<?php echo $data["id"]; ?>">
-                                                        <i class="align-middle" data-feather="edit"></i> 
-                                                        <span class="align-middle">Update</span>
-                                                    </a>
-                                                    |
-                                                    <a class="btn btn-danger btn-sm mt-1" 
-                                                        href="../../../controllers/actor/delete-act.php?id=<?php echo $data["id"]; ?>" 
-                                                        onclick="alert('Anda yakin ingin menghapus data ini?')">
-                                                        <i class="align-middle" data-feather="trash-2"></i> 
-                                                        <span class="align-middle">Delete</span>
-                                                    </a>
-                                                </td>
+                                                <td scope="row"><?php echo $no?></td>
+                                                <td><?php echo($data['judul']); ?></td>
+                                                <td><?php echo($data['suka']); ?></td>
                                             </tr>
                                             <?php 
-                                            $no++;
-                                                    } 
+                                                        $no++; 
+                                                    }
                                                 } 
                                             ?>
                                         </tbody>
