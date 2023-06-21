@@ -44,5 +44,15 @@ Project about Movie App by final project studi independen in Eduwork
        Password: bangdham123
     2. Username: entonk@gmail.com
        Password: entong123
+--- 
 
 > Leaders without members will collapse. Members without a leaders will fall apart. Complete is the thing that makes the most perfect.
+---
+
+## Thanks for Kelompok F ~ SIB Eduwork
+  1. Fathimah Nuurussa'aadah dari STT Terpadu Nurul Fikri (_[nuurfatimah13](https://github.com/nuurfatimah13)_)
+  2. Muhamad Fahreza Dwitama dari STMIK Jayakarta (_[ZarssssTz](https://github.com/ZarssssTz)_)
+  3. Rabiatul Fitria Sulistina Putri dari Universitas Trunojoyo Madura (_[rabiatulfitria](https://github.com/rabiatulfitria)_)
+  4. Moh. Indi Stefani dari Politeknik Negeri Banyuwangi (_[IndiStefani](https://github.com/IndiStefani)_)
+
+##### Thanks Mas Siswo Handoko (_[SiswoHandoko](https://github.com/SiswoHandoko)_) sebagai Mentor Kelas Full Stack 02
