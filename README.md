@@ -35,14 +35,14 @@ Project about Movie App by final project studi independen in Eduwork
   - Website
     _[MovApp Eduwork](https://movapp-eduwork.000webhostapp.com/)_
   - Akun Admin
-    1. Username: morgan@gmail.com
+    1. Username: morgan@gmail.com,
        Password: morgan333
-    2. Username: expetasiagroup@gmail.com
+    2. Username: expetasiagroup@gmail.com,
        Password: bangjali
   - Akun User
-    1. Username: dhamar123@gmail.com
+    1. Username: dhamar123@gmail.com,
        Password: bangdham123
-    2. Username: entonk@gmail.com
+    2. Username: entonk@gmail.com,
        Password: entong123
 --- 
 
