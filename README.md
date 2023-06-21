@@ -6,7 +6,7 @@ Project about Movie App by final project studi independen in Eduwork
 
 - [x] Database -> Diskusi Kelompok _[nuurfatimah13](https://github.com/nuurfatimah13), [rabiatulfitria](https://github.com/rabiatulfitria), [IndiStefani](https://github.com/IndiStefani), [ZarssssTz](https://github.com/ZarssssTz)_
 
-  ![ERD Movie App](https://media.discordapp.net/attachments/894919708938223657/1119234092974743612/erd_MovApp.jpg)
+  ![ERD Movie App](https://media.discordapp.net/attachments/894919708938223657/1120998283079340093/erd_movieapp.jpg)
 
 - [x] Templating layout -> Kelompok _[nuurfatimah13](https://github.com/nuurfatimah13), [rabiatulfitria](https://github.com/rabiatulfitria), [IndiStefani](https://github.com/IndiStefani), [ZarssssTz](https://github.com/ZarssssTz)_
 - [x] Frontend landing pages -> _[nuurfatimah13](https://github.com/nuurfatimah13)_

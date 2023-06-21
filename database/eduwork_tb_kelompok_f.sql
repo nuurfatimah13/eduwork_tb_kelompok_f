@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2023 at 01:35 PM
+-- Generation Time: Jun 21, 2023 at 10:28 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -293,7 +293,38 @@ INSERT INTO `kritik` (`id`, `users_id`, `film_id`, `content`, `point`) VALUES
 (75, 2, 43, 'the best ...', 5),
 (76, 2, 39, 'movie paling bagus ....', 5),
 (77, 2, 39, 'movie paling bagus ....', 4),
-(78, 2, 43, 'all best', 5);
+(78, 2, 43, 'all best', 5),
+(79, 6, 4, 'movie paling the best ...', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `loves`
+--
+
+CREATE TABLE `loves` (
+  `id` int(11) NOT NULL,
+  `users_id` int(11) NOT NULL,
+  `film_id` int(11) NOT NULL,
+  `status` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `loves`
+--
+
+INSERT INTO `loves` (`id`, `users_id`, `film_id`, `status`) VALUES
+(1, 2, 3, '1'),
+(2, 2, 4, '1'),
+(3, 2, 2, '1'),
+(4, 1, 3, '1'),
+(5, 1, 4, '1'),
+(6, 1, 2, '1'),
+(7, 2, 5, '1'),
+(8, 2, 44, '1'),
+(9, 3, 2, '1'),
+(10, 4, 2, '1'),
+(11, 5, 2, '1');
 
 -- --------------------------------------------------------
 
@@ -490,6 +521,14 @@ ALTER TABLE `kritik`
   ADD KEY `fk_kritik_film1` (`film_id`);
 
 --
+-- Indexes for table `loves`
+--
+ALTER TABLE `loves`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_kritik_users1` (`users_id`),
+  ADD KEY `fk_kritik_film1` (`film_id`);
+
+--
 -- Indexes for table `peran`
 --
 ALTER TABLE `peran`
@@ -529,7 +568,13 @@ ALTER TABLE `genre`
 -- AUTO_INCREMENT for table `kritik`
 --
 ALTER TABLE `kritik`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+
+--
+-- AUTO_INCREMENT for table `loves`
+--
+ALTER TABLE `loves`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `peran`
